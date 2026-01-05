@@ -7,6 +7,7 @@ Earth is the cradle, but we’ve outgrown the nest,
 Looking at the red sky, put the vision to the test.
 A vision leads the way, with a rocket and a dream,
 And we provide the fuel for the multi-planet dream!
+
 ​Chorus
 MIMHO! Mars Is My House!
 From the desert sands to the Olympus mount.
@@ -27,6 +28,7 @@ The LP is burned, the keys thrown away,
 A clean, pure contract that’s here to stay.
 No hidden backdoors, no manual change,
 The power of code is within our range!
+
 ​Chorus: The Core
 MIMHO! The Memecoin of the Future!
 Locked in the vault, 90% forever.
@@ -34,6 +36,7 @@ MIMHO! Transparent and pure,
 A decentralized dream, we make it endure.
 Stake it, Burn it, watch the DAO grow,
 The future is MIMHO, now you know!
+
 ​Verse 2: The Ecosystem
 From the Locker to Staking, the system is tied,
 With an army of soldiers, we’ve got nowhere to hide.
@@ -54,6 +57,7 @@ The Registry stands as the first on the line,
 Where every contract begins to shine.
 No hidden paths, no manual doubt,
 We mapped the future, we mapped it out!
+
 ​Chorus: The Source of Truth
 MIMHO Registry! The heart of the core,
 Connecting the system, opening the door.
@@ -61,6 +65,7 @@ MIMHO Registry! One source of truth,
 From the early days to the days of youth.
 Everything's linked, everything's clear,
 The architecture of trust is here!
+
 ​Verse 2: Evolving Power
 Version by version, we grow and we rise,
 The DAO takes the wheel under digital skies.
@@ -83,6 +88,7 @@ From the President's seat to the Moderator's call,
 The power is shared, it belongs to us all.
 Quadratic voting, keeping it fair,
 No whales in control, there’s no room for despair!
+
 ​Chorus: The DAO Rising
 MIMHO DAO! The voice of the crowd,
 Speak your vision, say it out loud.
@@ -90,6 +96,7 @@ MIMHO DAO! On-chain and true,
 The future is decided by me and by you.
 Governance locked, transparency set,
 The strongest alliance you've ever met!
+
 ​Verse 2: The Cycle of Honor
 One year of service, then pass the flame,
 No double mandates, just honor the name.
@@ -112,6 +119,7 @@ No hidden filters, no backend lies,
 The truth is open to everyone's eyes.
 From the chain to the HUD, in a blink of a light,
 We bring the shadows into the bright!
+
 Chorus: The Hub of Truth
 MIMHO Events Hub! The pulse of the core,
 Transparency like never before.
@@ -119,6 +127,7 @@ MIMHO Events Hub! Audit the flow,
 Everything's public for everyone to know.
 The action is locked, the record is set,
 A standard of trust you'll never forget!
+
 ​Verse 2: Multi-Chain Vision
 L1, L2, across the digital space,
 The Hub is the witness, keeping the pace.
@@ -132,3 +141,252 @@ Observable. Immutable. Real.
 https://youtube.com/shorts/tzLxt0g_8uw?si=rd-aMr6DjcQi8sx2
 
 --------------------------------------------------------------------------------------------------------------
+##Música 6 MIMHO Locker
+
+Verse 1: The Iron Seal
+The keys are gone, the door is tight,
+The LP's buried in the night.
+Ninety percent of the pre-sale gold,
+A story of trust that must be told.
+No backdoors here, no way to flee,
+Immutable for eternity!
+
+​Chorus: Permanent Lock
+MIMHO Locker! The vault of steel,
+Making the safety finally real.
+MIMHO Locker! Forever locked away,
+No withdrawals, come what may.
+Solid as rock, pure in its design,
+The trust of the people is the bottom line!
+
+​Verse 2: Total Transparency
+Check the events, audit the chain,
+The code is law, the rules remain.
+From the Labs to the DAO, the origin's clear,
+We killed the rug, we killed the fear.
+Permanent status, timestamp zero,
+The Locker is the silent hero!
+MIMHO Locker.
+Locked. Forever.
+
+https://youtu.be/I80ydWaAnWA?si=5kq4VwpyflWyxjr-
+
+-----------------------------------------------------------------------------------------------------------------------
+## Música 7 MIMHO Vesting
+
+The End of Promises
+No more words, no more lies,
+The rules are written before your eyes.
+Vesting is locked, the code is the key,
+Transparent for the whole world to see.
+From the founder to the pre-sale crowd,
+We follow the rules, we stand proud!
+
+Chorus: Immutable Law
+MIMHO Vesting! Rules on-chain,
+No human hands, no private gain.
+MIMHO Vesting! Solid as stone,
+The safest contract ever known.
+Locked today, built for years,
+Code is law, we end the fears!
+
+​Verse 2: The Logic of Trust
+Marketing holders, DAO in the vault,
+A system designed without a fault.
+Cliff and linear, step by step,
+Promises made are promises kept.
+Burn the excess, keep the floor,
+Security forevermore!
+MIMHO.
+Trust the code, not the man.
+
+https://youtu.be/bAC_0HgEsD8?si=ICBT4rxaICIxcIYs
+
+---------------------------------------------------------------------------------------------------------
+## Música 8 MIMHO PreSale
+
+Verse 1: The Opportunity
+The clock is ticking, fourteen days to go,
+The 50 BNB Hard Cap starts the show!
+From zero-point-zero-five, the gates are wide,
+Three BNB max, no place for whales to hide.
+A fair distribution, a solid foundation,
+
+Chorus: The Iron Shield
+The birth of the MIMHO generation.          
+MIMHO Pre-Sale! Secure and grand,
+Ninety percent locked, the safest in the land!
+In the MIMHO Locker, the funds will stay,
+Protecting the army, leading the way.
+No rug pulls here, the code is the boss,
+Gain the future, without the loss!
+
+​Verse 2: The Logic of Honor
+Twenty percent now, the rest is on the line,
+Five percent weekly, let the vesting shine.
+Tokens not sold? We burn the half away,
+The rest for the Staking, where the rewards play.
+Transparent events, every block, every trace,
+MIMHO is winning the crypto race!
+MIMHO Pre-Sale.
+Hard Cap: 50 BNB.
+Locked. Forever.
+
+https://youtube.com/shorts/jcSIOdyhuE8?si=YJeCIt1e_Z0dzUrQ
+
+----------------------------------------------------------------------------------------------------------------
+## Música 9 MIMHO Burn
+
+Verse 1: The Engine
+The tokens are rising, the vault is full,
+A million MIMHOs, the market’s tool.
+But who decides the path to take?
+The code is waiting for the move you make.
+No secret burns behind the door,
+The power is yours, forevermore!
+
+​Chorus: Burn or Claim
+MIMHO Burn! You hold the flame!
+Will you burn it down or start the claim?
+MIMHO Burn! The choice is real,
+A decentralized deal, a heart of steel.
+Vote on-chain, let your voice be heard,
+The future is written in every word!
+
+​Verse 2: Deflationary King
+Five hundred billion, the floor is set,
+A safe economy, no more regret.
+Burn it for glory, or claim your share,
+Transparency lives in the open air.
+The vault is open, the cycle begins,
+This is the way the community wins!
+MIMHO Burn.
+The power of the flame.
+
+https://youtube.com/shorts/HLCor9CuyB0?si=dnFxaLG3x7W38sSY
+
+-------------------------------------------------------------------------------------------------------------
+## Música 10 MIMHO Staking
+
+Verse 1: The Long Run
+Plant your seeds in the garden of gold,
+A story of vision, a story untold.
+Lock your tokens, let the days go by,
+Under the gaze of the digital sky.
+No manual hands can touch what is yours,
+Secure in the code, behind iron doors!
+
+​Chorus: The Reward
+MIMHO Staking! Hold for the prize,
+Watch your balance begin to rise.
+MIMHO Staking! Built to endure,
+The harvest is steady, the future is pure.
+The longer you stay, the more you will gain,
+The power of MIMHO flows through your vein!
+
+​Verse 2: Sustainable Core
+From every fee, from every trade,
+A pool of rewards is carefully made.
+Ten years of vision, a decade of trust,
+While other coins crumble and turn into dust.
+Cross-chain ready, DAO in control,
+The heart of the system, the MIMHO soul!
+MIMHO Staking.
+Time is your greatest asset.
+
+https://youtube.com/shorts/-yyM16FYfWA?si=M9r_lFHKEgo1tLD3
+
+------------------------------------------------------------------------------------------------------------------
+## Música 11 MIMHO Airdrop
+
+Verse 1: The Real Holders
+No bots, no fakes, no farming games,
+The code remembers all the names.
+Thirty days of holding, stay in the light,
+The Airdrop cycle is burning bright.
+Fifty dollars in value, the oracle's call,
+A fair reward for one and all!
+​
+Chorus: The Cycle of Growth
+MIMHO Airdrops! Direct to your hand,
+The smartest system in all the land.
+MIMHO Airdrops! Every thirty days,
+Sustainability in so many ways.
+Earn your bonus, join the fight,
+The future is MIMHO, shining white!
+
+​Verse 2: The Bonus Power
+Vote in the DAO, stake your share,
+Burn for the glory, show that you care.
+Security wallet, click-to-burn flame,
+Every action adds to your name.
+Cumulative power, a shield on your soul,
+The marketing wallet is under control!
+MIMHO Airdrops.
+No humans. No lies. Just Code.
+
+https://youtube.com/shorts/CEvrMmxdZTU?si=gD1lX0kBrRc0ZPqo
+
+---------------------------------------------------------------------------------------------------------------
+## Música 12 MIMHO Inject Liquidity
+
+Verse 1: The Liquidity Vault
+Deep in the code, the reserve is set,
+A promise of strength you won't forget.
+No selling pressure, no tokens for greed,
+Just the liquidity that the market will need.
+Stored and ready, visible and pure,
+Making the launch of the MIMHO secure!
+
+Chorus: Inject and Burn
+MIMHO Inject! Feed the flame,
+Strengthen the pool, honor the name.
+MIMHO Inject! Watch the LP burn,
+A lesson of trust that others must learn.
+Zero manipulation, transparency flows,
+The price has a shield wherever it goes!
+
+​Verse 2: The Silent Guardian
+From the DAO to the Founder, the rules are the same,
+No manual transfers, no tricks in the game.
+Audit the events, check the HUD on the wall,
+The Liquidity engine stands proud and tall.
+Safe for the holders, built for the rise,
+MIMHO is soaring through digital skies!
+MIMHO Inject.
+Strength in every block.
+
+https://youtube.com/shorts/NCtDDA-hf6g?si=DeYFzMmtxX1JJENi
+
+---------------------------------------------------------------------------------------------------------------
+## Música 13 MIMHO Quiz Academy
+
+Verse 1: The Quest for Knowledge
+Open up the portal, the lesson has begun,
+Learning about MIMHO is more than just fun.
+Answer every question, master every part,
+Build your reputation with a winner's heart.
+One hundred percent on-chain, the logic is clear,
+Education is the weapon to conquer the fear!
+
+​Chorus: Learn and Earn
+MIMHO Quiz! Knowledge is the key,
+Airdrops for the soldiers of the academy.
+MIMHO Quiz! Get your badge of pride,
+With the power of the contract on your side.
+No manual withdrawals, no human greed,
+Just the rewards that the holders need!
+
+​Verse 2: The Proof of Truth
+Soulbound certification, a record on the chain,
+Every cycle played is a permanent gain.
+Fail-safe protected, two years on the clock,
+Total transparency in every single block.
+From the Labs to the people, the mission is gold,
+The greatest story ever was never just told!
+MIMHO Academy.
+Learn. Play. Earn.
+
+https://youtube.com/shorts/DELi3h2ezUg?si=1ALYPDGI1p5Xvm3Y
+
+-------------------------------------------------------------------------------------------------------------------
