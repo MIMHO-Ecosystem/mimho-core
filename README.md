@@ -13,6 +13,15 @@ All ecosystem rules, taxes, and liquidity locks are public and immutable. / As r
 
 👉 **[READ THE OFFICIAL RULES HERE / LEIA AS REGRAS AQUI](./MIMHO_Trust_&_Token_Rules.md)**
 
+
+#### 📑 Documentação Técnica e Fluxos
+* [📘 Distribuição Inicial & Fluxo On-Chain](DISTRIBUIÇÃO_E_FLUXO.md) — Detalhes sobre Mint e alocações.
+* 
+* [⚖️ Justificativa do Projeto](JUSTIFICATIVA_DO_PROJETO.md) — O propósito por trás da MIMHO.
+* 
+* [🏗️ Arquitetura do Ecossistema](ECOSSISTEMA_TÉCNICO.md) — Detalhes técnicos da rede.
+
+
 ---
 
 ## ⚙️ Core Pillars / Pilares do Projeto
