@@ -18,9 +18,9 @@ All ecosystem rules, taxes, and liquidity locks are public and immutable. / As r
 
 * [📘 Distribuição Inicial & Fluxo On-Chain](docs/DISTRIBUTION_AND_FLOW.md) — Detalhes sobre Mint e alocações.
 * 
-* [⚖️ Justificativa do Projeto](docs/JUSTIFICATIVA_DO_PROJETO.md) — O propósito por trás da MIMHO.
+* [⚖️ Justificativa do Projeto](docs/DESIGN_RATIONALE.md) — O propósito por trás da MIMHO.
 * 
-* [🏗️ Arquitetura do Ecossistema](docs/ECOSSISTEMA_TÉCNICO.md) — Detalhes técnicos da rede.
+* [🏗️ Arquitetura do Ecossistema](docs/TECHNICAL_ECOSYSTEM.md) — Detalhes técnicos da rede.
 
 
 ---
