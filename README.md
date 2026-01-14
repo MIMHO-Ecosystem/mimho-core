@@ -16,7 +16,7 @@ All ecosystem rules, taxes, and liquidity locks are public and immutable. / As r
 
 #### 📑 Documentação Técnica e Fluxos
 
-* [📘 Distribuição Inicial & Fluxo On-Chain](Docs/DISTRIBUTION_AND_FLOW.md) — Detalhes sobre Mint e alocações.
+* [📘 Distribuição Inicial & Fluxo On-Chain]([Docs/DISTRIBUTION_AND_FLOW.md](https://github.com/MIMHO-Ecosystem/mimho-core/blob/main/docs/DISTRIBUTION_AND_FLOW.md)) — Detalhes sobre Mint e alocações.
 * 
 * [⚖️ Justificativa do Projeto](JUSTIFICATIVA_DO_PROJETO.md) — O propósito por trás da MIMHO.
 * 
