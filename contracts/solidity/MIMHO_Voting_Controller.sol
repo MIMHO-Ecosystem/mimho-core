@@ -1,10 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/**
- * // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
 abstract contract MIMHO Voting Controller {
     string public constant version = "0.0.0-placeholder";
     function contractType() public pure virtual returns (bytes32) { return keccak256("MIMHO_VOTING_CONTROLLER"); }
