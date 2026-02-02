@@ -1,4 +1,7 @@
-🛒 MIMHO Marketplace — Technical Documentation
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
+#🛒 MIMHO Marketplace — Technical Documentation
 
 Module: NFT Marketplace / Trustless Settlement Engine
 Status: Final Specification (Immutable Rules)
