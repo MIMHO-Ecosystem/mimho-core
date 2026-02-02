@@ -1,4 +1,7 @@
-#📘 MIMHO Holder Distribution 
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
+📘 MIMHO Holder Distribution 
 
 Version: v1.0.0
 Status: Production-ready
