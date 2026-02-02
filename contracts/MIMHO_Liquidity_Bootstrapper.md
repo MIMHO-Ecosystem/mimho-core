@@ -1,4 +1,7 @@
-#📘 MIMHO Liquidity Bootstrapper
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
+📘 MIMHO Liquidity Bootstrapper
 
 Documentação Técnica do Módulo
 
