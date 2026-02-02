@@ -1,4 +1,7 @@
-#📘 MIMHO Trading Activity Module
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
+📘 MIMHO Trading Activity Module
 
 Technical Documentation
 MIMHO – the Meme Coin of the Future
