@@ -42,7 +42,7 @@ All ecosystem rules, taxes, and liquidity locks are public and immutable. / As r
 ---
 
 ## 🔗 Official Links / Links Oficiais
-* **Website:** https://www.mimho.io
+* **Website:** https://mimho.io
 * **Telegram:** https://t.me/+mw_usPFJc-I2NDQx
 * **X (Twitter):** https://x.com/Mimho_Ecosystem
 
