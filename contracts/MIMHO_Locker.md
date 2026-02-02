@@ -1,4 +1,7 @@
-#📘 MIMHO LOCKER — DOCUMENTAÇÃO TÉCNICA OFICIAL
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
+📘 MIMHO LOCKER — DOCUMENTAÇÃO TÉCNICA OFICIAL
 
 ##Visão Geral
 
