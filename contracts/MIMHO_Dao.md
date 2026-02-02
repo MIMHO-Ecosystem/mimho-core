@@ -1,3 +1,5 @@
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
 📘 DOCUMENTAÇÃO TÉCNICA OFICIAL
 
 MIMHO DAO
