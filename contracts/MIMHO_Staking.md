@@ -1,3 +1,6 @@
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
 📘 MIMHO STAKING
 
 Documentação Técnica Oficial — Ecossistema MIMHO
