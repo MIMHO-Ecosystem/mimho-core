@@ -1,4 +1,7 @@
-#🧠 MIMHO Strategy Hub — On-Chain Intelligence & Rules Protocol
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
+🧠 MIMHO Strategy Hub — On-Chain Intelligence & Rules Protocol
 
 **The MIMHO Strategy Hub is the on-chain intelligence layer of the MIMHO Ecosystem.**
 
