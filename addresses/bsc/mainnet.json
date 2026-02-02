@@ -1,0 +1,92 @@
+{
+  "project": "MIMHO",
+  "network": "BSC",
+  "environment": "mainnet",
+  "status": "pre-deployment",
+  "lastUpdated": "2026-02-02",
+
+  "wallets": {
+    "founder": {
+      "address": "0x3b50433D64193923199aAf209eE8222B9c728Fbd",
+      "status": "active"
+    },
+    "dao": {
+      "address": "0x63dd2eB7250612Ef7Dc24193ABbf7856fDaB7882",
+      "status": "active"
+    },
+    "marketing": {
+      "address": "0x34C561E00fEBB1FEbB461C21934F7d3609D122E2",
+      "status": "active"
+    },
+    "lp_reserve": {
+      "address": "0x66789aB0861A1979df2fCCB1053Ca76BB61c1248",
+      "status": "active"
+    },
+    "technical": {
+      "address": "0x12a662CD95b8CCF92386f7505e2e54aF33550c6a",
+      "status": "active"
+    },
+    "liquidity_reserve": {
+      "address": "0xb891C4e94a1F4B7Aa35d21BbA37D245909B6ad95",
+      "status": "active"
+    },
+    "donation": {
+      "address": "0x7149Bf2EA785C2D414c8eC6409F472dFaf95a06f",
+      "status": "active"
+    },
+    "burn": {
+      "address": "0x57357EF9025d5cB435121ceF5f45f761E16ff56A",
+      "status": "active"
+    },
+    "security_reserve": {
+      "address": "0xc7B097384fe490B88D2d6EB032B1db702374C5eE",
+      "status": "active"
+    },
+    "mart": {
+      "address": "0x026b6994E25B5602b8c7525dD0dCb1eC41c5D275",
+      "status": "active"
+    },
+    "bank": {
+      "address": "0x802DbeB782E1AA63fac20B4DA1723144089067C6",
+      "status": "active"
+    },
+    "locker": {
+      "address": "0xFb794A6147dC7d70E626808563a7936c75A12016",
+      "status": "active"
+    },
+    "labs": {
+      "address": "0x5E2a01BBE5687aBCfa8dfeD9C5cC7Fc7bEaf2432",
+      "status": "active"
+    },
+    "airdrops": {
+      "address": "0x15512E6331a6AaDa1221180Eb571fd41FBfFdEEA",
+      "status": "active"
+    },
+    "game": {
+      "address": "0x291641d158eb053b9315482375F092D7C20c83Cd",
+      "status": "active"
+    }
+  },
+
+  "contracts": {
+    "MIMHO_TOKEN": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_REGISTRY": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_EVENTS_HUB": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_DAO": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_PRESALE": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_VESTING": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_LIQUIDITY_BOOTSTRAPPER": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_LOCKER": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_STAKING": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_MART": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_MARKETPLACE": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_INJECT_LIQUIDITY": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_VOTING_CONTROLLER": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_HOLDER_DISTRIBUTION": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_BURN": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_AIRDROP": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_QUIZ": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_STRATEGY_HUB": { "address": null, "status": "awaiting_deploy" },
+    "MIMHO_TRADING_ACTIVITY": { "address": null, "status": "awaiting_deploy" }
+  }
+}
