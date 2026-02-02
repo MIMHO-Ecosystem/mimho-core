@@ -1,3 +1,6 @@
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
 #🧿 MIMHO Mart — Official NFT Minting & Marketplace Protocol
 
 The MIMHO Mart is the canonical NFT issuance and secondary trading protocol of the MIMHO Ecosystem.
