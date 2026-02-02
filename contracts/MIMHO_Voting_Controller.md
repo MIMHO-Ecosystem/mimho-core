@@ -1,4 +1,7 @@
-#🗳️ MIMHO Voting Controller
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
+
+🗳️ MIMHO Voting Controller
 
 **Pre-DAO Governance Module**
 
