@@ -1,6 +1,6 @@
-#Letras das Músicas - Ecossistema MIMHO
+# Letras das Músicas - Ecossistema MIMHO
 
-##Música 1: MIMHO - MARS IS MY HOUSE
+## Música 1: MIMHO - MARS IS MY HOUSE
 
 Verse 1
 Earth is the cradle, but we’ve outgrown the nest,
@@ -18,8 +18,8 @@ MIMHO is the light, leading the way!
 
 https://youtube.com/shorts/mAwlEdkDN1k?si=duJLslgOaWW9-QZv
 
---------------------------------------------------------------------------------------------------
-##Música 2 : MIMHO TOKEN
+---
+## Música 2 : MIMHO TOKEN
 
 Verse 1: The Foundation
 One trillion tokens, a vision so clear,
@@ -47,8 +47,8 @@ The Code is Law.
 
 https://youtu.be/Yh8OkP0fdbk?si=SnxxHLfdflebbt9K
 
--------------------------------------------------------------------------------------
-##Música 3 - MIMHO Registry
+---
+## Música 3 - MIMHO Registry
 
 Verse 1: The First Step
 Before the token, before the flame,
@@ -78,8 +78,8 @@ The Origin. The Registry.
 
 https://youtube.com/shorts/IxU9E7g_V4k?si=Xg2DP4KV6IdZpyYl
 
-----------------------------------------------------------------------------------------------------------
-##Música 4 - MIMHO DAO
+---
+## Música 4 - MIMHO DAO
 
 Verse 1: Democracy 2.0
 The era of kings is over and gone,
@@ -109,8 +109,8 @@ Your Vote. Your Power. Your House.
 
 https://youtube.com/shorts/XdZrouue5k0?si=zZRfvSMYue14bEwk
 
------------------------------------------------------------------------------------------------------
-##Música 5 MIMHO Events Hub
+---
+## Música 5 MIMHO Events Hub
 
 Verse 1: Total Observability
 Every buy, every burn, every stake,
@@ -140,8 +140,8 @@ Observable. Immutable. Real.
 
 https://youtube.com/shorts/tzLxt0g_8uw?si=rd-aMr6DjcQi8sx2
 
---------------------------------------------------------------------------------------------------------------
-##Música 6 MIMHO Locker
+---
+## Música 6 MIMHO Locker
 
 Verse 1: The Iron Seal
 The keys are gone, the door is tight,
@@ -171,7 +171,7 @@ Locked. Forever.
 
 https://youtu.be/I80ydWaAnWA?si=5kq4VwpyflWyxjr-
 
------------------------------------------------------------------------------------------------------------------------
+---
 ## Música 7 MIMHO Vesting
 
 The End of Promises
@@ -202,7 +202,7 @@ Trust the code, not the man.
 
 https://youtu.be/bAC_0HgEsD8?si=ICBT4rxaICIxcIYs
 
----------------------------------------------------------------------------------------------------------
+---
 ## Música 8 MIMHO PreSale
 
 Verse 1: The Opportunity
@@ -234,7 +234,7 @@ Locked. Forever.
 
 https://youtube.com/shorts/jcSIOdyhuE8?si=YJeCIt1e_Z0dzUrQ
 
-----------------------------------------------------------------------------------------------------------------
+---
 ## Música 9 MIMHO Burn
 
 Verse 1: The Engine
@@ -265,7 +265,7 @@ The power of the flame.
 
 https://youtube.com/shorts/HLCor9CuyB0?si=dnFxaLG3x7W38sSY
 
--------------------------------------------------------------------------------------------------------------
+---
 ## Música 10 MIMHO Staking
 
 Verse 1: The Long Run
@@ -296,7 +296,7 @@ Time is your greatest asset.
 
 https://youtube.com/shorts/-yyM16FYfWA?si=M9r_lFHKEgo1tLD3
 
-------------------------------------------------------------------------------------------------------------------
+---
 ## Música 11 MIMHO Airdrop
 
 Verse 1: The Real Holders
@@ -327,7 +327,7 @@ No humans. No lies. Just Code.
 
 https://youtube.com/shorts/CEvrMmxdZTU?si=gD1lX0kBrRc0ZPqo
 
----------------------------------------------------------------------------------------------------------------
+---
 ## Música 12 MIMHO Inject Liquidity
 
 Verse 1: The Liquidity Vault
@@ -358,7 +358,7 @@ Strength in every block.
 
 https://youtube.com/shorts/NCtDDA-hf6g?si=DeYFzMmtxX1JJENi
 
----------------------------------------------------------------------------------------------------------------
+---
 ## Música 13 MIMHO Quiz Academy
 
 Verse 1: The Quest for Knowledge
@@ -389,4 +389,38 @@ Learn. Play. Earn.
 
 https://youtube.com/shorts/DELi3h2ezUg?si=1ALYPDGI1p5Xvm3Y
 
--------------------------------------------------------------------------------------------------------------------
+---
+
+## Música 14 MIMHO Trading Activity
+
+Verse 1: The Observer
+No market moves without a trace,
+In the digital lines of the Martian space.
+The module watches, the module knows,
+Recording the ebb and the way it flows.
+Neutral and silent, the perfect eye,
+Under the red and the starry sky!
+
+​Chorus: The Rhythm of Trade
+MIMHO Activity! The pulse of the chain,
+Justice and logic, removing the stain.
+MIMHO Activity! The score is set,
+The fairest standard you’ve ever met.
+No human hand can change the soul,
+Of the market’s heart and the trade’s control!
+
+​Verse 2: Imutable Time
+Seventy-two hours to announce the start,
+Transparency flowing through every part.
+Fourteen days of the real-time flow,
+Watch the rankings and the reputation grow.
+Snapshot taken, the truth is told,
+In the house of MIMHO, the brave are bold!
+MIMHO Trading Activity.
+Observed. Recorded. Imutable.
+The Heartbeat of Mars.
+
+https://youtube.com/shorts/Tg54hFGoMZk?si=iiHV28Mdbm-RjdV7
+
+---
+
