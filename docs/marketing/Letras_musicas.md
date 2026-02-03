@@ -1,6 +1,6 @@
-#Letras das Músicas - Ecossistema MIMHO
+# Letras das Músicas - Ecossistema MIMHO
 
-##Música 1: MIMHO - MARS IS MY HOUSE
+## Música 1: MIMHO - MARS IS MY HOUSE
 
 Verse 1
 Earth is the cradle, but we’ve outgrown the nest,
@@ -18,8 +18,8 @@ MIMHO is the light, leading the way!
 
 https://youtube.com/shorts/mAwlEdkDN1k?si=duJLslgOaWW9-QZv
 
---------------------------------------------------------------------------------------------------
-##Música 2 : MIMHO TOKEN
+---
+## Música 2 : MIMHO TOKEN
 
 Verse 1: The Foundation
 One trillion tokens, a vision so clear,
@@ -47,8 +47,8 @@ The Code is Law.
 
 https://youtu.be/Yh8OkP0fdbk?si=SnxxHLfdflebbt9K
 
--------------------------------------------------------------------------------------
-##Música 3 - MIMHO Registry
+---
+## Música 3 - MIMHO Registry
 
 Verse 1: The First Step
 Before the token, before the flame,
