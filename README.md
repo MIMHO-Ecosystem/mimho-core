@@ -21,7 +21,10 @@ All ecosystem rules, taxes, and liquidity locks are public and immutable. / As r
 * [⚖️ Justificativa do Projeto](docs/DESIGN_RATIONALE.md) — O propósito por trás da MIMHO.
 * 
 * [🏗️ Arquitetura do Ecossistema](docs/TECHNICAL_ECOSYSTEM.md) — Detalhes técnicos da rede.
-
+* 
+* [Mapa de Chaves do Registry](docs/REGISTRY_MAP.md) – Guia técnico de mapeamento de endereços via chaves bytes32.
+* 
+* [Gráfico de Dependências Técnicas](docs/DEPENDENCY_GRAPH.md) – Mapa visual de interações e chamadas entre os 19 contratos.
 
 ---
 
