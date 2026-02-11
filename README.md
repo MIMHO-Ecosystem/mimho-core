@@ -58,8 +58,9 @@ As regras do ecossistema, taxas e bloqueios de liquidez são **públicas e imut�
 ---
 
 # 📄 Official Documentation / Documentação Oficial
-All official documents below are published as immutable files on IPFS (via Pinata) to guarantee transparency, integrity, and public verifiability.
-Todos os documentos oficiais abaixo estão publicados como arquivos imutáveis no IPFS (via Pinata), garantindo transparência, integridade e verificabilidade pública.
+** All official documents below are published as immutable files on IPFS (via Pinata) to guarantee transparency, integrity, and public verifiability.**
+
+** Todos os documentos oficiais abaixo estão publicados como arquivos imutáveis no IPFS (via Pinata), garantindo transparência, integridade e verificabilidade pública. **
 
 ## 🌐 Whitepaper
 📘 Technical & Narrative Overview of the MIMHO Ecosystem
