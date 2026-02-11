@@ -49,10 +49,10 @@ As regras do ecossistema, taxas e bloqueios de liquidez são **públicas e imut�
 
 ## 🧭 Roadmap & Vision / Roadmap & Visão
 
-- 🚀 **[Roadmap Oficial do Ecossistema](ROADMAP.md)**  
+- 🚀 **[Roadmap Oficial do Ecossistema](docs/ROADMAP.md)**  
   Planejamento por fases, entregas técnicas e evolução on-chain.
 
-- 📄 **[Whitepaper Oficial](WHITEPAPER.md)**  
+- 📄 **[Whitepaper Oficial](docs/WHITEPAPER.md)**  
   Visão completa do ecossistema, princípios, tokenomics e governança.
 
 ---
