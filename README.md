@@ -57,26 +57,26 @@ As regras do ecossistema, taxas e bloqueios de liquidez são **públicas e imut�
 
 ---
 
-#📄 Official Documentation / Documentação Oficial
+# 📄 Official Documentation / Documentação Oficial
 All official documents below are published as immutable files on IPFS (via Pinata) to guarantee transparency, integrity, and public verifiability.
 Todos os documentos oficiais abaixo estão publicados como arquivos imutáveis no IPFS (via Pinata), garantindo transparência, integridade e verificabilidade pública.
 
-##🌐 Whitepaper
+## 🌐 Whitepaper
 📘 Technical & Narrative Overview of the MIMHO Ecosystem
 📄 PDF (IPFS – immutable)
 👉 https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza�
 
-##🛣️ Roadmap
+## 🛣️ Roadmap
 🚀 Modular Technical Roadmap & Governance Phases
 📄 PDF (IPFS – immutable)
 👉 https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4�
 
-##🌌 Manifesto
+## 🌌 Manifesto
 📜 Vision, Principles & Community Philosophy
 📄 PDF (IPFS – immutable)
 👉 https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi�
 
-##🔐 Why IPFS?
+## 🔐 Why IPFS?
 Immutable documents (cannot be altered silently)
 Publicly verifiable hashes
 Aligned with on-chain transparency principles
