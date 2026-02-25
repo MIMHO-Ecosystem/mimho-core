@@ -1,165 +1,156 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🪙 MIMHO Token — Core Asset & Immutable Rules
 
-📘 MIMHO – DOCUMENTO DE ESPECIFICAÇÃO TÉCNICA DO TOKEN
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-Nome: MIMHO
-Símbolo: MIMHO
-Supply Máximo Inicial: 1.000.000.000.000 (1 trilhão)
-Rede Inicial: BNB Chain (BEP-20)
-Par Oficial: MIMHO / BNB
-Slogan Oficial:
-“MIMHO – a Meme Coin do Futuro”
+## 👥 Visão Geral (Para Leigos)
 
-1️⃣ FILOSOFIA DE DESIGN (DESIGN PHILOSOPHY)
+O **Token MIMHO** é o núcleo de todo o ecossistema.
 
-O token MIMHO foi projetado para:
-✅ Ser simples, limpo e imutável
-✅ Suportar um ecossistema completo de contratos auxiliares
-✅ Evitar dependência de backend ou soluções off-chain
-✅ Crescer de forma orgânica, sem artifícios artificiais
-✅ Ser auditável, previsível e transparente
-✅ Estar preparado para DAO real e governança on-chain
-✅ Suportar 10+ anos de evolução, mesmo em cenários pessimistas
-O contrato do token não concentra lógica complexa, delegando funcionalidades avançadas a contratos auxiliares especializados.
+Ele não é apenas um meio de troca — é o **ativo que conecta governança, utilidade, transparência e automação**.
 
-2️⃣ SUPPLY E DISTRIBUIÇÃO INICIAL
+Todas as regras do token são **imutáveis** e **executadas por código**.  
+Depois do deploy, **ninguém pode mudar as regras**, nem o fundador, nem a DAO.
 
-Supply total fixo: 1 trilhão de MIMHO
-Distribuição:
-Categoria
-Quantidade
-Fundador
-50.000.000.000
-Pré-venda
-100.000.000.000
-Liquidez inicial (LP)
-300.000.000.000
-Reserva para listagens futuras (CEX Tier 1)
-150.000.000.000
-Tesouro da DAO
-200.000.000.000
-Ecossistema / Incentivos futuros
-200.000.000.000
-Total
-1.000.000.000.000
-🔒 Observações importantes:
-Tokens de pré-venda possuem vesting separado
-Tokens de listagem futura só desbloqueiam para grandes CEXs (ex: Binance, OKX) via contrato dedicado
-Tokens de LP são permanentemente queimados ao adicionar liquidez
+Aqui não existe:
+- Ajuste manual
+- Mint escondido
+- Taxa surpresa
+- Botão de emergência secreto
 
-3️⃣ MECÂNICA DE TAXAS
+O token faz **exatamente** o que está escrito no contrato.
 
-✔️ Taxas aplicadas somente em COMPRA e VENDA
-Não há taxa em:
-Transferência carteira → carteira
-Staking
-Vesting
-DAO
-NFTs
-Contratos do ecossistema
-Taxa Total por Trade: X% (exemplo conceitual)
-Distribuição da taxa:
-🔥 Queima automática
-💧 Reforço de Liquidez
-🏦 Tesouro DAO / Marketing
-👤 Taxa do fundador (limitada, transparente)
-📌 Importante:
-As taxas funcionam exclusivamente no par oficial MIMHO/BNB, garantindo:
-previsibilidade
-controle
-segurança
-sustentabilidade do ecossistema
+## 🎯 Objetivo do Token
 
-4️⃣ LIQUIDEZ E CONFIANÇA
+O token MIMHO existe para:
 
-Liquidez adicionada inicialmente no par MIMHO/BNB
-LP Tokens são automaticamente queimados
-Não existe função para recuperar LP
-Confiança máxima desde o bloco zero
+- Representar participação no ecossistema
+- Alimentar a governança on-chain
+- Viabilizar automações (staking, burn, distribuição)
+- Garantir previsibilidade econômica
+- Eliminar confiança em decisões humanas
 
-5️⃣ CONTROLE DE LIQUIDEZ (LP MANAGEMENT)
+Sem promessas.  
+Sem atalhos.  
+Sem improviso.
 
-O contrato do token possui:
-✅ Botão para pausar temporariamente o reforço de LP
-Quando pausado:
-Taxa é redirecionada para DAO ou Marketing
-Controle protegido por:
-onlyDAOorOwner
-Transparência total via eventos
+## 📊 Supply e Estrutura
 
-6️⃣ GOVERNANÇA E CONTROLE
+- Supply inicial: **1.000.000.000.000 (1 trilhão)**
+- Não existe função de mint adicional
+- Supply é finito e auditável on-chain
+- Sistema deflacionário progressivo
+- Floor de supply definido por código
 
-Modelo de controle:
-Inicialmente: Fundador
-Pós-ativação: DAO assume controle total
-Padrão adotado:
-❌ Não existe renounceOwnership() tradicional
-✔️ Transição segura via:
-setDAO()
-onlyDAOorOwner
-A renúncia só é possível quando:
-DAO estiver ativa
-Contrato da DAO estiver corretamente registrado
-Sistema estiver funcional
-➡️ Impossível o contrato “morrer” por renúncia precoce
+Se um token não existir no contrato, **ele nunca existirá**.
 
-7️⃣ INTEGRAÇÃO COM ECOSSISTEMA MIMHO
+## 💸 Taxas Imutáveis
 
-O token é totalmente compatível com:
-🔐 MIMHO Locker
-🧠 Sistema de Reputação On-chain
-🏦 Staking e Vaults
-📜 Vesting avançado
-🔥 Sistema de Burn complexo
-🔁 Buyback inteligente
-🗳️ DAO
-🌉 Ponte de dados cross-chain
-🧾 Certificação on-chain (MIMHO Certify)
-👁️ Observer
-🧬 Persona
-Todos os contratos:
-Se comunicam via MIMHORegistry
-Emitem eventos padronizados via MIMHOEventsHub
+O token possui taxas fixas e imutáveis:
 
-8️⃣ TRANSPARÊNCIA E EVENTOS
+- Taxa de compra: **1%**
+- Taxa de venda: **1,5%**
 
-📡 Todos os eventos são públicos
-👁️ Funções de visualização (view) em todos os contratos
-🔍 Qualquer pessoa pode:
-auditar
-acompanhar
-verificar ações on-chain
+Essas taxas:
 
-9️⃣ BUYBACK E QUEIMA
+- Não podem ser alteradas
+- Não podem ser desligadas
+- Não podem ser redirecionadas manualmente
 
-Buyback ocorre via contratos auxiliares
-Pode usar:
-taxas acumuladas
-receitas de serviços da MIMHO Labs
-Tokens recomprados podem ser:
-queimados
-travados
-usados para incentivos DAO
-🔥 Queima é deflacionária, contínua e transparente
+Toda distribuição ocorre automaticamente via contratos do ecossistema.
 
-🔟 SEGURANÇA E FUTURO
+## 🔁 Destino das Taxas
 
-Código modular
-Baixo acoplamento
-Nenhuma função oculta
-Nenhuma lógica obscura
-Nenhuma dependência externa frágil
-O token MIMHO foi projetado para:
-não depender de hype,
-não depender de promessas,
-não depender de confiança cega,
-apenas de código e uso real.
-🧠 RESUMO FINAL
-O token MIMHO é:
-✔️ Deflacionário
-✔️ Sustentável
-✔️ DAO-ready
-✔️ CEX-friendly
-✔️ Auditável
-✔️ Preparado para crescer pequeno e durar grande
+As taxas do token são usadas para:
+
+- Liquidez
+- Queima
+- Staking
+- Sustentação do ecossistema
+
+O token **não decide** para onde vão as taxas.  
+Ele apenas executa o que os módulos autorizados determinam.
+
+Nenhuma carteira humana recebe taxas diretamente pelo token.
+
+## 🔥 Deflação e Queima
+
+O MIMHO possui mecanismos de queima:
+
+- Queimas automáticas
+- Queimas programadas
+- Queimas decididas por governança
+
+Toda queima:
+- É on-chain
+- Emite evento no Events Hub
+- Reduz supply permanentemente
+
+Token queimado **não volta**.
+
+## 🔒 Segurança do Contrato
+
+O contrato do token:
+
+- Não possui funções administrativas ocultas
+- Não permite transferências forçadas
+- Não permite confisco
+- Não permite pausas arbitrárias
+- Não permite upgrades disfarçados
+
+Toda lógica crítica é fixa desde o deploy.
+
+## 🧬 Integração com o Ecossistema
+
+O token MIMHO:
+
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Interage com:
+  - Staking
+  - Burn
+  - Holder Distribution
+  - DAO
+  - Liquidity Modules
+
+Ele não opera isolado.  
+Ele é a base comum de todos os módulos.
+
+## 🏛️ Governança e Controle
+
+- O token **não muda regras por votação**
+- A governança atua apenas nos módulos externos
+- Nenhuma proposta pode alterar:
+  - Supply
+  - Taxas
+  - Lógica central do token
+
+Governança controla o ecossistema.  
+O token permanece imutável.
+
+## 🧠 Filosofia do Token
+
+O token MIMHO prova que:
+
+- Segurança vem antes de flexibilidade
+- Confiança deve ser substituída por código
+- Tokens não devem depender de pessoas
+- Regras claras geram comunidades fortes
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
