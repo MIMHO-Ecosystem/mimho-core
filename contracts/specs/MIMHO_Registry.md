@@ -1,3 +1,45 @@
+# 🧠 MIMHO Registry — Ecosystem Source of Truth
+
+## 📘 For Non-Technical Readers (Plain Explanation)
+
+The **MIMHO Registry** is the central map of the entire MIMHO ecosystem.
+
+Instead of contracts hardcoding addresses (which is risky and confusing),
+every important module asks the Registry a simple question:
+
+> “What is the official address of this contract right now?”
+
+This guarantees:
+- No fake contracts
+- No outdated addresses
+- No frontend confusion
+- One single source of truth on-chain
+
+The Registry **does not move funds**, **does not execute business logic** and **does not make decisions**.
+
+Its only job is to **say who is who** in the ecosystem.
+
+---
+
+## 🔁 How It Works (High-Level Flow)
+
+1. Each core contract is registered under an official key
+2. Other contracts resolve addresses dynamically via the Registry
+3. Frontends also read from the Registry
+4. If a module is upgraded, only the Registry changes — nothing breaks
+
+---
+
+## 👨‍💻 For Developers (Technical Summary)
+
+- Single on-chain address registry
+- Registry-first architecture (no hardcoded dependencies)
+- Keys resolved via `IMIMHORegistry.getContract(KEY)`
+- Governance-controlled updates (Founder → DAO)
+- No fund custody
+- No delegatecall
+- No upgrade proxy
+
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
 
