@@ -122,7 +122,7 @@ No dependency on centralized servers
 ## 🔗 Official Links / Links Oficiais
 
 - 🌐 **Website:** https://mimho.io  
-- 💬 **Telegram:** https://t.me/+mw_usPFJc-I2NDQx  
+- 💬 **Telegram:** https://t.me/mimho_mars_is_my_house 
 - 🐦 **X (Twitter):** https://x.com/Mimho_Ecosystem  
 
 ---
