@@ -1,3 +1,5 @@
+> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+
 # 🧠 MIMHO Registry — Ecosystem Source of Truth
 
 ## 📘 For Non-Technical Readers (Plain Explanation)
