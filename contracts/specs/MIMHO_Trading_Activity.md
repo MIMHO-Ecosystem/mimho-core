@@ -1,215 +1,135 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 📊 MIMHO Trading Activity — Volume, Participation & Transparency
 
-📘 MIMHO Trading Activity Module
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-Technical Documentation
-MIMHO – the Meme Coin of the Future
+## 👥 Visão Geral (Para Leigos)
 
-##📌 Overview
-The MIMHO Trading Activity Module is an optional, standalone, and reusable smart contract designed to observe, register, and classify real on-chain trading activity of the MIMHO / BNB market pair.
-The contract does not execute trades, does not move funds, and does not influence price or liquidity.
-Its sole purpose is to provide transparent, auditable, and deterministic observability over market activity for gamification, reputation, and ecosystem analytics.
-This module is not a trading competition, not a market-making tool, and not an incentive mechanism.
-It is a market activity observability layer.
+O **MIMHO Trading Activity** é o módulo que observa, registra e interpreta a atividade real de negociação do ecossistema.
 
----
+Ele não cria trades.  
+Ele não executa ordens.  
+Ele não interfere no mercado.
 
-##🎯 Core Objectives
-Observe real, public trading activity without interference
-Guarantee equal conditions for all participants
-Eliminate any form of human intervention after activation
-Prevent abuse through objective, deterministic rules
-Provide on-chain verifiable data for HUDs and third-party auditors
-Enable multiple future cycles without redeployment
+O papel dele é **medir participação**, **registrar volume** e **criar métricas verificáveis** sobre quem realmente movimenta o ecossistema.
 
----
+Aqui, atividade importa mais do que discurso.
 
-##🧠 Design Philosophy
-1. Observe, Never Influence
-The contract strictly observes activity.
-It never:
-Executes swaps
-Provides liquidity
-Alters spread
-Affects market price
-2. Radical Transparency
-All lifecycle events are emitted on-chain
-All scores can be independently reconstructed
-Frontends (HUDs) only read, never control logic
-3. Temporal Immutability
-Once a cycle is announced:
-No parameters can be changed
-No pauses are allowed during activity
-No early termination is possible
-No extensions are possible
-This rule applies to everyone, including:
-Founder
-DAO
-Administrators
-4. Anti-Abuse by Design (Not Censorship)
-The protocol:
-Never blocks trades
-Never blacklists wallets
-Never judges intent
-It simply ignores objectively invalid patterns for scoring purposes.
-5. Gas Efficiency & Modularity
-No global sorting on-chain
-No unbounded loops
-Rankings are computed off-chain using public data
-Contract is reusable across multiple cycles
+## 🎯 Objetivo do Módulo
 
----
+O Trading Activity existe para:
 
-##🏗️ Architecture & Integrations
-Integrated Contracts
-Contract
-Purpose
-MIMHORegistry
-Dynamic contract discovery
-MIMHOEventsHub
-Standardized event emission (HUD loudspeaker)
-Ecosystem Reporter
-Authorized trade reporting
-MIMHO DAO
-Governance takeover (optional)
-All dependencies are resolved exclusively through the Registry, following the Absolute MIMHO Rule (no hardcoded strings or addresses).
+- Registrar volume on-chain real
+- Medir participação efetiva de usuários
+- Criar base técnica para recompensas futuras
+- Alimentar métricas sociais e reputacionais
+- Eliminar métricas falsas ou infladas off-chain
 
----
+Sem rankings subjetivos.  
+Sem números mágicos.  
+Sem confiança em dados externos.
 
-##🔄 Lifecycle States
-Each activity cycle follows a deterministic state machine:
-Copiar código
+## 📈 O Que É Registrado
 
-IDLE
- ↓
-ANNOUNCED (72h notice)
- ↓
-ACTIVE (14 days)
- ↓
-ENDED
- ↓
-FINALIZED
-Key Properties
-States cannot be skipped
-States cannot be reversed
-Transitions are time-based, not discretionary
+O módulo observa e registra eventos como:
 
----
+- Compras de MIMHO
+- Vendas de MIMHO
+- Volume total movimentado
+- Endereços participantes
+- Frequência de atividade
+- Janelas temporais (ex: 24h, ciclos)
 
-##⏱️ Fixed Timing Rules
-Parameter
-Value
-Pre-announcement window
-72 hours
-Active duration
-14 days
-Start & End
-Automatic by timestamp
-The 72-hour announcement window guarantees:
-Equal information access
-No surprise activation
-No temporal advantage
+Todos os dados são derivados de eventos on-chain reais.
 
----
+## 🔍 Regras de Elegibilidade
 
-##📊 Trade Eligibility Rules
-Minimum Trade Value
-Default recommendation: 0.05 BNB
-Configurable before announcement
-Trades below the minimum:
-Execute normally on the DEX
-Are ignored for scoring
-Minimum Interval Between Trades
-Default recommendation: 3 minutes
-Applied per wallet
-Only affects scoring logic
-Does not block trading
-Ignored Objective Patterns
-Trades are ignored for scoring if they meet objective conditions, such as:
-Multiple trades in the same block
-Immediate buy/sell toggles within a short window
-Circular trades with near-identical notional value
-No wallet is penalized or restricted.
+Para evitar abuso, o Trading Activity pode aplicar filtros como:
 
----
+- Exclusão de compra e venda no mesmo bloco
+- Exclusão de micro-transações irrelevantes
+- Detecção de comportamento automatizado
+- Validação mínima de volume
 
-##🧮 Scoring System
-Nature of the Score
-Measures qualified market activity
-Does not represent:
-Profit
-ROI
-Financial return
-Properties
-Accumulated per wallet
-Formula defined before announcement
-Immutable during the cycle
+Essas regras existem para garantir que **atividade real** seja reconhecida — não spam.
 
----
+## 🧠 Uso dos Dados
 
-##🏆 Ranking & Snapshots
-On-Chain Responsibilities
-Store per-wallet scores
-Emit snapshot markers
-Broadcast participant data via events
-Off-Chain Responsibilities (HUD)
-Read contract data
-Sort and display rankings
-Refresh periodically (recommended every 4–6 hours)
-The contract never performs expensive global sorting.
+Os dados coletados pelo Trading Activity podem ser usados por outros módulos, como:
 
----
+- Holder Distribution
+- Gamificação
+- Reputação on-chain
+- Badges e status sociais
+- Decisões de governança
+- Análises públicas via HUD
 
-##📣 Events Emitted
-Examples of emitted events:
-TradingAnnounced
-TradingStarted
-TradeRecorded
-SnapshotEmitted
-ParticipantScore
-TradingFinalized
-All major actions are also broadcast via the MIMHO Events Hub using a best-effort, non-blocking pattern.
+O módulo **não distribui recompensas sozinho**.  
+Ele fornece dados confiáveis para quem distribui.
 
----
+## 🔁 Integração com o Ecossistema
 
-##🛡️ Governance & Control
-Who Can Announce a Cycle
-onlyDAOorOwner
-Who Can Intervene After Announcement
-❌ No one
-Pause Rules
-Allowed only outside ACTIVE state
-Emergency use only
+O Trading Activity:
 
----
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Atua como fonte de dados para:
+  - DAO
+  - Holder Distribution
+  - Gamification
+  - Analytics
 
-##♻️ Reusability
-After a cycle is finalized:
-A new cycle may be announced
-New parameters may be defined
-All historical data remains public
-The module is designed for long-term reuse, not single events.
+Ele não mantém fundos.  
+Ele não possui poder econômico direto.
 
----
+## 🔐 Segurança e Imutabilidade
 
-##⚖️ Regulatory & Ethical Positioning
-No investment recommendation
-No profit expectation
-No financial incentive
-Pure observability and gamification
-The protocol is aligned with Web3 transparency best practices.
+O módulo:
 
----
+- Não permite edição retroativa de dados
+- Não aceita inputs manuais
+- Não depende de backend
+- Não depende de confiança no operador
 
-##✅ Conclusion
-The MIMHO Trading Activity Module is a neutral, transparent, and governance-safe infrastructure component.
-It exists to:
-Observe real market behavior
-Provide public, verifiable metrics
-Enhance ecosystem engagement without manipulation
-It protects:
-Users
-DAO
-Founder
-The long-term credibility of the MIMHO ecosystem
+Uma vez registrada, a atividade é imutável.
+
+## 🏛️ Governança
+
+- Antes da DAO: parâmetros iniciais definidos pelo fundador
+- Após a DAO: ajustes via votação on-chain
+- Nenhuma governança pode:
+  - Apagar histórico
+  - Falsificar volume
+  - Inserir dados off-chain
+
+Governança ajusta regras.  
+Nunca altera o passado.
+
+## 🧬 Filosofia do Trading Activity
+
+Este módulo existe porque:
+
+- Volume importa
+- Participação importa
+- Métricas falsas destroem confiança
+- Transparência gera alinhamento
+
+Aqui, quem movimenta o ecossistema **é visível**.
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
