@@ -1,189 +1,156 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🛍️ MIMHO Mart — NFT & Asset Minting Module
 
-#🧿 MIMHO Mart — Official NFT Minting & Marketplace Protocol
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-The MIMHO Mart is the canonical NFT issuance and secondary trading protocol of the MIMHO Ecosystem.
-It operates as a core on-chain infrastructure layer, responsible for enforcing protocol-level rules around NFT creation, distribution, royalties, and transparency, while remaining fully governed by DAO principles.
-This repository and its documentation serve as the public, verifiable reference for how NFTs are minted and traded within the MIMHO Ecosystem.
+## 👥 Visão Geral (Para Leigos)
 
----
+O **MIMHO Mart** é o módulo responsável pela **criação (mint), gestão e distribuição de NFTs e ativos digitais** dentro do ecossistema MIMHO.
 
-##🎯 Purpose of the MIMHO Mart
-The MIMHO Mart exists to guarantee that all NFTs within the ecosystem are created and traded under a single, auditable, and immutable rule set.
-Its primary goals are:
-Establish a single source of truth for NFT issuance
-Eliminate fragmented or hidden minting logic
-Enforce protocol-level permissions and mint rules
-Provide transparent, on-chain royalty distribution
-Enable DAO-governed evolution without redeploying dependent contracts
-No NFT may be minted or recognized as official within the MIMHO Ecosystem unless it originates from the MIMHO Mart.
+Ele funciona como a **fábrica oficial de ativos** do ecossistema:
+- Badges
+- NFTs utilitários
+- NFTs comemorativos
+- Itens de reputação
+- Ativos vinculados a ações on-chain
 
----
+Tudo é criado por regras de contrato inteligente.  
+Nada é cunhado manualmente.  
+Nada depende de confiança.
 
-##🏗️ Architectural Role in the Ecosystem
-The MIMHO Mart occupies a foundational position in the ecosystem architecture.
-It interacts with — but remains logically isolated from — other modules:
-MIMHO Registry: Dependency resolution and ecosystem contract validation
-MIMHO Events Hub (HUD): Public event broadcasting
-MIMHO Strategy Hub: NFT utility and bonus evaluation
-DAO / Governance: Permissioning and protocol control
-Each module has a single responsibility, ensuring long-term maintainability and audit clarity.
+## 🚨 O Problema que Resolve
 
----
+Em muitos projetos:
+- NFTs são criados fora do contrato
+- Metadados podem ser alterados
+- Emissões são arbitrárias
+- Não existe vínculo real com ações on-chain
 
-##🔐 Canonical NFT Minting
-Single Issuance Point
-All NFTs within the MIMHO Ecosystem are minted exclusively by the MIMHO Mart.
-This guarantees:
-No parallel mint contracts
-No duplicated ERC-721 issuers
-No hidden or privileged mint paths
-The Mart acts as a gatekeeper, not a decision-maker:
-ecosystem contracts decide when to mint, the Mart enforces how.
+No MIMHO Mart:
+- Cada NFT nasce de uma ação verificável
+- O motivo da emissão fica registrado
+- O supply segue regras claras
+- O histórico é permanente
 
----
+NFT não é “arte solta”.  
+É **registro on-chain de comportamento**.
 
-##🧩 Minting Permissions & Security Model
-Contract-Level Authorization
-An NFT mint operation is permitted only if the caller is:
-A contract registered in the MIMHO Registry
-OR the active DAO
-OR the Owner (prior to DAO activation)
-Direct user calls or unregistered contracts are strictly rejected.
-Mint-Type Whitelisting
-In addition to validating who is calling, the Mart validates what can be minted.
-NFTs are classified by mint type, for example:
-BADGE — Governance and DAO recognition
-BOOST — Staking-related utilities
-COLLECTIBLE — Store or campaign NFTs
-ACHIEVEMENT — Games and quizzes
-CERTIFICATE — Veritas / Certify modules
-Each ecosystem contract is authorized to mint only specific types, preventing logical misuse or cross-module abuse.
+## ⚙️ Como o MIMHO Mart Funciona
 
----
+O fluxo básico é:
 
-##🔁 Minting Lifecycle
-An ecosystem contract determines an NFT should be issued
-The contract resolves the MIMHO Mart via the Registry
-A mint request is submitted with recipient, type, and metadata
-The Mart validates permissions and mint rules
-The NFT is minted
-All actions are recorded on-chain and broadcast to the HUD
-Failures revert deterministically and are never silent.
+1. Um evento legítimo acontece no ecossistema  
+   (ex: queima, staking, missão, governança, conquista)
 
----
+2. Um módulo autorizado chama o MIMHO Mart
 
-##🖼️ Metadata & URI Management
-The MIMHO Mart supports:
-Base URI configuration
-Per-token URI overrides
-DAO-controlled metadata updates
-This enables compatibility with IPFS, Pinata, Arweave, and future decentralized storage systems.
+3. O contrato:
+   - Valida permissões
+   - Cria o NFT
+   - Associa metadados e contexto
+   - Emite evento no Events Hub
 
----
+Nada é criado “porque alguém quis”.  
+Tudo nasce de regra.
 
-##🛒 Secondary Marketplace (On-Chain)
-The MIMHO Mart includes an optional built-in marketplace for secondary NFT trading.
-Key properties:
-User-to-user fixed-price listings
-ERC20-based payments (resolved via Registry)
-Fully on-chain execution
-No off-chain order books
-The marketplace exists to reinforce transparency and protocol enforcement, not to replace external markets.
+## 🧾 Tipos de NFTs Emitidos
 
----
+O MIMHO Mart pode emitir:
 
-##💰 Protocol Royalties
-Royalty Policy
-All secondary sales executed through the MIMHO Mart are subject to a fixed 5% protocol royalty.
-This rule is immutable by design.
-Royalty Distribution
-The 5% royalty is split as follows:
-20% → Founder
-10% → Staking
-70% → DAO
-Example (sale price = 100):
-Royalty total: 5
-Founder: 1
-Staking: 0.5
-DAO: 3.5
-Percentages are defined as constants and cannot be altered post-deployment.
+- **Badges de reputação**
+- **NFTs comemorativos**
+- **NFTs de governança**
+- **NFTs de participação**
+- **NFTs de prova (proof-of-action)**
 
----
+Cada NFT possui:
+- Tipo definido
+- Metadados imutáveis
+- Contexto on-chain
+- Histórico verificável
 
-##🔄 Royalty Execution Guarantees
-Royalties are calculated and distributed atomically
-Transfers occur before NFT ownership changes
-Fallback logic ensures no funds are trapped
-Every split is publicly emitted as an event
-This ensures economic transparency and auditability.
+## 🧠 Metadados e Contexto
 
----
+Cada mint pode conter:
+- Razão da emissão
+- Hash de contexto
+- Timestamp
+- Identificador da ação que originou o NFT
 
-##📡 Events, HUD & Transparency
-Every meaningful action emits:
-A local on-chain event
-A mirrored event to the MIMHO Events Hub (HUD) using best-effort execution
-This guarantees:
-Real-time dashboards
-Public traceability
-Zero dependency on private backends
-Event emission failures never break user transactions.
+Isso permite:
+- Auditoria social
+- Rankings
+- Reputação acumulada
+- Integração com HUD e bots
 
----
+O NFT conta uma história verificável.
 
-##🚨 Emergency Controls
-The MIMHO Mart includes protocol-standard emergency controls:
-pauseEmergencial()
-unpause()
-When paused:
-Minting is disabled
-Marketplace operations are disabled
-Other ecosystem modules continue uninterrupted
-This provides systemic safety without cascading failures.
+## 🔐 Segurança e Controle
 
----
+O MIMHO Mart:
+- Não aceita mint público irrestrito
+- Restringe chamadas a contratos autorizados
+- Não permite alteração de NFTs emitidos
+- Não permite remoção arbitrária
 
-##🏛️ Governance & Ownership Model
-Governed via onlyDAOorOwner pattern
-Safe transition from Owner to DAO
-No irreversible ownership renunciation
-DAO authority activated explicitly
-This ensures governance continuity and prevents accidental loss of control.
+Não existe “admin mint secreto”.
 
----
+## 🧭 Integração com o Ecossistema
 
-##🧠 Strategy Hub Compatibility
-The MIMHO Mart deliberately does not calculate or apply bonuses.
-NFT utility is evaluated independently by the MIMHO Strategy Hub, allowing:
-Instant bonus updates on NFT transfers
-No coupling between minting and utility logic
-Clean separation between issuance and strategy
+O MIMHO Mart:
+- Resolve permissões via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Pode ser negociado no **Marketplace**
+- Pode ser usado por:
+  - DAO
+  - Burn
+  - Staking
+  - Quizzes
+  - Missões
 
----
+Cada NFT é parte do sistema, não um acessório.
 
-##⛽ Gas Efficiency & Safety
-No unbounded loops
-No global dynamic lists
-Constant-time permission checks
-Predictable gas usage
-Designed for long-term scalability, not short-term convenience.
+## 🏛️ Governança
 
----
+- Antes da DAO: controle do fundador
+- Após DAO: controle exclusivo da DAO
+- Emissões seguem regras públicas
+- Novos tipos exigem governança
 
-##🔐 Security & Audit Posture
-No ETH custody
-No privileged withdrawals
-No mutable royalty rules
-No circular dependencies
-Fully deterministic execution
-The MIMHO Mart is designed to be boring to audit — by intention.
+Criar NFTs é poder.  
+E poder exige regras.
 
----
+## 🧩 Benefícios do Modelo
 
-##🏁 Conclusion
-The MIMHO Mart is not a feature contract.
-It is a protocol primitive.
-It defines how value, identity, and ownership are created and exchanged inside the MIMHO Ecosystem — transparently, verifiably, and under DAO governance.
-Transparency is not an option. It is the protocol.
+Para usuários:
+- Reputação real
+- Provas de participação
+- Identidade on-chain
+
+Para o ecossistema:
+- Gamificação saudável
+- Métricas sociais
+- Histórico permanente
+
+Para desenvolvedores:
+- Interface padronizada
+- Integração simples
+- Eventos claros
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
