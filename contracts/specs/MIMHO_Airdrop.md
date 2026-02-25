@@ -1,178 +1,127 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🎁 MIMHO Airdrop — Controlled Distribution Module
 
-#📘 DOCUMENTAÇÃO TÉCNICA — MIMHO AIRDROPS
+> **MIMHO – the Meme Coin of the Future**  
+> This document describes technical and operational behavior — not financial promises.  
+> Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-🔹 Nome do Módulo
+---
 
-MIMHO Airdrops
+## 👥 For Non-Technical Readers (Plain Explanation)
 
-🔹 Classificação
+The MIMHO Airdrop is a **controlled distribution mechanism** used to deliver tokens to users
+based on predefined rules.
 
-Contrato auxiliar oficial do ecossistema MIMHO
+It is **not** a free-for-all system.
 
-🔹 Status
+Every airdrop distribution follows strict, public, and verifiable logic enforced by smart contracts.
 
-100% on-chain • Automático • Transparente • Modular • Multichain-ready
+The airdrop exists to:
 
-🧱 1. VISÃO GERAL
+- Distribute tokens fairly
+- Prevent abuse and bots
+- Guarantee transparency
+- Ensure no manual intervention
 
-O MIMHO Airdrops é um sistema automatizado de distribuição periódica de tokens MIMHO, projetado para:
-Recompensar holders reais
-Incentivar participação ativa no ecossistema
-Evitar farming, bots e abusos
-Operar sem backend ou intervenção manual
-Preservar a saúde da carteira de marketing
-O contrato executa airdrops cíclicos, com critérios claros, públicos e auditáveis.
+If a token is distributed, it is **provably recorded on-chain**.
 
-🔗 2. INTEGRAÇÃO COM O ECOSSISTEMA
+---
 
-O contrato está totalmente integrado ao ecossistema MIMHO, utilizando:
-MIMHORegistry → resolução dinâmica de contratos oficiais
-MIMHOEventsHub → emissão de eventos públicos padronizados
-Oráculo de Preço MIMHO → cálculo dinâmico de elegibilidade em USD
-Contratos auxiliares:
-DAO
-Staking
-Burn
-Click-to-Burn
-Security Wallet
-Score / Persona (futuro)
-MIMHO Labs (monetização futura)
-Nenhuma dependência exige modificação no token MIMHO.
+## 🎯 What the Airdrop Is (and Is Not)
 
-🔐 3. SEGURANÇA E ANTIFRAUDE
+The MIMHO Airdrop:
 
-🚫 Blacklist automática (institucional)
-Não são elegíveis a airdrops:
-Carteiras do projeto
-Contratos do ecossistema
-Founder
-DAO
-Carteiras registradas no Registry como “sistema”
-Essa verificação é 100% on-chain, sem listas manuais.
-🤖 Proteções contra bots e farming
-Ciclo mínimo fixo (30 dias)
-Impossibilidade de execução antecipada
-Detecção de venda no ciclo anterior
-Limite máximo de bônus por usuário
-Cap global de distribuição por ciclo
-Rate-limit implícito pelo tempo
+- Distributes tokens based on predefined eligibility
+- Uses deterministic rules
+- Is fully on-chain and auditable
 
-⏱️ 4. CICLOS DE AIRDROP
+The MIMHO Airdrop:
 
-Periodicidade padrão: 30 dias
-Qualquer pessoa pode chamar a função de execução
-Quem chama não recebe vantagem
-Se o ciclo não estiver pronto → a transação reverte
-Execução determinística e auditável
-📌 O sistema é permissionless, mas não explorável.
+- Does **not** mint new tokens
+- Does **not** allow arbitrary manual transfers
+- Does **not** depend on trust in the team
 
-💰 5. ORIGEM DOS FUNDOS
+No wallet receives tokens outside the rules.
 
-Os tokens são transferidos exclusivamente da: Carteira de Marketing MIMHO
-Existe um limite máximo por ciclo, impedindo drenagem
-Exemplo:
-Cap: até X% da carteira de marketing por airdrop
-📌 O contrato nunca pode drenar toda a carteira.
+---
 
-🎁 6. MODELO DE DISTRIBUIÇÃO
+## 🔍 Distribution Rules (High Level)
 
-📦 Airdrop Base
-Valor inicial padrão: 50.000.000 MIMHOs
-Valor pode ser ajustado pela DAO ou Founder (antes da DAO ativa)
-📉 Ajuste automático
-Se o número de elegíveis for alto:
-O contrato recalcula proporcionalmente
-Todos recebem de forma justa
-Nenhum limite de carteira é violado
+- Airdrop tokens are **pre-allocated** to the contract
+- The contract can only distribute what it already holds
+- Each claim is validated before execution
+- Double-claims are impossible by design
 
-🧮 7. ELEGIBILIDADE (DINÂMICA EM USD)
+If the contract runs out of tokens, distribution **stops automatically**.
 
-Para participar do airdrop, o usuário deve:
-Ser holder de MIMHO
-Não ter vendido no último ciclo
-Manter o equivalente a US$ 50 em MIMHO
-Valor em tokens é calculado via oráculo on-chain
-Se o preço sobe → menos tokens exigidos
-Se o preço cai → mais tokens exigidos
-📌 Isso elimina manipulação por quantidade fixa.
+---
 
-🧩 8. SISTEMA DE BÔNUS (EXPANSÍVEL)
+## 👨‍💻 For Developers (Technical Summary)
 
-O contrato suporta bônus cumulativos por participação no ecossistema:
-Ação
-Bônus
-Participou do Quiz Academy
-+1%
-Votou na DAO no último mês
-+1%
-Possui tokens em staking
-+1%
-Queimou MIMHO voluntariamente
-+1%
-Existe um teto máximo de bônus
-Bônus são auditáveis individualmente
-Novas tarefas podem ser adicionadas no futuro
+The Airdrop module follows a **single-responsibility design**.
 
-🔮 9. EXPANSÃO FUTURA
+Its only purpose is to:
 
-O contrato foi projetado para evolução sem quebra de compatibilidade:
-Novos bônus por tarefas
-Integração com NFTs
-Airdrops cross-chain (L1 / L2 / L3)
-Uso como produto via MIMHO Labs
-Parcerias externas pagando em MIMHO
-Pontuação avançada via MIMHO Score / Persona
+- Validate eligibility
+- Transfer tokens
+- Emit events
 
-📣 10. EVENTOS E TRANSPARÊNCIA
+It does **not**:
 
-Todas as ações emitem eventos públicos, incluindo:
-Execução de airdrop
-Total distribuído
-Número de usuários
-Endereços bloqueados
-Limites atingidos
-Pausas e retomadas
-Esses eventos alimentam:
-Dashboards
-Bots
-Auditorias públicas
-Monitoramento comunitário
+- Hold governance power
+- Modify protocol rules
+- Interact with liquidity or pricing
 
-⛔ 11. PAUSE E GOVERNANÇA
+---
 
-O contrato pode ser pausado por:
-Founder (antes da DAO ativa)
-DAO (após ativação)
-Nenhuma distribuição ocorre enquanto pausado
-Retomada também exige evento público
+## 🔐 Security Model
 
-🧠 12. DESIGN PHILOSOPHY — MIMHO AIRDROPS
+- No mint function
+- No arbitrary transfer function
+- Optional Merkle-proof based eligibility
+- One-claim-per-wallet enforced on-chain
+- Reentrancy protection applied
 
-Segurança acima de rendimento
-Transparência acima de hype
-Automação acima de confiança humana
-Modularidade acima de rigidez
-Longo prazo acima de curto prazo
-Falha segura: se algo sair do padrão, não executa
+All state updates happen **before** token transfers.
 
-🧾 13. POSICIONAMENTO DE MARKETING (RESUMO)
+---
 
-Airdrops sustentáveis por até 25 anos
-Recompensas apenas para usuários reais
-Sem farming
-Sem bots
-Sem insiders
-Totalmente auditável
-100% on-chain
+## 🧭 Architecture (Registry-First)
 
-✅ CONCLUSÃO
+- The MIMHO token address is resolved via the Registry
+- No hardcoded token addresses are allowed
+- This prevents misrouting and fake-token risks
 
-O MIMHO Airdrops não é apenas um mecanismo de recompensa.
-É um sistema de incentivo sustentável, alinhado com:
-o token MIMHO
-a DAO
-a filosofia de longo prazo
-a confiança do mercado
-Projetado para sobreviver a ciclos, modas e especulação.
+The Airdrop is an isolated module, fully observable via Events Hub.
+
+---
+
+## 🏛️ Governance Model
+
+- Before DAO activation: controlled by the Founder
+- After DAO activation: parameters controlled by the DAO
+- Claims remain permissionless for users
+
+No hidden admin claims.  
+No silent rule changes.
+
+---
+
+## 🔗 Official Links
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+---
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.
+
+Timelines and parameters may evolve based on security reviews and governance decisions.
