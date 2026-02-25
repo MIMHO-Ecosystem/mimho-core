@@ -1,367 +1,163 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🛒 MIMHO Marketplace — On-Chain Asset Exchange Module
 
-#🛒 MIMHO Marketplace — Technical Documentation
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-Module: NFT Marketplace / Trustless Settlement Engine
-Status: Final Specification (Immutable Rules)
-Version: 1.0.0
-Language: English
+## 👥 Visão Geral (Para Leigos)
 
+O **MIMHO Marketplace** é o contrato responsável pela **compra e venda de ativos digitais** dentro do ecossistema MIMHO de forma **100% on-chain, transparente e sem intermediários**.
 
----
+Ele permite que usuários negociem NFTs, badges e ativos do ecossistema sem confiar em terceiros.
 
-🌍 1. Overview
+Tudo acontece diretamente por contrato inteligente.  
+Sem custodiante.  
+Sem moderação humana.  
+Sem alterações arbitrárias.
 
-The MIMHO Marketplace is a fully on-chain, trustless NFT marketplace designed to handle the listing, sale, and settlement of NFTs for both the MIMHO Ecosystem and external users.
+## 🚨 O Problema que Resolve
 
-It acts as a neutral settlement protocol, ensuring that:
+Em muitos marketplaces cripto:
+- Ordens são processadas off-chain
+- Taxas mudam sem aviso
+- Fundos ficam sob custódia de plataformas
+- Disputas dependem de suporte humano
 
-Sellers do not need to trust buyers
+No MIMHO Marketplace:
+- As regras são imutáveis
+- O pagamento é automático
+- O ativo só troca de dono se o pagamento for válido
+- O contrato executa exatamente o que está escrito
 
-Buyers do not need to trust sellers
+Não existe “confia que entrego”.  
+Entrega e pagamento são atômicos.
 
-NFTs are escrowed on-chain
+## ⚙️ Como o MIMHO Marketplace Funciona
 
-Payments and distributions are executed atomically
+O fluxo é simples e verificável:
 
+1. O vendedor lista um ativo:
+   - Define preço
+   - Define tipo do ativo
+   - Autoriza o contrato a transferir
 
-The Marketplace does not implement yield, staking, strategy, bonuses, or incentives. Its sole responsibility is secure NFT liquidation.
+2. O ativo fica listado publicamente on-chain
 
+3. Um comprador executa a compra:
+   - Envia o valor exato
+   - O contrato valida tudo
+   - O ativo muda de dono
+   - O pagamento é distribuído automaticamente
 
----
+Sem etapas ocultas.  
+Sem intervenção externa.
 
-🧠 2. Core Design Principles
+## 🧾 Tipos de Ativos Suportados
 
-Trustless by Design — NFTs are held in escrow until sale or cancellation
+O Marketplace pode negociar:
+- NFTs do MIMHO Mart
+- Badges de reputação
+- Ativos utilitários do ecossistema
+- Itens especiais de eventos ou missões
 
-Immutable Economics — Fees and splits are hardcoded and cannot be changed
+Cada listagem possui:
+- ID único
+- Vendedor
+- Ativo
+- Preço
+- Estado (ativo, vendido, cancelado)
 
-DAO-First Revenue — The DAO is always the primary beneficiary
+Tudo público.  
+Tudo auditável.
 
-Neutrality — No curation, whitelisting, or subjective logic
+## 💸 Taxas e Distribuição
 
-Auditability — Minimal logic, explicit flows, on-chain events
+Quando uma venda ocorre:
+- As taxas são aplicadas automaticamente
+- A divisão segue regras fixas do protocolo
+- Nenhuma taxa pode ser alterada manualmente
 
-Ecosystem Integration — Registry + Events Hub as backbone
+Distribuição típica:
+- Parte para o vendedor
+- Parte para o ecossistema (quando aplicável)
+- Parte para queima ou fundos definidos
 
+O contrato executa.  
+Ninguém decide depois.
 
+## 🔐 Segurança e Modelo CEI
 
----
+O Marketplace segue rigorosamente:
+- **Checks**
+- **Effects**
+- **Interactions**
 
-🧩 3. NFT Classification (MIMHO vs External)
+Isso garante:
+- Proteção contra reentrância
+- Estado atualizado antes de transferências
+- Nenhuma chamada externa perigosa no meio da lógica
 
-NFT classification is objective and deterministic:
-
-MIMHO NFT: An NFT minted exclusively by the MIMHO Mart contract
-
-External NFT: Any NFT not minted by the MIMHO Mart
-
-
-The Marketplace does not maintain allowlists or local setters.
-
-Classification rule:
-
-> If nftContract == MIMHO_MART (resolved via MIMHORegistry) → MIMHO NFT
-
-
-
-This guarantees:
-
-Zero ambiguity
-
-Zero configuration risk
-
-Full audit transparency
-
-
-
----
-
-📦 4. Supported Standards
-
-ERC-721 (full support)
-
-ERC-1155 (1/1 tokens supported in v1)
-
-ERC-2981 (royalty standard)
-
-
-All transfers use safeTransferFrom.
-
-
----
-
-🔄 5. Marketplace Lifecycle
-
-📝 5.1 Listing
-
-1. Seller calls listNFT()
-
-
-2. Ownership and approval are verified
-
-
-3. NFT is transferred to Marketplace escrow
-
-
-4. Listing is stored on-chain
-
-
-5. Event is emitted to the Events Hub
-
-
-
-💰 5.2 Purchase
-
-1. Buyer calls buyNFT() with exact payment
-
-
-2. Listing is validated
-
-
-3. Royalties (ERC-2981) are paid if applicable
-
-
-4. Marketplace fees are calculated
-
-
-5. Fees are distributed
-
-
-6. Seller or ecosystem receives proceeds
-
-
-7. NFT is transferred to buyer
-
-
-8. Events are emitted
-
-
-
-❌ 5.3 Cancellation
-
-Only the seller may cancel
-
-NFT is returned immediately
-
-No fees are charged
-
-
-
----
-
-💸 6. Fees (Immutable)
-
-🌐 6.1 External NFTs
-
-Marketplace Fee: 1.00%
-
-Distribution of the fee:
-
-10% Founder
-
-10% Marketing
-
-10% Liquidity Injection (or Staking if paused)
-
-70% DAO
-
-
-🚀 6.2 MIMHO NFTs
-
-Marketplace Fee: 0.50%
-
-Distribution of the fee:
-
-20% Founder
-
-10% Liquidity Injection (or Staking if paused)
-
-70% DAO
-
-
-🏛️ 6.3 Ecosystem-Owned Sales
-
-For NFTs sold directly by ecosystem contracts:
-
-100% of the net sale value (after royalties) belongs to the ecosystem
-
-Distribution:
-
-20% Founder
-
-10% Liquidity Injection (or Staking if paused)
-
-70% DAO
-
-
-
-There is no external seller in this mode.
-
-
----
-
-🔐 7. Founder Fee Guarantee
-
-The Founder SAFE address is hardcoded and immutable in the contract
-
-It does not rely on the Registry or post-deployment configuration
-
-Founder fees are always paid automatically on every applicable sale
-
-
-This guarantees:
-
-No configuration risk
-
-No operational dependency
-
-Permanent audit certainty
-
-
-
----
-
-🎨 8. Royalties
-
-Royalties are defined at mint time by the NFT contract (MIMHO Mart)
-
-The Marketplace respects ERC-2981 when present
-
-Royalties are paid before marketplace fee distribution
-
-The Marketplace never alters or overrides royalty logic
-
-
-This ensures full compatibility with external marketplaces.
-
-
----
-
-🛡️ 9. Security Model
-
-On-chain escrow (NFT custody)
-
-Reentrancy protection
-
-Strict ownership and approval checks
-
-Fixed price (no price changes after listing)
-
-Duplicate listing protection (one active listing per NFT)
-
-Emergency pause (DAO / Owner)
-
-
-Pausing disables new listings and purchases but does not cancel existing listings.
-
-
----
-
-🧯 10. Fail-Safe Payout System
-
-If any native token transfer fails:
-
-The sale is not reverted
-
-Funds are recorded as pending inside the contract
-
-The recipient can claim later via claimPending()
-
-
-This prevents:
-
-Cascading failures
-
-Denial-of-service by revert
-
-
-
----
-
-📊 11. Transparency & Metrics
-
-The Marketplace tracks on-chain counters:
-
-Total volume (MIMHO NFTs)
-
-Total volume (External NFTs)
-
-Total fees distributed
-
-Total royalties paid
-
-
-All critical actions emit standardized Events Hub events:
-
-NFT_LISTED
-
-NFT_SOLD
-
-LISTING_CANCELED
-
-FEES_DISTRIBUTED
-
-PAYOUT_PENDING
-
-
-Each event includes a flag identifying MIMHO vs External NFTs.
-
-
----
-
-🚫 12. Explicitly Out of Scope
-
-The Marketplace deliberately does not include:
-
-Auctions
-
-Bidding systems
-
-Dynamic pricing
-
-Bonuses or rewards
-
-Staking or strategy logic
-
-Upgradeability
-
-Fee setters or governance tuning
-
-
-These exclusions are intentional to reduce attack surface.
-
-
----
-
-🔗 13. Ecosystem Integration
-
-The Marketplace integrates via MIMHORegistry for:
-
-MIMHO Mart (NFT identity)
-
-DAO address
-
-Events Hub
-
-Liquidity Injection module
-
-Staking module
-
-
-The Registry is the single source of truth for ecosystem addresses, except for the Founder SAFE which is hardcoded.
-
-
----
-
-🏁 14. Conclusion
-
-The MIMHO Marketplace is a production-grade, DAO-first NFT settlement protocol designed for long-term stability, external adoption, and maximum transparency.
-
-Its immutable rules, minimal logic, and trustless escrow model make it suitable for both ecosystem-native NFTs and third-party creators without compromising security or governance.
-
-
----
-
-MIMHO – the Meme Coin of the Future 🚀
+Falhas não drenam fundos.  
+Erros não quebram o sistema.
+
+## 🧭 Integração com o Ecossistema
+
+O MIMHO Marketplace:
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Pode ser monitorado pelo **Observer / Audit**
+- Aparece em tempo real no HUD
+
+Cada ação gera eventos claros:
+- Item listado
+- Item comprado
+- Listagem cancelada
+- Pagamento executado
+
+Nada acontece em silêncio.
+
+## 🏛️ Governança e Controle
+
+- Antes da DAO: controle administrativo do fundador
+- Após DAO: controle exclusivo da DAO
+- Nenhuma autoridade pode:
+  - Tomar ativos de usuários
+  - Alterar preços ativos
+  - Cancelar vendas arbitrariamente
+
+O Marketplace não confia em pessoas.  
+Confia em regras.
+
+## 🧩 Benefícios do Modelo
+
+Para compradores:
+- Compra segura
+- Entrega imediata
+- Sem risco de golpe
+
+Para vendedores:
+- Liquidação automática
+- Sem intermediários
+- Regras previsíveis
+
+Para o ecossistema:
+- Utilidade real
+- Atividade on-chain
+- Transparência total
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
