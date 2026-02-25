@@ -1,188 +1,165 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🧠 MIMHO Strategy Hub — Governance-Driven Action Controller
 
-🧠 MIMHO Strategy Hub — On-Chain Intelligence & Rules Protocol
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-**The MIMHO Strategy Hub is the on-chain intelligence layer of the MIMHO Ecosystem.**
+## 👥 Visão Geral (Para Leigos)
 
-It operates as a deterministic rules engine, responsible for defining which assets, behaviors, or conditions generate bonuses or strategic advantages, while remaining completely value-agnostic.
-The Strategy Hub does not mint NFTs, does not move tokens, and does not execute financial logic.
-Its sole responsibility is to store protocol rules and return verifiable answers.
+O **MIMHO Strategy Hub** é o módulo responsável por **transformar decisões da governança em ações executáveis**, sem improviso e sem poder humano direto.
 
-##🎯 Purpose of the Strategy Hub
-The Strategy Hub exists to solve a fundamental scalability problem:
-How to evolve incentives, bonuses, and strategic rules without redeploying or modifying operational contracts.
-Its goals are to:
-Centralize strategic rules in a single on-chain source of truth
-Decouple logic evolution from operational contracts (Staking, DAO, Games)
-Enable plug-and-play NFTs and campaigns
-Guarantee predictable gas usage
-Enforce hard safety limits defined at protocol level
-Without the Strategy Hub, every new NFT or incentive would require contract changes.
-With it, strategy evolves independently.
+Ele funciona como uma **central de estratégias**:
+- A comunidade decide **o que pode ser feito**
+- O Strategy Hub define **como e quando isso pode acontecer**
+- Os contratos executam **somente dentro dessas regras**
 
----
+Nada acontece por impulso.  
+Nada acontece por “boa vontade”.  
+Tudo segue **estratégias aprovadas e registradas on-chain**.
 
-##🏗️ Architectural Role in the Ecosystem
-The MIMHO Strategy Hub is a pure intelligence layer.
-It interacts with the ecosystem as follows:
-Consumes: MIMHO Registry (dependency resolution)
-Emits: Events to the MIMHO Events Hub (HUD)
-Serves: Staking, DAO, Games, future modules
-Ignores: Tokens, payments, minting, trading
-It never initiates actions.
-It only responds to queries.
+## 🎯 Objetivo do Módulo
 
----
+O Strategy Hub existe para:
 
-##🧩 What the Strategy Hub Manages
-NFT-Based Strategic Rules
-Each NFT collection can be registered with:
-A bonus value (in basis points — BPS)
-One or more contexts (use-cases)
-An active/inactive state
-Example:
-NFT Genesis → +10% in Staking
-NFT Carnival → +5% in Games
-NFT Governance → +0% (symbolic only)
-NFTs can be activated, deactivated, or reconfigured without affecting any consumer contract.
+- Evitar decisões caóticas da DAO
+- Criar limites técnicos para ações sensíveis
+- Padronizar execuções estratégicas
+- Proteger o ecossistema de abuso de poder
+- Garantir previsibilidade e segurança
 
----
+Governança sem estratégia vira bagunça.  
+Estratégia sem governança vira centralização.  
+O Strategy Hub equilibra os dois.
 
-##🧠 Context-Aware Strategy Model (Option B)
-The Strategy Hub uses a context-based model, allowing different bonuses depending on usage.
-Examples of contexts:
-Staking
-Voting
-Games
-Reputation
-Future modules
-The Strategy Hub does not decide how a bonus is applied.
-It only returns a numeric value.
-Each consumer contract decides how to use it.
+## 🧠 Como Funciona na Prática
 
----
+O fluxo básico é:
 
-##🔐 Hard Safety Rules (Protocol Guarantees)
-Immutable Global Cap
-The Strategy Hub enforces an absolute hard cap:
-30% maximum total bonus (3000 BPS)
-This cap:
-Is immutable
-Cannot be exceeded by configuration errors
-Cannot be bypassed by the DAO
-Applies deterministically to every calculation
-This rule guarantees that no strategic change can destabilize the protocol.
+- A DAO aprova uma **estratégia**
+- A estratégia define:
+  - Qual ação é permitida
+  - Em qual módulo
+  - Com quais limites
+  - Em qual intervalo de tempo
+- O Strategy Hub valida a execução
+- O módulo alvo executa **somente se a estratégia permitir**
 
----
+Sem estratégia válida, **nenhuma ação estratégica acontece**.
 
-##🔁 Strategy Evaluation Flow
-A consumer contract (e.g. Staking) wants to apply bonuses
-It resolves the Strategy Hub address via the Registry
-It submits:
-User address
-Context
-A list of NFT contracts to consider
-The Strategy Hub:
-Verifies which NFTs are active
-Checks ownership via balanceOf (ERC-721)
-Sums applicable bonuses
-Applies the hard cap
-The final bonus (BPS) is returned
-The Strategy Hub never stores per-user state.
+## 🧩 Tipos de Estratégias
 
----
+O Strategy Hub pode controlar, por exemplo:
 
-##⛽ Gas Predictability & Limits
-To guarantee long-term gas stability, the Strategy Hub enforces:
-No global loops
-No internal NFT lists
-No dynamic storage traversal
-Explicit Limits
-Maximum NFTs per query: 30
-ERC-721 only (balanceOf check)
-All iteration is bounded and caller-controlled.
+- Injeções de liquidez
+- Queimas programadas
+- Distribuições especiais
+- Ajustes operacionais
+- Ações recorrentes ou pontuais
 
----
+Cada estratégia possui:
 
-##🔗 Integration with MIMHO Registry
-The Strategy Hub is fully Registry-coupled.
-All dependent addresses are resolved via Registry keys
-Strategy Hub itself is registered as a core contract
-Upgrades require only a Registry update
-This allows:
-Strategy upgrades without redeploying consumers
-Cross-chain deployments
-Modular ecosystem evolution
+- Identificador único
+- Parâmetros fixos
+- Limites máximos
+- Cooldowns
+- Condições explícitas
 
----
+Nada é genérico.  
+Nada é aberto demais.
 
-##📡 Events & Transparency
-Every administrative action emits:
-A local on-chain event
-A mirrored event to the MIMHO Events Hub (HUD) using best-effort execution
-Events include:
-NFT rule creation and updates
-NFT activation / deactivation
-Context cap updates
-DAO and ownership transitions
-Nothing is ever silently changed.
+## ⏳ Regras de Tempo e Limites
 
----
+Toda estratégia pode conter:
 
-##🚨 Emergency Controls
-The Strategy Hub supports protocol-standard emergency controls:
-pauseEmergencial()
-unpause()
-When paused:
-Administrative changes are blocked
-Read-only queries remain safe and deterministic
-This ensures governance safety without breaking user flows.
+- Cooldown mínimo entre execuções
+- Quantidade máxima por ação
+- Limite acumulado por período
+- Expiração automática
 
----
+Isso garante que:
 
-##🏛️ Governance & Ownership Model
-The Strategy Hub follows the MIMHO Absolute Governance Pattern:
-onlyDAOorOwner access model
-Explicit DAO activation
-No renounceOwnership()
-Safe and reversible transitions
-The DAO governs strategy, not execution.
+- A DAO não execute ações repetidas em sequência
+- O ecossistema tenha tempo de reagir
+- Não exista abuso por maioria momentânea
 
----
+## 🔐 Segurança
 
-##🧠 What the Strategy Hub Does NOT Do
-The Strategy Hub intentionally does not:
-Mint NFTs
-Transfer tokens
-Hold ETH or ERC-20 balances
-Apply rewards
-Execute swaps
-Enforce business logic
-This strict separation keeps it:
-Auditable
-Predictable
-Non-custodial
-Low-risk
+O Strategy Hub:
 
----
+- Não guarda fundos
+- Não cria tokens
+- Não executa lógica financeira direta
+- Não possui função de saque
 
-##🔐 Security & Audit Posture
-No value custody
-No external calls that move funds
-No circular dependencies
-Deterministic outputs
-Fully event-logged changes
-The Strategy Hub is designed to be simple to audit and difficult to misuse.
+Ele apenas **autoriza ou bloqueia execuções** com base em regras já aprovadas.
 
----
+Se a estratégia não permitir, a ação não acontece.
 
-##🏁 Conclusion
-The MIMHO Strategy Hub is the strategic brain of the ecosystem.
-It enables:
-Modular growth
-NFT-driven incentives
-DAO-governed evolution
-Long-term protocol safety
-By separating strategy from execution, MIMHO ensures that innovation never compromises stability.
-Rules evolve. Contracts remain stable.
+## 🧬 Integração com o Ecossistema
+
+O Strategy Hub:
+
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Atua como camada intermediária entre:
+  - DAO
+  - Liquidity Modules
+  - Burn
+  - Distribution
+- Não substitui módulos
+- Não concentra poder
+
+Ele coordena.
+
+## 🏛️ Governança
+
+- Antes da DAO: estratégias iniciais definidas pelo fundador
+- Após a DAO: criação, alteração e revogação via votação
+- Estratégias ativas ficam públicas e auditáveis
+- Estratégias não podem ser executadas fora das regras
+
+Governança decide.  
+Código garante.
+
+## 📊 Impacto para a Comunidade
+
+Para holders:
+- Menos decisões arbitrárias
+- Mais previsibilidade
+- Maior confiança na governança
+
+Para o projeto:
+- Execução organizada
+- Menos riscos sistêmicos
+- Crescimento controlado
+
+Para auditoria:
+- Estratégias claras
+- Histórico público
+- Ações rastreáveis
+
+## 🧩 Filosofia do Módulo
+
+O Strategy Hub prova que:
+
+- Governança precisa de freios
+- Poder precisa de limites
+- Decidir é diferente de executar
+- Código deve proteger até da maioria
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
