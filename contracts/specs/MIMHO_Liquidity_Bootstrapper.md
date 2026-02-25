@@ -1,156 +1,144 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🌊 MIMHO Liquidity Bootstrapper — One-Shot Liquidity Engine
 
-📘 MIMHO Liquidity Bootstrapper
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-Documentação Técnica do Módulo
+## 👥 Visão Geral (Para Leigos)
 
-🔹 Nome do Módulo
+O **Liquidity Bootstrapper** é o contrato responsável por **criar a liquidez inicial** do token MIMHO de forma **automática, transparente e irreversível**.
 
-MIMHO Liquidity Bootstrapper
+Ele existe para cumprir **uma única missão** — e apenas uma vez:
 
-🔹 Classificação
+- Criar o par MIMHO / BNB
+- Definir o preço inicial
+- Adicionar liquidez
+- Queimar os LP tokens
 
-Contrato Auxiliar Crítico — Launch Infrastructure
+Depois disso, ele **não pode ser reutilizado**.
 
-🔹 Status
+Sem manutenção.  
+Sem ajustes manuais.  
+Sem possibilidade de retirada futura.
 
-Pré-ativação (deploy antes da pré-venda)
-Execução única (one-shot)
+## 🚨 O Problema que Resolve
 
-🔹 Visão Geral
+Em muitos projetos:
+- Liquidez é removida depois do lançamento
+- LPs ficam sob controle humano
+- Preços iniciais são manipuláveis
+- Existe risco permanente de rug pull
 
-O MIMHO Liquidity Bootstrapper é um contrato auxiliar responsável por criar a liquidez inicial do par MIMHO/BNB de forma automática, segura e verificável, sem intervenção humana após o encerramento da pré-venda.
-Este contrato elimina riscos clássicos de lançamento, como:
-Custódia manual de tokens de liquidez
-Criação manual de pool
-Manipulação de preço inicial
-Promessas futuras de adição de liquidez
-Todo o processo é determinístico, auditável e executado on-chain.
+No MIMHO:
+- Liquidez nasce bloqueada
+- LP é queimado
+- Não existe chave de resgate
+- O risco estrutural é eliminado por código
 
-🔹 Responsabilidade do Contrato
+Liquidez não é promessa.  
+É **estado final on-chain**.
 
-O Liquidity Bootstrapper é responsável exclusivamente por:
-Receber tokens MIMHO reservados para liquidez
-Receber BNB arrecadado da pré-venda
-Calcular automaticamente o preço de lançamento
-(pré-venda + 10%)
-Criar a pool MIMHO/BNB com:
-90% do BNB arrecadado
-Quantidade exata de MIMHO correspondente
-Queimar 100% dos LP tokens gerados
-Enviar tokens MIMHO excedentes para o MIMHO Locker
-
-**⚠️ O contrato não pode:**
-Vender tokens
-Retirar BNB
-Recriar liquidez
-Executar mais de uma vez
-
-🔹 Integração com o Ecossistema MIMHO
-Tipo:
-
-🔒 One-shot contract (não contínuo)
-Integrações:
-MIMHO Token (BEP-20)
-MIMHO Presale Contract
-DEX Router oficial
-MIMHO Locker
-MIMHO Events Hub
-Após a execução bem-sucedida, o contrato entra em estado finalizado e inativo.
-
-🔹 Fluxo de Funcionamento
-
-##1️⃣ Pré-deploy
-Recebe:
-300.000.000.000 MIMHO
-Nenhuma função de execução ativa
-
-##2️⃣ Encerramento da Pré-venda
-Recebe BNB do contrato de pré-venda
-Valida:
-Pré-venda finalizada
-Execução ainda não realizada
-
-##3️⃣ Cálculo Automático
-Determina:
-Preço da pré-venda
-Preço de lançamento = pré-venda + 10%
-Quantidade exata de MIMHO necessária
-
-##4️⃣ Criação da Pool
-Usa:
-90% do BNB arrecadado
-Tokens MIMHO calculados
-Cria o par MIMHO/BNB
-
-##5️⃣ Pós-execução
-Queima 100% dos LP tokens
-Envia tokens excedentes para o Locker
-Marca contrato como executado
-
-🔹 Segurança e Antifraude
-
-🔐 Proteções Estruturais
-Execução única (executed == true)
-Zero funções de retirada
-Zero funções de venda
-Router imutável
-Par validado
-
-🔐 Proteções de Código
-ReentrancyGuard
-Checks-Effects-Interactions
-Slippage control obrigatório
-Validações estritas de estado
-
-🔐 Proteções Econômicas
-Preço não definido manualmente
-Proporção token/BNB calculada automaticamente
-Liquidez não pode ser removida
-LP tokens queimados irreversivelmente
-
-🔹 Eventos Emitidos (Events Hub)
-
-Todos os eventos são públicos, padronizados e integrados ao MIMHO Events Hub:
-LiquidityBootstrapped(uint256 mimhoAmount, uint256 bnbAmount)
-LPBurned(uint256 lpAmount)
-LiquidityExcessLocked(uint256 excessMIMHO)
-BootstrapperFinalized()
-Esses eventos permitem:
-Auditoria social
-Dashboards públicos
-Verificação independente
-Integração cross-chain futura
-
-🔹 Transparência On-Chain
+## ⚙️ Como o Liquidity Bootstrapper Funciona
 
 Antes da pré-venda:
-Contrato deployado
-Tokens já alocados
-Hashes públicos verificáveis
-Durante o launch:
-Execução automática
-Sem intervenção humana
-Após o launch:
-Contrato inativo
-Estado imutável
-Histórico completo preservado
+- O fundador envia antecipadamente **300 bilhões de tokens MIMHO** para o contrato
+- O contrato fica aguardando os BNBs da pré-venda
 
-🔹 Filosofia de Design
+Durante a pré-venda:
+- **90% dos BNBs arrecadados** são direcionados automaticamente ao Liquidity Bootstrapper
 
-Trustless by design
-No human execution
-No future promises
-DAO-ready
-Audit-friendly
-Exchange-friendly
+No momento da execução:
+1. O contrato cria o par MIMHO / BNB
+2. Define o preço inicial **10% acima do preço da pré-venda**
+3. Adiciona liquidez usando os BNBs recebidos
+4. **Queima permanentemente os LP tokens**
+5. Finaliza sua própria missão
 
-🔹 Conclusão
+Execução única.  
+Sem repetição.  
+Sem rollback.
 
-O MIMHO Liquidity Bootstrapper garante que a liquidez inicial do token MIMHO seja:
-Criada corretamente
-Precificada corretamente
-Bloqueada permanentemente
-Totalmente verificável
-**Sem depender de confiança, promessas ou ações futuras do fundador.**
+## 🔥 Queima de LP (Liquidez Irreversível)
+
+Após a criação da pool:
+- Os LP tokens **não ficam em carteira**
+- Eles são enviados para o endereço de queima
+- Não existe função de recuperação
+
+Isso garante:
+- Liquidez permanente
+- Impossibilidade de remoção
+- Confiança estrutural no mercado
+
+Liquidez criada ≠ liquidez controlada.  
+Aqui, ela é **irrecuperável**.
+
+## 🔁 Tokens Não Utilizados → Inject Liquidity
+
+Nem todos os 300 bilhões de tokens enviados ao Bootstrapper são usados na pool inicial.
+
+Os tokens excedentes:
+- São enviados automaticamente para o **Inject Liquidity**
+- Nunca retornam ao fundador
+- Só podem ser usados para **injeções futuras de liquidez**, mediante governança
+
+Nenhum token fica “sobrando” em carteira humana.
+
+## 🧭 Integração com o Ecossistema
+
+O Liquidity Bootstrapper:
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Não depende de backend
+- Não aceita chamadas arbitrárias
+
+Ele existe apenas para **inicializar o mercado**.
+
+Depois disso:
+- Torna-se inativo
+- Não interfere mais no ecossistema
+
+## 🏛️ Governança e Controle
+
+Antes da execução:
+- Parâmetros são definidos e auditáveis
+
+Após a execução:
+- **Não existe governança possível**
+- Nenhuma DAO, fundador ou multisig pode alterá-lo
+
+O controle é substituído por finalização.
+
+## 🧩 Benefícios do Modelo
+
+Para holders:
+- Confiança na liquidez
+- Preço inicial previsível
+- Zero risco de remoção futura
+
+Para o ecossistema:
+- Lançamento limpo
+- Base de mercado estável
+- Credibilidade técnica
+
+Para desenvolvedores:
+- Lógica simples
+- Auditoria direta
+- Zero superfície pós-execução
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
