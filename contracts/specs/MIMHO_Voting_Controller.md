@@ -1,227 +1,152 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🗳️ MIMHO Voting Controller — Governance Execution Engine
 
-🗳️ MIMHO Voting Controller
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-**Pre-DAO Governance Module**
+## 👥 Visão Geral (Para Leigos)
 
-##📌 Overview
+O **MIMHO Voting Controller** é o contrato responsável por **transformar votos da comunidade em ações reais**.
 
-The MIMHO Inject Liquidity Voting Controller is a minimal, non-financial, pre-DAO governance contract designed to allow the MIMHO community to decide if and when the MIMHOInjectLiquidity contract may execute an automatic liquidity injection.
-This contract does not execute liquidity actions, does not move funds, and does not manage tokenomics.
-Its sole responsibility is authorization.
-Decision = Voting Controller
-Execution = Inject Liquidity
+Ele é o mecanismo que garante que:
+- Votar não seja simbólico
+- Decisões não fiquem no papel
+- Governança não dependa de pessoas
+- Nenhuma ação ocorra sem aprovação on-chain
 
----
+Aqui, **votar muda o sistema de verdade**.
 
-##🎯 Purpose
-Enable the community to vote, in a transparent and on-chain way, on the following single question:
-“Is the Inject Liquidity contract authorized to execute one automatic liquidity injection during this cycle?”
-🚫 What This Contract Is NOT
-**❌ Not a DAO**
-❌ Does not hold tokens, BNB, or LP
-❌ Does not inject liquidity
-❌ Does not execute swaps
-❌ Does not burn tokens
-❌ Does not modify economic parameters
-❌ Does not depend on off-chain automation
+## 🎯 Objetivo do Módulo
 
----
+O Voting Controller existe para:
 
-##🧠 Design Philosophy (MIMHO Absolute Standard)
-Minimal & Single-Purpose
-Fail-Safe by Design
-No Financial Risk Surface
-Registry-Driven Architecture
-Transparent & HUD-Ready
-Clean Transition to DAO Governance
-No Circular Dependencies
-No Cron / No Automation Illusions
-If something goes wrong, the contract fails safely by doing nothing.
+- Executar decisões aprovadas pela DAO
+- Controlar ações sensíveis do ecossistema
+- Impedir ações arbitrárias
+- Centralizar a execução governada
+- Garantir previsibilidade e rastreabilidade
 
----
+Sem admins ocultos.  
+Sem multisig humano decisório.  
+Sem “jeitinho”.
 
-##🧩 Role in the MIMHO Ecosystem
+## 🧠 O Papel na Governança
 
-**✅ What It DOES**
-Starts voting cycles
-Provides a preparation phase for community discussion
-Accepts YES / NO votes
-Applies a configurable minBalance requirement
-Counts votes with balance snapshot
-Finalizes the vote (anyone can call)
-Pushes authorization to MIMHOInjectLiquidity
-Emits events for:
-HUD
-Dashboards
-Oracles (Veritas)
-Social audit
+No ecossistema MIMHO:
 
-**❌ What It DOES NOT**
-Does not trigger injections
-Does not decide timing
-Does not execute financial logic
+- A DAO **decide**
+- O Voting Controller **executa**
 
----
+Ele é o braço operacional da governança.
 
-##🔗 Contract Integrations
-All integrations are resolved exclusively via MIMHORegistry:
-MIMHOToken – balance snapshot for voting power
-MIMHOInjectLiquidity – authorization target
-MIMHOEventsHub – HUD & ecosystem events
-⚠️ No hardcoded addresses.
-⚠️ No duplicate keys.
-⚠️ Registry is the single source of truth.
+Nenhum módulo crítico pode executar ações relevantes sem passar por ele.
 
-**🗳️ Voting Model**
+## ⚙️ Tipos de Ações Controladas
 
-🔹 Type
-Binary voting: YES / NO
-Weighted by token balance (snapshot at first vote)
+O Voting Controller pode autorizar, entre outras:
 
-🔹 Decision Scope
-Each voting cycle decides only one thing:
-Copiar código
-Text
-Authorize Inject Liquidity to execute one automatic injection?
-🔐 Voting Eligibility
-✅ Only condition applied
-Minimum MIMHO balance (minBalance)
+- Injeções de liquidez
+- Queimas programadas
+- Ativação ou pausa de módulos
+- Atualizações de endereços no Registry
+- Execução de propostas estratégicas
+- Parâmetros permitidos por governança
 
----
+Cada ação:
+- Tem regras claras
+- Exige votação válida
+- É registrada on-chain
 
-##🔧 Configuration
+## 🗂️ Fluxo de Funcionamento
 
-Adjustable by onlyDAOorOwner
-Locked during active voting
-Can be set to 0 for fully open voting
-❌ No holding time
-❌ No anti-whale
-❌ No reputation
-❌ No score dependency
-⏳ Voting Cycle Flow
+1. Uma proposta é criada na DAO
+2. A comunidade vota
+3. A proposta é aprovada (ou rejeitada)
+4. Se aprovada:
+   - O Voting Controller recebe autorização
+   - Executa a ação específica
+5. Um evento é emitido no Events Hub
 
-**🟡 Phase 1 — Preparation**
-Community discussion
-No votes accepted
-Defined by prepareDuration
+Sem aprovação, **nada acontece**.
 
-**🟢 Phase 2 — Voting**
-Votes are accepted
-Functions:
-voteYes()
-voteNo()
-One vote per address
-Snapshot on first vote
+## ⏳ Regras de Segurança
 
-**🔴 Phase 3 — Finalization**
-Happens after voteEnd
-Anyone can call finalizeVote()
-No admin dependency
+O Voting Controller aplica:
 
-**✅ Vote Result Execution**
-If YES > NO
-The contract calls:
-MIMHOInjectLiquidity.setAutoInject(true);
-This authorizes Inject Liquidity to execute one injection, respecting:
-its internal cooldown
-its own safety checks
-auto-disable after execution
-If NO
-No action is taken
-Inject Liquidity remains blocked
+- Cooldowns entre execuções
+- Limites de frequência
+- Proteções contra repetição
+- Validação estrita de propostas
+- Execução determinística
 
----
+Isso evita:
+- Spam de propostas
+- Ataques de governança
+- Decisões impulsivas
+- Abuso por maioria momentânea
 
-##🔄 Cyclical Governance
-Voting cycles are rate-limited by voteCooldown
-Cooldown is:
-adjustable
-bounded (min / max)
-locked during active voting
-📌 This prevents spam voting and market manipulation.
-🛡️ Security Guarantees
-Reentrancy protection
-Snapshot-based voting
-No external calls during vote counting
-No fund handling
-No upgrade logic
-Emergency pause / unpause
-Fail-safe defaults
+## 🏛️ Relação com a DAO
 
----
+- Antes da ativação da DAO:
+  - O controlador pode estar inativo ou limitado
+- Após a ativação:
+  - Somente decisões da DAO passam
+  - Nenhuma entidade individual executa ações
 
-##🔁 DAO Transition Model
-Pre-DAO
-Controlled by onlyOwner or onlyDAOorOwner
-Post-DAO
-Full control migrates to DAO
-No redeploy required
-No logic changes required
+A DAO **não executa diretamente**.  
+Ela governa através do Controller.
 
----
+## 🔐 Imutabilidade e Limites
 
-##📡 Events & Transparency
-Local Events
-VoteStarted
-VoteCast
-VoteFinalized
-AutoInjectStatusChanged
-MinBalanceChanged
-VoteCooldownChanged
-Ecosystem Events
-Emitted via MIMHO Events Hub
-Best-effort (try/catch)
-Never blocks core logic
+O Voting Controller:
 
----
+- Não possui funções genéricas de execução
+- Não é um “executor livre”
+- Só executa ações explicitamente programadas
+- Não permite comandos arbitrários
+- Não pode ser usado fora do escopo definido
 
-##🧰 Public View Functions (HUD)
-isPreparePhase()
-isVotingPhase()
-isVotingActive()
-hasVoteEnded()
-voteEndTime()
-hasVoted(address)
-canVote(address)
-currentAutoInjectStatus()
-injectLiquidityAddress()
-tokenAddress()
-All are view, safe, and gas-efficient.
+Governança com trilhos.  
+Não governança caótica.
 
----
+## 🔁 Integração com o Ecossistema
 
-##🧭 Relationship With Inject Liquidity
-Responsibility
-Contract
-Decide IF
-Voting Controller
-Decide WHEN
-Inject Liquidity
-Execute injection
-Inject Liquidity
-Enforce cooldown
-Inject Liquidity
-Auto-disable
-Inject Liquidity
+O Voting Controller:
 
-**📌 Separation of concerns is absolute.**
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos via **MIMHO Events Hub**
+- Atua sobre:
+  - Inject Liquidity
+  - Burn Module
+  - Registry
+  - Outros módulos governáveis
+- Fornece dados para HUD e auditoria pública
 
-##📣 Community-Friendly Summary
-“Before the DAO is active, the community decides — transparently and on-chain — when liquidity can be reinforced.
-This contract does not move funds, sell tokens, or inject liquidity.
-It only authorizes.”
+## 🧠 Filosofia do Controller
 
----
+Este módulo existe porque:
 
-##✅ Conclusion
-The MIMHO Inject Liquidity Voting Controller is:
-Minimal
-Transparent
-Non-financial
-Secure by design
-Fully on-chain
-Pre-DAO friendly
-DAO-ready
-Aligned with the MIMHO philosophy
+- Governança sem execução é teatro
+- Poder precisa de limites técnicos
+- Código deve proteger o sistema da própria comunidade
+- Decisões devem ser lentas o suficiente para serem seguras
+
+Aqui, **governança não é promessa**.  
+É execução controlada.
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
