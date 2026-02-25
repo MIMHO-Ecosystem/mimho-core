@@ -1,157 +1,148 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🎓 MIMHO Quiz Academy — On-Chain Education & Engagement Module
 
-📘 DOCUMENTAÇÃO TÉCNICA
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-MIMHO Quiz 
-Educação Gamificada On-Chain do Ecossistema MIMHO
+## 👥 Visão Geral (Para Leigos)
 
-🧠 Visão Geral
-O MIMHO Quiz é um contrato inteligente 100% on-chain criado para educar usuários sobre o ecossistema MIMHO por meio de quizzes gamificados, distribuindo recompensas em tokens MIMHO de forma justa, transparente, auditável e sustentável.
-O contrato foi desenhado para:
-Evitar qualquer tipo de retirada manual de fundos
-Garantir máxima transparência
-Prevenir abuso e exploração
-Servir como base para produtos futuros da MIMHO Labs
+A **MIMHO Quiz Academy** é o módulo educacional do ecossistema.
 
-🎯 Objetivos do Contrato
-Incentivar aprendizado real sobre a MIMHO
-Recompensar usuários ativos e engajados
-Criar histórico público de participação educacional
-Reforçar confiança no ecossistema
-Transformar educação em ativo on-chain
+Ela existe para transformar aprendizado em participação real, usando quizzes on-chain
+como forma de:
 
-🔁 Ciclos de Funcionamento
-O Quiz opera em ciclos de 30 dias
-Cada ciclo possui:
-Identificador próprio (cycleId)
-Pool de recompensas fixo
-Contador de participantes
-Usuários podem jogar quantas vezes quiserem
-Cada carteira só pode receber recompensa 1 vez por ciclo
+- Educar a comunidade
+- Incentivar leitura da documentação
+- Recompensar conhecimento, não hype
+- Criar engajamento saudável
 
-💰 Recompensas
-Pool por ciclo
-Valor inicial: 50.000.000 MIMHO por ciclo
-Totalmente configurável para ciclos futuros
-Alterações não afetam ciclos em andamento
-Distribuição
-Ao final do ciclo:
-O contrato calcula:
+Aqui, aprender **gera valor**.
 
-recompensaPorUsuário = rewardPerCycle / totalParticipants
-Todos os participantes que concluíram o quiz recebem o mesmo valor
-O usuário precisa chamar a função claimReward()
-📌 O contrato nunca empurra tokens, apenas libera via claim.
+## 🎯 Objetivo do Módulo
 
-💼 Funding do Contrato
-Pool inicial:
-1.000.000.000 MIMHO do fundador
-Pools futuros:
-Carteira de Marketing
-DAO (quando ativa)
-Regras de funding
-Apenas depósitos são permitidos
-Nenhuma carteira (fundador, marketing, DAO ou contrato) pode retirar fundos
-Todo funding emite evento público on-chain
+O Quiz Academy foi criado para:
 
-🔐 Segurança e Transparência
-❌ Proibido
-Withdraw manual
-Emergency withdraw humano
-Qualquer função que permita retirada arbitrária
-✅ Permitido
-Apenas distribuição automática via regras do contrato
-Fail-safe automático baseado em tempo (ver abaixo)
-⏳ Fail-Safe Automático (Proteção Anti-Tokens Presos)
-Para evitar tokens presos para sempre:
-O contrato monitora o timestamp da última interação válida
-Se o contrato ficar 100% inativo por 2 anos (730 dias):
-Qualquer pessoa pode chamar triggerFailsafe()
-O contrato transfere automaticamente todos os tokens restantes para a DAO
-O contrato entra em estado final e imutável
-📌 Não existe botão humano
-📌 Não existe decisão subjetiva
-📌 Apenas tempo + inatividade extrema
-Isso não representa risco ao holder e aumenta a confiança.
+- Incentivar entendimento do ecossistema
+- Evitar usuários que não sabem o que estão comprando
+- Premiar quem estuda, não quem especula
+- Criar histórico on-chain de participação educacional
 
-🌟 DIFERENCIAIS EXCLUSIVOS MIMHO
+Não é jogo de sorte.  
+Não é faucet.  
+É **educação verificável**.
 
-⭐ 1. Certificação On-Chain (Badge / Prova de Conhecimento)
-Ao concluir o quiz:
-O usuário recebe uma prova pública on-chain
-Pode ser implementado como:
-NFT Soulbound (não transferível)
-Registro no MIMHO Certify
-💡 Significado:
-“Esta carteira entende o ecossistema MIMHO.”
-Uso futuro:
-Governança
-Pré-vendas
-Acesso a quizzes premium
-Status reputacional
-⭐ 2. Histórico Público de Aprendizado
-O contrato registra métricas educacionais:
-Total de quizzes concluídos por carteira
-Total de ciclos participados
-Esses dados:
-São públicos
-Não dependem de backend
-Criam identidade educacional on-chain
-📌 Não é score financeiro
-📌 É reputação de conhecimento
-⭐ 3. Quiz como Produto da MIMHO Labs
-O contrato já nasce preparado para:
-Campanhas internas da MIMHO
-Campanhas externas de outros projetos
-Modelo de monetização via MIMHO Labs
-Isso transforma o Quiz em:
-Educação + Marketing + Receita On-Chain
+## 🧠 Como Funciona na Prática
 
-🧩 Lógica de Elegibilidade
-Para participar e receber recompensa:
-Carteira deve ser EOA (não contrato)
-Não pode ter recebido recompensa no mesmo ciclo
-Deve concluir o quiz dentro do ciclo
-Deve chamar claimReward() após o ciclo fechar
+O Quiz Academy opera por ciclos.
 
-📣 Eventos Públicos (Auditáveis)
-O contrato emite eventos para:
-Início de ciclo
-Encerramento de ciclo
-Funding
-Conclusão de quiz
-Claim de recompensa
-Atualização de parâmetros
-Ativação de fail-safe
-Esses eventos:
-Alimentam o HUD
-Servem para marketing
-São prova pública de funcionamento correto
+Em cada ciclo:
 
-🧑‍💻 Integrações Nativas
-O contrato é totalmente integrado ao ecossistema MIMHO:
-MIMHO Registry
-DAO (onlyDAOorOwner)
-HUD
-Events Hub
-Certify (badge)
-Labs (uso externo)
-Pause emergencial
-Evolução futura sem breaking changes
+- Um conjunto de perguntas é publicado
+- As perguntas são baseadas em:
+  - Whitepaper
+  - Roadmap
+  - Specs dos contratos
+  - Funcionamento real do ecossistema
+- Usuários respondem diretamente via contrato
 
-🛡️ Filosofia de Design (Design Philosophy)
-Transparência acima de tudo
-Nenhuma confiança em humanos
-Regras claras e imutáveis
-Educação antes de especulação
-Segurança > complexidade
-Tudo público, tudo auditável
+As respostas:
+- São registradas on-chain
+- Não podem ser alteradas depois
+- Não dependem de backend oculto
 
-✅ Status Final
-Arquitetura: Aprovada
-Segurança: Alta
-Transparência: Máxima
-Pronto para marketing: Sim
-Pronto para DAO: Sim
-Pronto para Labs: Sim
+## 🏆 Recompensas
+
+As recompensas do Quiz Academy podem incluir:
+
+- Tokens MIMHO
+- NFTs do MIMHO Mart
+- Badges de reputação
+- Pontuação no sistema de Score / Persona
+
+As recompensas:
+
+- São pré-alocadas
+- Não vêm de taxas do usuário
+- Não são inflacionárias
+- Não são arbitrárias
+
+Nenhum admin decide quem ganha depois.
+
+## 🧪 Regras Anti-Abuso
+
+O módulo possui proteções claras:
+
+- Uma tentativa por carteira (por ciclo)
+- Sem múltiplas respostas
+- Sem reset manual
+- Sem privilégios ocultos
+
+Bots não têm vantagem estrutural.  
+Aprendizado real é o único caminho.
+
+## 🧬 Integração com o Ecossistema
+
+O Quiz Academy:
+
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Pode interagir com:
+  - Holder Distribution
+  - MIMHO Mart
+  - Score / Persona
+- Não movimenta fundos livremente
+- Não cria tokens
+
+Ele apenas **executa regras educacionais**.
+
+## 📊 Impacto para a Comunidade
+
+Para usuários:
+- Aprendem antes de participar
+- São recompensados por entender
+- Criam histórico on-chain positivo
+
+Para o projeto:
+- Comunidade mais qualificada
+- Menos FUD
+- Menos desinformação
+
+Para auditoria:
+- Regras claras
+- Execução previsível
+- Eventos públicos
+
+## 🏛️ Governança
+
+- Antes da DAO: controle do fundador
+- Após a DAO: parâmetros ajustáveis via votação
+- Recompensas, ciclos e regras podem ser votados
+- Nenhuma mudança retroativa é permitida
+
+Governança educa, não manipula.
+
+## 🧩 Filosofia do Módulo
+
+O Quiz Academy existe para provar que:
+
+- Educação pode ser gamificada
+- Comunidade pode ser inteligente
+- Memecoin não precisa ser ignorante
+- Conhecimento também é utilidade
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
