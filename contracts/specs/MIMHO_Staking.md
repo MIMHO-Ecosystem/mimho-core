@@ -1,149 +1,153 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🪙 MIMHO Staking — Long-Term Alignment Module
 
-📘 MIMHO STAKING
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-Documentação Técnica Oficial — Ecossistema MIMHO
+## 👥 Visão Geral (Para Leigos)
 
-1. Visão Geral
-O MIMHO Staking é o módulo oficial de travamento de tokens do ecossistema MIMHO, projetado para:
-Recompensar holders de longo prazo
-Proteger o supply e reduzir pressão de venda
-Servir como destino final sustentável de taxas do ecossistema
-Operar com segurança máxima, sem possibilidade de saque arbitrário
-O contrato foi desenhado para sobreviver por mais de 10 anos, inclusive em cenários adversos, mantendo previsibilidade, transparência e governança descentralizada.
+O **MIMHO Staking** é o módulo que recompensa **compromisso de longo prazo**, não especulação.
 
-2. Princípios Fundamentais (Design Philosophy Imutável)
-O contrato segue princípios explícitos e imutáveis, documentados on-chain:
-Tokens nunca podem ser retirados manualmente
-Nem fundador
-Nem DAO
-Nem carteiras SAFE
-Nem contratos internos
-Saída de tokens apenas por regras automáticas
-Exclusivamente via recompensas de staking
-Governadas por lógica fixa e limites globais
-Transparência total
-Todos os eventos são públicos
-Todas as métricas possuem funções de leitura (view)
-Integração nativa com HUD, Registry e EventsHub
-Evolução sem risco
-Contrato preparado para L2, cross-chain e oráculos
-Funções futuras já existem, retornando valores neutros até ativação
+Ao fazer stake, o usuário **bloqueia voluntariamente** seus tokens MIMHO por um período
+e passa a participar do ecossistema com benefícios proporcionais ao tempo e ao valor comprometido.
 
-3. Arquitetura no Ecossistema MIMHO
-O MIMHO Staking está totalmente integrado aos contratos centrais:
-MIMHORegistry
-Descoberta dinâmica de contratos do ecossistema
-MIMHOEventsHub
-Emissão padronizada de eventos
-MIMHO Score
-Boosts de reputação e multiplicadores
-MIMHO Veritas (Oráculo)
-Sincronização de dados cross-chain
-HUD / App MIMHO
-Interface de leitura e ações
-Nenhum endereço é hardcoded, tudo é resolvido via Registry.
+Não existe rendimento mágico.  
+Não existe promessa fixa.  
+Tudo é **regra on-chain**, pública e verificável.
 
-4. Regras de Participação no Staking
+## 🎯 Objetivo do Módulo
 
-4.1 Requisitos Mínimos
-Quantidade mínima de tokens para stake (ex: 100.000 MIMHO)
-Tempo mínimo de holding antes de gerar recompensa (ex: 7 dias)
-Blacklist integrada ao sistema
-Esses parâmetros são configuráveis pela DAO, dentro de limites seguros.
-4.2 Tempo e Recompensas
-Recompensas crescem com o tempo contínuo de stake
-Sistema preparado para:
-Badges
-NFTs comemorativos
-Benefícios em jogos e outros vetores
+O Staking foi criado para:
 
-5. Sistema de Recompensas
+- Incentivar holding consciente
+- Reduzir pressão de venda
+- Recompensar quem sustenta o ecossistema
+- Criar previsibilidade de participação
+- Integrar usuários à governança e utilidades
 
-5.1 Fonte das Recompensas
-As recompensas do staking podem vir de múltiplas fontes:
-Taxas do ecossistema MIMHO
-Redirecionamento automático de taxas de queima
-Receitas futuras de serviços MIMHO Labs
-Injeções programadas via contratos auxiliares
-⚠️ Importante:
-Após o supply atingir o piso mínimo de 500 bilhões, todas as taxas que antes eram destinadas à queima passam automaticamente a alimentar o Staking.
+Staking não é yield farming agressivo.  
+É **alinhamento de incentivos**.
 
-5.2 Limites e Proteções
-Limite semanal global de distribuição
-Cooldown entre claim() (ex: 7 dias)
-Registro on-chain de cada distribuição
-Opção de reinvestir recompensas automaticamente
+## 🧠 Como Funciona na Prática
 
-6. Segurança e Antifraude
-O contrato inclui:
-ReentrancyGuard
-Checks-effects-interactions
-Validações estritas de tempo e saldo
-Impossibilidade estrutural de drenagem
-Pausa emergencial (pauseStaking) via DAO
-Função de resgate de tokens enviados por engano com política clara (DAO ou queima)
+O processo de staking segue regras claras:
 
-7. Governança (DAO)
-Funções sensíveis protegidas por onlyDAOorOwner
-Após ativação da DAO:
-Fundador perde controle operacional
-Apenas a DAO pode ajustar parâmetros
-Possibilidade de votação para:
-Taxas
-Boosts
-Novas integrações
+- Usuário envia tokens para o contrato de Staking
+- Tokens ficam **custodiados pelo contrato**
+- Não há acesso manual aos fundos
+- O usuário pode:
+  - Acompanhar saldo em stake
+  - Acompanhar recompensas acumuladas
+  - Solicitar unstake conforme regras
 
-8. Preparação para L2 e Cross-Chain
-O contrato já nasce preparado para:
-Staking espelhado em L2 (ex: Base)
-Sincronização via MIMHO Veritas
-Ponte de dados (não de tokens)
-Unificação de score, reputação e tempo de stake
-Funções cross-chain já existem, mesmo que retornem valores neutros inicialmente.
+Todas as ações são registradas on-chain.
 
-9. Integração com MIMHO Labs
-O MIMHO Staking possui lógica preparada para:
-Cobrança futura de taxas de serviços MIMHO Labs
-Alimentação automática do pool de recompensas
-Uso como produto white-label para parceiros
-Essas funções ficam inativas até ativação formal, garantindo segurança.
+## ⏳ Regras de Tempo
 
-10. Eventos Emitidos (100% Públicos)
-Exemplos:
-StakeCreated
-StakeIncreased
-RewardsClaimed
-RewardsReinvested
-StakingPaused
-ParametersUpdated
-WeeklyDistributionExecuted
-Todos os eventos são emitidos via MIMHOEventsHub.
+O Staking possui **regras temporais explícitas**, como:
 
-11. Funções de Visualização (HUD Ready)
-O contrato expõe funções públicas como:
-totalStaked()
-totalDistributed()
-weeklyLimit()
-userStakeInfo(address)
-nextClaimTime(address)
-getBoostValue(address)
-stakingHealthStatus()
-Essas funções não alteram estado e são seguras para leitura externa.
+- Tempo mínimo de permanência
+- Cooldown para claim de recompensas
+- Cooldown para unstake
+- Penalidades claras (se existirem)
 
-12. Sustentabilidade de Longo Prazo
-O MIMHO Staking foi desenhado para:
-Não depender de entrada constante de novos usuários
-Funcionar mesmo com baixo volume
-Absorver taxas do ecossistema
-Manter incentivo real ao holding
-Evitar colapsos por promessas irreais
-É um contrato de estabilidade, não de especulação.
+Essas regras:
 
-13. Conclusão
-O MIMHO Staking é o pilar de retenção, confiança e sustentabilidade do ecossistema MIMHO.
-Seguro por design
-Transparente por padrão
-Evolutivo sem risco
-Preparado para DAO, L2 e cross-chain
+- Não podem ser burladas
+- Não dependem de aprovação humana
+- São iguais para todos
+
+## 💰 Recompensas
+
+As recompensas de staking podem vir de:
+
+- Alocações específicas do ecossistema
+- Módulos como Holder Distribution
+- Incentivos definidos por governança
+
+Características das recompensas:
+
+- Não inflacionárias
+- Pré-alocadas
+- Distribuídas automaticamente
+- Proporcionais ao stake e ao tempo
+
+Nenhuma carteira decide “quem recebe mais”.
+
+## 🛡️ Segurança
+
+O módulo de Staking:
+
+- Não possui função de saque administrativo
+- Não permite drenagem manual
+- Não depende de backend
+- Não pode ser pausado para retirar fundos
+
+Se o contrato existe, as regras valem.
+
+## 🧬 Integração com o Ecossistema
+
+O MIMHO Staking:
+
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Pode interagir com:
+  - DAO
+  - Holder Distribution
+  - Score / Persona
+- Não cria tokens
+- Não altera supply
+
+Ele apenas **executa incentivos programados**.
+
+## 🏛️ Governança
+
+- Antes da DAO: parâmetros iniciais definidos pelo fundador
+- Após a DAO: ajustes possíveis via votação
+- Regras críticas não podem ser alteradas retroativamente
+- Nenhuma mudança afeta stakes já existentes
+
+Governança ajusta o futuro, não o passado.
+
+## 📊 Impacto para a Comunidade
+
+Para holders:
+- Recompensa por paciência
+- Participação ativa
+- Maior peso no ecossistema
+
+Para o projeto:
+- Base estável
+- Menos volatilidade artificial
+- Alinhamento de longo prazo
+
+Para auditoria:
+- Fluxos claros
+- Eventos públicos
+- Execução previsível
+
+## 🧩 Filosofia do Módulo
+
+O Staking MIMHO existe para provar que:
+
+- Compromisso importa
+- Tempo é um fator de valor
+- Utilidade pode ser simples
+- Incentivos podem ser honestos
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
