@@ -1,100 +1,179 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🎁 MIMHO Holder Distribution — On-Chain Reward Engine
 
-📘 DOCUMENTAÇÃO TÉCNICA — MIMHO INJECT LIQUIDITY
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-🔹 Nome do Contrato
+## 👥 Visão Geral (Para Leigos)
 
-MIMHO Inject Liquidity
+O **Holder Distribution** é o mecanismo que permite distribuir tokens de forma **justa, auditável e automática** para participantes do ecossistema MIMHO.
 
-🔹 Slogan Oficial
+Não é:
+- Airdrop aleatório
+- Promessa de rendimento
+- Distribuição manual
+- Sistema dependente de confiança
 
-“MIMHO – Reforço de Liquidez Transparente e Seguro”
+É um **módulo on-chain**, governado por regras claras, que recompensa participação real no ecossistema.
 
-1. VISÃO GERAL
-O MIMHO Inject Liquidity é um contrato auxiliar do ecossistema MIMHO, criado para:
-Armazenar tokens MIMHO reservados para liquidez futura.
-Adicionar liquidez ao par oficial MIMHO/BNB de forma gradual, controlada e transparente.
-Garantir que os tokens não sejam vendidos ou transferidos para contratos do ecossistema.
-Emitir eventos públicos e funções de leitura para dashboards, HUD, oráculos e auditorias sociais.
-Respeitar totalmente a filosofia de design MIMHO.
-Objetivo principal: Proteger o lançamento e a liquidez do token sem interferir no mercado ou no token principal.
+Quem participa, pode ser incluído.  
+Quem não participa, fica de fora.  
+Sem exceções.
 
-2. PADRÃO TÉCNICO
-Blockchain: BNB Smart Chain (BEP-20)
-Linguagem: Solidity
-Padrão: Contrato auxiliar BEP-20
-Ownership: onlyDAOorOwner
-ReentrancyGuard, Checks-Effects-Interactions aplicados
-Nenhuma função administrativa perigosa
+## 🎯 O Problema que Resolve
 
-3. SUPPLY GERIDO
-Apenas tokens MIMHO depositados pelo fundador ou DAO
-Tokens não podem ser vendidos nem transferidos para contratos do ecossistema
-Apenas usados para adicionar liquidez no par oficial
-Tokens não utilizados permanecem travados, visíveis e auditáveis
+Em muitos projetos:
+- Recompensas são opacas
+- Distribuições favorecem poucos
+- Critérios mudam sem aviso
+- Não há como auditar quem recebeu
 
-4. FLUXO DE OPERAÇÃO
-4.1 Depósito de Tokens
-Função: depositTokens(uint256 amount)
-Armazena tokens para liquidez futura
-Emite evento: LiquidityTokensDeposited
+No MIMHO:
+- Critérios são públicos
+- Elegibilidade é objetiva
+- Distribuição é rastreável
+- Tudo é verificável on-chain
 
-4.2 Injeção de Liquidez
-Função: injectLiquidity(uint256 mimhoAmount, uint256 bnbAmount, uint256 minMIMHO, uint256 minBNB)
-Adiciona liquidez ao par oficial MIMHO/BNB
-LP tokens resultantes são queimados automaticamente
-Só pode ser chamada por DAO ou Founder (após DAO ativa, Founder perde controle)
-Emite evento: LiquidityInjected
-Zero venda, zero transferências externas, zero manipulação de preço
+Distribuir valor não é marketing.  
+É **engenharia de incentivos**.
 
-5. EVENTOS PÚBLICOS
-Todos os eventos são públicos e rastreáveis:
-LiquidityTokensDeposited(address indexed from, uint256 amount)
-LiquidityInjected(uint256 mimhoAmount, uint256 bnbAmount, uint256 timestamp)
-LPBurned(uint256 lpAmount, uint256 timestamp)
-Permite:
-Auditoria social
-HUD e dashboards
-Integração cross-chain via MIMHO Veritas
+## ⚙️ Como Funciona o Holder Distribution
 
-6. FUNÇÕES PÚBLICAS DE VISUALIZAÇÃO (BOTÕES HUD)
-availableMIMHO(): retorna tokens MIMHO disponíveis para liquidez
-availableBNB(): retorna BNB disponível para injeção
-totalInjectedMIMHO(): total de MIMHO já injetado
-totalInjectedBNB(): total de BNB já injetado
-lastInjectionTimestamp(): timestamp da última injeção
-✅ Todas sem alterar estado, totalmente seguras para qualquer uso público.
+O módulo opera em ciclos independentes.
 
-7. DESIGN PHILOSOPHY (FILOSOFIA DE DESIGN)
-Modularidade Total – Contrato realiza uma única função: gerenciar liquidez.
-Segurança Máxima – Nenhuma venda, transferência indevida ou resgate genérico.
-Transparência Completa – Eventos públicos e funções de leitura para HUD/oráculos.
-DAO-Ready – Controle transferível, Founder sem privilégios eternos.
-Zero Dependência do Token – Não altera supply, taxas ou lógica do token MIMHO.
-Previsibilidade – Funções determinísticas, sem efeitos colaterais ocultos.
-Resiliência a FUD – Tokens nunca podem ser usados para manipular mercado.
-Compatibilidade Cross-Chain – Eventos e funções públicas pensadas para integração com Veritas e módulos MIMHO Labs.
+Cada ciclo possui:
+- Um período de análise (ex: últimas 24h, semana, bloco X → Y)
+- Um conjunto de regras de elegibilidade
+- Um montante definido para distribuição
+- Uma execução on-chain verificável
 
-8. SEGURANÇA ADICIONAL
-ReentrancyGuard aplicado
-Checks-Effects-Interactions rigorosos
-Approve somente no valor exato e apenas para o router
-Slippage obrigatório para injeção (minMIMHO, minBNB)
-Par oficial validado
-Router imutável, zero override possível
+Fluxo geral:
+1. Período é analisado
+2. Participantes elegíveis são identificados
+3. Distribuição é executada
+4. Eventos são emitidos no Events Hub
 
-9. POSICIONAMENTO DE MARKETING (RESUMO)
-Transparente: tokens bloqueados e rastreáveis
-Seguro: impossível de vender ou manipular
-Confiável: reforço de liquidez gradual e visível
-Profissional: contratos auditáveis e DAO-ready
-Hud-ready: integração com dashboards e oráculos cross-chain
-“O MIMHO Inject Liquidity é o cofre de liquidez do ecossistema MIMHO, permitindo reforço de pool seguro e transparente, eliminando risco de manipulação e FUD.”
+Nada é retroativo.  
+Nada é secreto.
 
-✅ CONCLUSÃO
-O MIMHO Inject Liquidity é:
-Um contrato auxiliar simples, seguro e auditável
-Totalmente integrado à filosofia MIMHO
-Preparado para HUD, DAO, auditoria pública e integração cross-chain
-Essencial para o longo prazo e crescimento saudável do ecossistema MIMHO
+## 🧮 Critérios de Elegibilidade
+
+Os critérios podem incluir, por exemplo:
+- Ter comprado ou vendido no período
+- Ter participado de staking
+- Ter interagido com contratos específicos
+- Excluir bots, micro-transações ou wash trading
+- Excluir compras e vendas no mesmo bloco
+
+Os critérios:
+- São definidos previamente
+- Podem evoluir via governança
+- Nunca são alterados após o snapshot
+
+Participação real > volume artificial.
+
+## 📸 Snapshot-Based Distribution
+
+O sistema utiliza **snapshots**:
+
+- O estado do ecossistema é congelado em um ponto específico
+- Endereços elegíveis são definidos
+- Valores são calculados
+- A execução acontece após o snapshot
+
+Isso garante:
+- Justiça
+- Previsibilidade
+- Impossibilidade de manipulação tardia
+
+Se você não estava no snapshot, não participa do ciclo.
+
+## 🏦 Origem dos Fundos
+
+O Holder Distribution pode receber tokens de:
+- Taxas do protocolo
+- Reservas designadas
+- Aportes externos (ex: fundador)
+- Decisões da DAO
+
+Importante:
+- O contrato **não cria tokens**
+- Ele apenas distribui tokens já existentes
+- Nenhuma função de saque arbitrário existe
+
+O módulo distribui.  
+Não acumula poder.
+
+## 🏛️ Governança e Controle
+
+Antes da ativação da DAO:
+- Parâmetros iniciais podem ser definidos pelo fundador
+
+Após ativação da DAO:
+- Apenas a DAO pode:
+  - Ajustar regras
+  - Definir novos ciclos
+  - Autorizar distribuições
+
+A execução, porém, continua sendo **automática e on-chain**.
+
+Governança decide **o que**.  
+Código executa **como**.
+
+## 📡 Transparência Total
+
+Toda distribuição:
+- Emite eventos no Events Hub
+- Pode ser acompanhada no HUD
+- Fica registrada permanentemente
+- Pode ser auditada por qualquer pessoa
+
+Se não houve evento:
+- A distribuição não aconteceu
+
+Sem prints.  
+Sem anúncios vazios.
+
+## 🧭 Integração com o Ecossistema
+
+O Holder Distribution:
+- Resolve dependências via MIMHO Registry
+- Interage apenas com módulos oficiais
+- Não depende de backend
+- Pode ser acionado por bots, DAO ou regras automáticas
+
+É um módulo neutro, reutilizável e auditável.
+
+## 🧩 Benefícios do Modelo
+
+Para holders:
+- Recompensa justa
+- Critérios claros
+- Confiança no processo
+
+Para o ecossistema:
+- Incentivo à participação real
+- Redução de especulação vazia
+- Alinhamento de longo prazo
+
+Para desenvolvedores:
+- Arquitetura modular
+- Fácil integração
+- Baixo risco operacional
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
