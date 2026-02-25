@@ -1,5 +1,5 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
->
+
 > # 🔥 MIMHO Burn Module — Deflation & Supply Control
 
 MIMHO – the Meme Coin of the Future  
