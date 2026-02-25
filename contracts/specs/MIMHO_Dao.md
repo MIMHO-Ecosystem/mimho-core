@@ -1,113 +1,170 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
-📘 DOCUMENTAÇÃO TÉCNICA OFICIAL
+# 🏛️ MIMHO DAO — On-Chain Governance & Community Control
 
-MIMHO DAO
-Camada de Governança On-Chain do Ecossistema MIMHO
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-🧠 Visão Geral
+## 👥 Visão Geral (Para Leigos)
 
-A MIMHO DAO é a entidade de governança do ecossistema, responsável por:
-Eleição de cargos estratégicos
-Administração simbólica e organizacional do ecossistema
-Proposição de melhorias e supervisão das atividades do ecossistema
-Garantia de transparência e auditabilidade máxima
-Tudo é on-chain, modular, e integrado ao HUD, permitindo que qualquer ação seja auditável publicamente, sem comprometer a segurança do ecossistema.
+A **MIMHO DAO** é o mecanismo que transfere o controle do ecossistema do fundador para a comunidade.
 
-🏛️ Estrutura de Cargos
+Não é uma DAO “de fachada”.  
+Não é votação simbólica.  
+Não é governança fora da blockchain.
 
-Salário (% da arrecadação mensal)
-Cargo
-Responsabilidades
-Presidente
-Coordenação geral, organização das eleições, representação da DAO, proposição de melhorias
-1,0%
-Vice-Presidente
-Apoio à Presidência, supervisão de projetos, representação quando necessário
-0,7%
-Tesoureiro
-Controle de finanças operacionais, auditoria de movimentações, supervisão da arrecadação
-0,6%
-Moderador de Comunidade A
-Mediação da comunidade, curadoria de debates, escuta ativa dos holders, organização de tópicos de discussão
-0,5%
-Moderador de Comunidade B
-Igual ao Moderador A
-0,5%
-Total: 3,3% da arrecadação mensal
-Salários pagos mensalmente em MIMHO, via contrato claimSalary(), com evento público no HUD.
-Salário baseado somente na arrecadação do mês (fundos anteriores, tesouro, reservas e fundos travados não entram).
+Todas as decisões relevantes do ecossistema passam a ser:
+- Propostas on-chain
+- Votadas on-chain
+- Executadas por contratos inteligentes
 
-🗓️ Mandatos e Eleições
+A DAO é o **órgão soberano** do ecossistema MIMHO.
 
-Duração: 1 ano
-Calendário:
-Setembro: abertura de candidaturas
-Outubro: campanha (1 mês)
-Novembro: votação on-chain
-Dezembro: preparação para transição
-Janeiro: início do mandato
-Regra de mandatos: nenhum cargo pode ter 2 mandatos consecutivos (salvo falta de candidatos)
-Ranking de eleição:
-1º mais votado → Presidente
-2º → Vice-Presidente
-3º → Tesoureiro
-4º e 5º → Moderadores
-6º → suplente imediato
-Impeachment:
-Caso de abandono ou inatividade
-Todos abaixo sobem na lista, suplente assume
-Processo votado pela DAO, totalmente on-chain
-Organização da próxima eleição: responsabilidade dos cargos eleitos
+## 🧠 O Problema que a DAO Resolve
 
-⚖️ Elegibilidade de candidatos
+Em muitos projetos:
+- Governança é centralizada
+- Votos não têm efeito real
+- Decisões acontecem fora da cadeia
+- Comunidade só reage depois do dano
 
-Holders há mais de 90 dias
-Mínimo de 1.000.000 MIMHO (parametrizável pela DAO)
-Candidatura registrada oficialmente on-chain
-Snapshot oficial de elegíveis realizado 7 dias antes da eleição
-Transparente, público e auditável
+No MIMHO:
+- Decisão vem antes da execução
+- Código executa o resultado
+- Não existe botão secreto
+- Não existe poder invisível
 
-🗳️ Regras de votação
+Governança não é promessa.  
+É **regra programada**.
 
-Votação: holders há mais de 90 dias, com mínimo de 1.000.000 MIMHO (parametrizável)
-Peso do voto: raiz quadrada do número de tokens + bônus de ReputationScore / staking ativo
-Limite máximo por carteira: configurável (ex: 5% do total)
-Quórum: mínimo definido pela DAO (parametrizável)
-Eventos: cada voto e resultado publicado no HUD
+## ⚙️ Como a DAO Funciona
 
-🔐 Poderes e Limites dos Cargos
+A DAO opera através de contratos dedicados que controlam:
 
-Poder simbólico + organizacional, não executivo
-Responsabilidades:
-Moderar a comunidade
-Organizar eleições
-Propor melhorias
-Trazer assuntos para debate
-Movimentar ecossistema de forma transparente
-Proibido:
-Transferir fundos
-Alterar salários
-Modificar regras do ecossistema
-Todas ações emitidas no HUD, auditáveis
+- Propostas
+- Votações
+- Quórum
+- Execução
+- Limites de poder
 
-🧱 Contratos e Modularidade
+Nenhuma decisão é manual.
 
-MIMHO_DAO_Governance: eleição, cargos, mandatos, impeachment, ranking
-MIMHO_DAO_Payroll: cálculo de arrecadação, percentuais, claim, eventos HUD
-Modular, seguro, fácil de auditar, pronto para upgrades e expansão
+O fluxo é sempre:
+1. Proposta criada
+2. Período de votação
+3. Resultado on-chain
+4. Execução automática (se aprovada)
 
-🔹 Segurança e Transparência
+## 🗳️ Voting Controller
 
-Auditável: todas ações públicas no HUD
-Anti-abuso: regras de elegibilidade, limitação de voto, snapshot oficial, mandato único
-Transparente: eventos on-chain de candidatura, votação, eleição, salário, impeachment
-Seguro: fundos da DAO isolados, não incluídos nos cálculos de salário, contratos protegidos por reentrancy guard e checks-effects-interactions
+O **Voting Controller** define:
+- Quem pode votar
+- Peso do voto
+- Duração das votações
+- Regras de aprovação
 
-🧠 Diferenciais MIMHO DAO
+Critérios podem incluir:
+- Tempo de holding
+- Participação no ecossistema
+- Score on-chain
+- Regras definidas previamente
 
-Sistema de eleições auditável e justo, equilibrando pequenos, médios e grandes holders
-Pagamentos variáveis baseados em arrecadação mensal, promovendo incentivo à performance do ecossistema
-Estrutura modular, permitindo evolução da governança sem risco sistêmico
-Eventos HUD garantem transparência total, prontos para marketing e credibilidade
-Mandatos rotativos e impeachment garantem renovação e responsabilidade
+Não existe voto fora do contrato.
+
+## 🏦 Tesouraria da DAO
+
+Os tokens da DAO:
+- Não ficam em carteira comum
+- Não podem ser sacados livremente
+- São liberados por regras automáticas
+
+Liberação gradual:
+- Quantidade fixa por período
+- Absorvível pelo mercado
+- Sem risco de drenagem
+
+A DAO **não controla tudo de uma vez**.
+
+## 🔐 Limites de Poder (Proteções)
+
+A DAO no MIMHO:
+- Não pode alterar supply
+- Não pode criar tokens
+- Não pode mudar taxas imutáveis
+- Não pode quebrar contratos-base
+
+Isso evita:
+- Votos emocionais
+- Ataques de governança
+- Mudanças destrutivas
+
+Governança existe para **evoluir**, não para destruir.
+
+## 📡 Transparência Total
+
+Todas as ações da DAO:
+- Emitem eventos no Events Hub
+- São visíveis no HUD
+- Ficam registradas para sempre
+- Podem ser auditadas pela comunidade
+
+Se não há evento:
+- A decisão não aconteceu
+
+## 🧭 Integração com o Ecossistema
+
+A DAO:
+- Resolve dependências via MIMHO Registry
+- Executa ações em módulos oficiais
+- Não interage com contratos externos arbitrários
+- Não opera fora do ecossistema
+
+Ela governa **o que existe**, não o que promete existir.
+
+## 🏛️ Transição de Poder
+
+Antes da ativação da DAO:
+- Fundador controla contratos-chave
+
+Após ativação da DAO:
+- Controle exclusivo da comunidade
+- Fundador perde privilégios
+- Poder é descentralizado de forma definitiva
+
+A transição é:
+- Planejada
+- Segura
+- Irreversível
+
+## 🧩 Benefícios para a Comunidade
+
+Para holders:
+- Voz real
+- Previsibilidade
+- Proteção contra abuso
+
+Para desenvolvedores:
+- Regras claras
+- Integração segura
+- Evolução organizada
+
+Para o ecossistema:
+- Sustentabilidade
+- Legitimidade
+- Governança funcional
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
