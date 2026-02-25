@@ -1,140 +1,160 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🔒 MIMHO Locker — Trustless Token & LP Locking Module
 
-📘 MIMHO LOCKER — DOCUMENTAÇÃO TÉCNICA OFICIAL
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-##Visão Geral
+## 👥 Visão Geral (Para Leigos)
 
-O MIMHO Locker é o contrato responsável pelo travamento de liquidez (LP Tokens) do ecossistema MIMHO, garantindo segurança, confiança e transparência total para investidores, parceiros e usuários.
-Ele foi projetado para eliminar riscos clássicos de projetos DeFi, como:
+O **MIMHO Locker** é o contrato responsável por **travar tokens ou LP tokens** por um período definido, de forma **totalmente on-chain, automática e verificável**.
 
-Rug pull
-Remoção arbitrária de liquidez
-Manipulação unilateral por fundadores
-**Além disso, o Locker introduz um modelo inovador de liberação controlada por votação quadrática da comunidade, reforçando o conceito de governança real e descentralizada.**
+Ele pode ser usado de duas formas:
+- Internamente pelo ecossistema MIMHO
+- Externamente por projetos terceiros (via MIMHO Labs)
 
-##Objetivos do MIMHO Locker
+Uma vez travado:
+- O ativo **não pode ser movimentado**
+- O tempo **não pode ser reduzido**
+- O desbloqueio só acontece quando as regras forem cumpridas
 
-Garantir liquidez travada permanentemente da pré-venda
-Permitir liberação opcional de tokens apenas via aprovação da comunidade
-Fornecer provas on-chain públicas e auditáveis
-Integrar-se nativamente ao ecossistema MIMHO (DAO, HUD, Events Hub)
-Servir como base para futuros serviços da MIMHO Labs
-Tipos de Lock Suportados
+Sem confiança.  
+Sem intervenção humana.  
+Apenas código.
 
-##1. Lock Permanente
-Utilizado principalmente para liquidez da pré-venda
-LP Tokens ficam travados para sempre
-Não existe função de resgate
-Não pode ser alterado nem pelo fundador, nem pela DAO
-Gera prova pública e imutável de liquidez travada
-Este modelo garante confiança máxima ao mercado desde o lançamento.
+## 🚨 O Problema que Resolve
 
-##2. Lock Temporário
-Utilizado para integrações futuras, parceiros ou serviços da MIMHO Labs
-Possui data de desbloqueio programada
-Após o prazo, os tokens podem ser liberados conforme a regra definida
-Totalmente auditável e transparente
-Liberação de Tokens via Comunidade (Governança)
-**O MIMHO Locker permite que determinados tokens travados possam ser liberados somente através de votação da comunidade, nunca por decisão unilateral.**
+Em muitos projetos:
+- Locks são off-chain ou manuais
+- Datas podem ser alteradas
+- Não há prova real de bloqueio
+- Usuários precisam “confiar” no time
 
-##Regras da Votação
+No MIMHO Locker:
+- O bloqueio é imutável
+- O tempo é verificável on-chain
+- A liberação é automática
+- Nenhuma pessoa pode antecipar o unlock
 
-Votação on-chain
+Lock não é promessa.  
+É **estado gravado na blockchain**.
 
-Modelo de votação quadrática, reduzindo concentração de poder
-Apenas carteiras que atendam aos critérios mínimos podem votar
-Critérios de Elegibilidade
-Quantidade mínima de tokens MIMHO configurável
-Tokens devem ter tempo mínimo de holding 
-A quantidade mínima exigida é parametrizável pelo Founder ou pela DAO
-**Alterações só passam a valer em votações futuras**
-Resultado da Votação
-Maioria simples decide (aprovado ou rejeitado)
-Em caso de aprovação:
-Tokens são liberados exclusivamente para reforço de liquidez
-Não há saque direto para carteiras
-Em caso de reprovação:
-Tokens permanecem travados
-Cada votação gera:
-Hash público
-Registro on-chain permanente
-Eventos auditáveis
-Reforço de Liquidez (Inject Liquidity)
-Tokens liberados via votação não são vendidos nem distribuídos.
-Eles são utilizados exclusivamente para:
-Criação ou reforço do par MIMHO / BNB
-Injeção progressiva de liquidez
-Travamento imediato dos novos LP Tokens gerados
-Esse processo garante:
-Crescimento saudável da liquidez
-Redução de impacto de preço
-Estabilidade de mercado no médio e longo prazo
+## ⚙️ Como o MIMHO Locker Funciona
 
-##Transparência Total
+Ao criar um lock:
+- O usuário ou projeto envia tokens ou LP tokens ao contrato
+- Define:
+  - Quantidade
+  - Tipo do ativo
+  - Timestamp de liberação
+- O contrato registra o lock publicamente
 
-O MIMHO Locker foi projetado com transparência como princípio central.
-Ele oferece:
-Funções públicas de visualização para todos os dados
-Consulta de locks ativos e históricos
-Consulta de votações passadas e em andamento
-Consulta de liquidez total travada
-Consulta de origem de cada lock
-Nenhuma informação relevante fica oculta.
-Eventos Públicos
-Todas as ações importantes emitem eventos públicos, incluindo:
-Criação de lock
-Locks permanentes
-Locks temporários
-Início de votação
-Votos computados
-Encerramento de votação
-Liberação ou manutenção do lock
-Esses eventos alimentam:
+Durante o período:
+- Os tokens ficam **inacessíveis**
+- Não existe função de saque
+- Não existe função de edição
 
-##HUD MIMHO
+Após o tempo definido:
+- O contrato permite a liberação
+- Apenas o beneficiário pode resgatar
 
-Dashboards públicos
-Auditorias externas
-Monitoramento comunitário
+## 🧾 Tipos de Lock Suportados
 
-##Segurança
+O MIMHO Locker pode travar:
+- Tokens BEP-20
+- LP Tokens (DEXs compatíveis)
+- Ativos internos do ecossistema MIMHO
 
-O MIMHO Locker foi desenvolvido com foco em segurança máxima:
+Cada lock possui:
+- ID único
+- Timestamp de criação
+- Timestamp de liberação
+- Dono do lock
+- Quantidade travada
 
-Não possui função de saque arbitrário
-Não possui backdoors
-Não possui upgrades ou proxies
-Não utiliza multisig para override
-Proteções contra reentrância
-Validações rigorosas de contratos e LP Tokens
-Locks permanentes são absolutamente imutáveis
-Se algo falhar, o comportamento padrão é não liberar nada.
-Integração com o Ecossistema MIMHO
-O Locker se integra nativamente com:
-MIMHO Token
-MIMHO DAO
-MIMHO Events Hub
-HUD e painéis públicos
-Futuras integrações da MIMHO Labs
-Ele também pode ser oferecido como serviço para terceiros, permitindo que outros projetos travem liquidez usando a infraestrutura MIMHO.
+Tudo público.  
+Tudo auditável.
 
-##Design Philosophy — MIMHO Locker
+## 🔁 Uso Interno no Ecossistema MIMHO
 
-Security First: nenhuma função coloca a liquidez em risco
-Community-Driven: liberação apenas via decisão coletiva
-Immutability: o que é permanente não pode ser alterado
-Transparency by Default: tudo é público e auditável
-Modularity: preparado para evoluções futuras
-Trustless: confiança baseada em código, não em promessas
+Internamente, o Locker pode ser usado para:
+- Travar tokens de recompensas
+- Travar tokens de marketing
+- Travar tokens de liquidez futura
+- Garantir cronogramas públicos
 
-##Conclusão
+Isso reforça:
+- Previsibilidade
+- Disciplina econômica
+- Confiança estrutural
 
-O MIMHO Locker é um pilar de confiança do ecossistema MIMHO.
-Ele garante:
-Liquidez permanentemente travada
-Liberação controlada e democrática
-Transparência absoluta
-Segurança extrema
-Base sólida para crescimento sustentável
-É um contrato projetado não apenas para proteger a MIMHO, mas para elevar o padrão de confiança em projetos DeFi.
+## 🧱 Uso Externo (MIMHO Labs)
+
+Projetos terceiros podem usar o MIMHO Locker como serviço:
+- Criar locks públicos
+- Demonstrar compromisso com holders
+- Pagar taxas em MIMHO ou stablecoins
+
+Todos os locks externos:
+- São públicos
+- São verificáveis
+- Aparecem no HUD / Explorer
+
+O Locker atua como **cartório on-chain**.
+
+## 🧭 Integração com o Ecossistema
+
+O MIMHO Locker:
+- Resolve dependências via **MIMHO Registry**
+- Emite eventos no **Events Hub**
+- Pode ser monitorado pelo **Observer / Audit**
+- Não depende de backend
+
+Cada lock gera eventos claros:
+- Lock criado
+- Lock liberado
+- Lock expirado
+
+## 🏛️ Governança e Segurança
+
+- Antes da DAO: controle administrativo do fundador
+- Após DAO: controle exclusivamente da DAO
+- Nenhuma autoridade pode:
+  - Quebrar um lock
+  - Reduzir tempo
+  - Resgatar ativos de terceiros
+
+Regras são absolutas.
+
+## 🧩 Benefícios do Modelo
+
+Para holders:
+- Prova real de comprometimento
+- Menos risco de dump
+- Confiança no cronograma
+
+Para projetos:
+- Ferramenta simples e confiável
+- Credibilidade imediata
+- Transparência automática
+
+Para o ecossistema:
+- Utilidade real
+- Receita via Labs
+- Reforço da imagem institucional
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
