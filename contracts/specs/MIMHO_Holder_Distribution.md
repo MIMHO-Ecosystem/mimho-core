@@ -1,196 +1,179 @@
 > ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
 
+# 🎁 MIMHO Holder Distribution — On-Chain Reward Engine
 
-📘 MIMHO Holder Distribution 
+MIMHO – the Meme Coin of the Future  
+This document describes technical and operational behavior — not financial promises.  
+Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
-Version: v1.0.0
-Status: Production-ready
-License: MIT
+## 👥 Visão Geral (Para Leigos)
 
+O **Holder Distribution** é o mecanismo que permite distribuir tokens de forma **justa, auditável e automática** para participantes do ecossistema MIMHO.
 
-**🔍 Overview**
-The MIMHO Holder Distribution Vault is a non-custodial, on-chain distribution contract designed to fairly and transparently distribute MIMHO tokens to eligible holders, without promises, without yield guarantees, and without administrative custody.
-This contract is part of the MIMHO Trust & Transparency Infrastructure, reinforcing the project’s philosophy of:
-Clear rules, immutable code, and visible actions — not promises.
+Não é:
+- Airdrop aleatório
+- Promessa de rendimento
+- Distribuição manual
+- Sistema dependente de confiança
 
----
+É um **módulo on-chain**, governado por regras claras, que recompensa participação real no ecossistema.
 
-##🎯 Purpose
-The contract exists to:
-Receive MIMHO tokens voluntarily deposited by the founder or DAO
-Distribute 100% of deposited tokens to eligible holders
-Prevent favoritism, abuse, or double claims
-Allow holders to claim autonomously (pull-based)
-Emit standardized on-chain events for full transparency (HUD-ready)
+Quem participa, pode ser incluído.  
+Quem não participa, fica de fora.  
+Sem exceções.
 
----
+## 🎯 O Problema que Resolve
 
-##🧠 Design Philosophy
+Em muitos projetos:
+- Recompensas são opacas
+- Distribuições favorecem poucos
+- Critérios mudam sem aviso
+- Não há como auditar quem recebeu
 
-1️⃣ Non-Custodial by Design
-❌ No withdraw()
-❌ No emergencyWithdraw()
-❌ No admin rescue functions
-Tokens sent to this contract cannot be reclaimed by the founder or DAO.
+No MIMHO:
+- Critérios são públicos
+- Elegibilidade é objetiva
+- Distribuição é rastreável
+- Tudo é verificável on-chain
 
-2️⃣ Pull-Based Distribution
-Holders claim manually using claim()
-Each wallet pays its own gas
-Eliminates mass-send risks and gas explosions
-Prevents selective or manual payouts
+Distribuir valor não é marketing.  
+É **engenharia de incentivos**.
 
-3️⃣ Founder Neutrality
-Founder is permanently excluded
-Ecosystem contracts are excluded
-No admin can claim tokens
-No wallet can claim twice per round
+## ⚙️ Como Funciona o Holder Distribution
 
-4️⃣ Transparency First
-Every critical action:
-emits on-chain events
-is visible on explorers
-is forwarded to the MIMHO Events Hub (best-effort)
+O módulo opera em ciclos independentes.
 
----
+Cada ciclo possui:
+- Um período de análise (ex: últimas 24h, semana, bloco X → Y)
+- Um conjunto de regras de elegibilidade
+- Um montante definido para distribuição
+- Uma execução on-chain verificável
 
-##🧱 Contract Architecture
-Core Components
-Component
-Description
-Registry
-Resolves Events Hub and ecosystem contracts
-Events Hub
-Emits standardized HUD events
-Merkle Tree
-Defines eligible wallets and amounts
-Rounds
-Discrete distribution cycles
-Claim Guard
-Prevents double claims
+Fluxo geral:
+1. Período é analisado
+2. Participantes elegíveis são identificados
+3. Distribuição é executada
+4. Eventos são emitidos no Events Hub
 
----
+Nada é retroativo.  
+Nada é secreto.
 
-##🔁 Distribution Model
-Distribution Rounds
-Each distribution happens inside a round.
-A round contains:
-Merkle root (eligibility snapshot)
-Total token amount allocated
-Claimed amount tracker
-Start time
-Optional end time
-Active flag
-Only one active round is allowed at a time.
-Distribution Flow
-Tokens are deposited into the vault
-Founder or DAO opens a round
-Merkle root defines (wallet, amount, roundId)
-Eligible holders call claim()
-Tokens are transferred directly to holders
-Round may be closed manually
-Unclaimed tokens remain in the vault for future rounds.
+## 🧮 Critérios de Elegibilidade
 
-**✅ Eligibility Rules**
-A wallet can claim if all conditions are met:
-Included in the Merkle tree
-Not excluded
-Not an ecosystem contract
-Has not claimed in the current round
-Calls within the round’s active window (if any)
-Eligibility is immutable per round.
+Os critérios podem incluir, por exemplo:
+- Ter comprado ou vendido no período
+- Ter participado de staking
+- Ter interagido com contratos específicos
+- Excluir bots, micro-transações ou wash trading
+- Excluir compras e vendas no mesmo bloco
 
-**🚫 Exclusion System**
-The contract maintains a permanent exclusion list.
-Automatically Excluded
-Founder wallet (on deployment)
-Ecosystem contracts (via Registry)
-Manually Excluded
-Bots
-Abuse wallets
-Technical addresses
-**📌 Exclusion is one-way and cannot be reverted.**
+Os critérios:
+- São definidos previamente
+- Podem evoluir via governança
+- Nunca são alterados após o snapshot
 
-##🔐 Security Model
-Implemented Protections
-ReentrancyGuard
-Double-claim prevention
-Merkle proof validation
-Round-specific proofs
-No external swaps
-No upgrade hooks
-Accepted Constraints
-Tokens sent by mistake are locked
-Snapshot logic relies on off-chain Merkle generation
-These are intentional design decisions to preserve trustlessness.
+Participação real > volume artificial.
 
----
+## 📸 Snapshot-Based Distribution
 
-##🧾 Events Emitted
-Event
-Description
-TokensDeposited
-Tokens deposited into vault
-RoundOpened
-New distribution round
-Claimed
-Successful holder claim
-RoundClosed
-Round closed
-AddressExcluded
-Address permanently excluded
-DAOSet
-DAO address set
-DAOActivated
-DAO control activated
-All events are also forwarded to the MIMHO Events Hub using a best-effort try/catch pattern.
+O sistema utiliza **snapshots**:
 
----
+- O estado do ecossistema é congelado em um ponto específico
+- Endereços elegíveis são definidos
+- Valores são calculados
+- A execução acontece após o snapshot
 
-##🔑 Access Control
-Founder / DAO Permissions
-Deposit tokens
-Open distribution rounds
-Close rounds
-Exclude addresses
-Pause / unpause contract
-Set and activate DAO
-Explicitly Forbidden
-Withdraw tokens
-Modify claims
-Change eligibility mid-round
-Override distribution math
+Isso garante:
+- Justiça
+- Previsibilidade
+- Impossibilidade de manipulação tardia
 
----
+Se você não estava no snapshot, não participa do ciclo.
 
-##🧩 DAO Transition
-Initially controlled by the founder
-DAO can be activated later
-Control transfer does not affect:
-past rounds
-claims
-exclusion history
-non-custodial guarantees
+## 🏦 Origem dos Fundos
 
----
+O Holder Distribution pode receber tokens de:
+- Taxas do protocolo
+- Reservas designadas
+- Aportes externos (ex: fundador)
+- Decisões da DAO
 
-##🔢 Versioning
-The contract exposes:
-Copiar código
-Solidity
-string public constant version = "v1.0.0";
-Future upgrades require new contracts, not replacements.
+Importante:
+- O contrato **não cria tokens**
+- Ele apenas distribui tokens já existentes
+- Nenhuma função de saque arbitrário existe
 
-##🧠 Key Guarantees
-✔ 100% on-chain
-✔ No promises
-✔ No yield claims
-✔ No admin custody
-✔ No hidden mechanics
-✔ Fully auditable
+O módulo distribui.  
+Não acumula poder.
 
----
+## 🏛️ Governança e Controle
 
-##📌 Summary
+Antes da ativação da DAO:
+- Parâmetros iniciais podem ser definidos pelo fundador
 
-The MIMHO Holder Distribution Vault is a trust-first utility contract, built to reward holders only when the ecosystem chooses to act, never by obligation.
-It is intentionally simple, rigid, and transparent — exactly what long-term holders expect.
+Após ativação da DAO:
+- Apenas a DAO pode:
+  - Ajustar regras
+  - Definir novos ciclos
+  - Autorizar distribuições
+
+A execução, porém, continua sendo **automática e on-chain**.
+
+Governança decide **o que**.  
+Código executa **como**.
+
+## 📡 Transparência Total
+
+Toda distribuição:
+- Emite eventos no Events Hub
+- Pode ser acompanhada no HUD
+- Fica registrada permanentemente
+- Pode ser auditada por qualquer pessoa
+
+Se não houve evento:
+- A distribuição não aconteceu
+
+Sem prints.  
+Sem anúncios vazios.
+
+## 🧭 Integração com o Ecossistema
+
+O Holder Distribution:
+- Resolve dependências via MIMHO Registry
+- Interage apenas com módulos oficiais
+- Não depende de backend
+- Pode ser acionado por bots, DAO ou regras automáticas
+
+É um módulo neutro, reutilizável e auditável.
+
+## 🧩 Benefícios do Modelo
+
+Para holders:
+- Recompensa justa
+- Critérios claros
+- Confiança no processo
+
+Para o ecossistema:
+- Incentivo à participação real
+- Redução de especulação vazia
+- Alinhamento de longo prazo
+
+Para desenvolvedores:
+- Arquitetura modular
+- Fácil integração
+- Baixo risco operacional
+
+## 🔗 Links Oficiais
+
+- Website: https://mimho.io
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi
+
+## 📌 Disclaimer
+
+MIMHO documents describe technical intentions and on-chain behavior.  
+Timelines and modules may evolve based on security reviews and governance decisions.
