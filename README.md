@@ -48,7 +48,7 @@
   https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi
 
 - **Trust & Token Rules:**  
-  [docs/Trust_and_Token_Rules.md](docs/Trust_and_Token_Rules.md)
+  [Trust_and_Token_Rules.md](Trust_and_Token_Rules.md)
 
 ---
 
