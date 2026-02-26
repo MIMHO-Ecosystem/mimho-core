@@ -1,6 +1,6 @@
 # 🔐 MIMHO Trust & Token Rules
 
-**MIMHO – the Meme Coin of the Future**
+**MIMHO – The Meme Coin of the Future**
 
 This document defines the **immutable rules**, **token mechanics**, and **trust guarantees** of the MIMHO Ecosystem.
 
