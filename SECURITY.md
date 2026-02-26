@@ -55,3 +55,33 @@ No hidden logic. No silent upgrades. No obscured control.
 ## 📄 Detailed Security Documentation
 
 Full security documentation is maintained in:
+
+docs: clarify registry dependency resolution
+Copiar código
+
+---
+
+## 📥 Pull Request Process
+
+1. Fork the repository
+2. Create a clear and focused branch
+3. Make atomic commits
+4. Open a Pull Request with:
+   - Clear description
+   - Scope and motivation
+   - Risks (if any)
+
+Pull Requests may be reviewed slowly by design.
+
+---
+
+## ⚠️ Disclaimer
+
+- Contributions do not imply endorsement or acceptance
+- All accepted contributions become part of the public record
+- Nothing in this repository is financial advice
+
+---
+
+*MIMHO — The Memecoin of the Future*  
+*Contributions are welcome. Standards are mandatory.*
