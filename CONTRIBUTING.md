@@ -53,4 +53,4 @@ If you want to suggest a Solidity change:
 
 ---
 
-**MIMHO – a Meme Coin do Futuro**
+**MIMHO – The Memecoin of the Future**
