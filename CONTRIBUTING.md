@@ -1,56 +1,149 @@
-# Contributing — MIMHO Ecosystem
+# 🤝 Contributing — MIMHO Ecosystem
 
-Thanks for your interest in contributing to the MIMHO Ecosystem.
+Thank you for your interest in contributing to the **MIMHO Ecosystem**.
 
-This repository is primarily a **public registry and technical reference** for:
-- Official documentation
-- Contract specifications
-- Address registries
-- Post-deployment verified Solidity sources (when applicable)
+This repository follows a **documentation-first, security-first, and governance-aware** contribution model.  
+All contributions must respect the architectural, institutional, and transparency standards defined by MIMHO.
 
 ---
 
-## ✅ How to Contribute
+## 🎯 Scope of Contributions
 
-### 1) Issues (recommended)
-Use GitHub Issues to:
-- report typos or documentation problems
-- request clarifications to specs
-- suggest improvements to repository structure
-- report suspicious or incorrect addresses
+Contributions may include:
 
-Please include clear context and links to the exact file/section.
+- Documentation improvements
+- Technical specifications (Specs)
+- Architecture clarifications
+- Security reviews and suggestions
+- Bug reports (documentation or logic-level)
+- Governance proposals (documentation-level)
+- Tooling, scripts, or tests (when applicable)
 
----
-
-## 🔐 Solidity Policy (Important)
-
-To avoid confusion and risk:
-- We **do not accept** unsolicited Solidity implementations before official deployment.
-- Solidity sources will be added only when:
-  1. the contract is deployed on-chain
-  2. the contract is verified on the explorer (e.g., BscScan)
-  3. the address is published under `/addresses`
-
-If you want to suggest a Solidity change:
-- open an Issue referencing the spec file in `/contracts/specs`
-- describe the change and rationale
-- do not submit production Solidity code unless explicitly requested
+This repository **does not accept speculative, promotional, or price-related content**.
 
 ---
 
-## 📁 Repository Structure
+## 🧠 Core Principles
 
-- `/contracts/specs` — canonical technical specifications
-- `/contracts/solidity` — placeholders and/or verified Solidity sources after deployment
-- `/addresses` — official wallets and contract addresses (source of truth)
-- `/docs` — documentation and public registry materials
-- `/branding` — official brand assets
+All contributions must follow these principles:
 
+- **Transparency first**
+- **Security over speed**
+- **Deterministic behavior**
+- **No hidden authority**
+- **Registry-first architecture**
+- **Events Hub observability**
+- **DAO-ready governance**
 
-
-
+If a contribution violates any of these principles, it will be rejected.
 
 ---
 
-**MIMHO – The Memecoin of the Future**
+## 📂 Contribution Areas
+
+### Documentation
+- `README.md`
+- `OFFICIAL.md`
+- `SECURITY.md`
+- `CHANGELOG.md`
+- Files under `docs/`
+- Files under `contracts/specs/`
+
+### Addresses
+- `addresses/bsc/mainnet.json`
+- Wallet documentation under `addresses/`
+
+### Contracts
+- Solidity files under `contracts/solidity/` (when enabled)
+- Specs must always exist **before** Solidity implementations
+
+---
+
+## 📝 Contribution Rules
+
+### General Rules
+- Be clear, objective, and technical
+- Avoid subjective language or marketing tone
+- No emojis inside body text (titles only)
+- English is preferred; PT-BR is allowed when explicitly scoped
+
+### Documentation Rules
+- Use clean Markdown
+- Use `#` and `##` headings only
+- Avoid UI elements, badges, or cards
+- Keep formatting GitHub-native
+
+### Specs Rules
+- Specs describe **behavior**, not implementation guesses
+- No Solidity code inside Specs unless explicitly required
+- State assumptions clearly
+- Mark pre-deployment behavior explicitly
+
+---
+
+## 🔐 Security Contributions
+
+Security-related contributions are **high priority**.
+
+If you are reporting:
+- A vulnerability
+- A design risk
+- A logic flaw
+
+Do **not** open a public issue.
+
+Instead:
+- Follow the disclosure process in `SECURITY.md`
+- Or contact the maintainers privately if instructed
+
+---
+
+## 🏛️ Governance & Authority
+
+- Before DAO activation: final decisions rest with the Founder SAFE
+- After DAO activation: governance decisions follow DAO rules
+- No contribution can override governance processes
+
+Merges may be delayed or declined to preserve system integrity.
+
+---
+
+## 📌 Commit Guidelines
+
+- Use clear, descriptive commit messages
+- Prefer prefixes:
+  - `docs:` documentation changes
+  - `spec:` specification changes
+  - `security:` security-related changes
+  - `chore:` maintenance
+
+Example:
+
+docs: clarify registry dependency resolution
+
+---
+
+## 📥 Pull Request Process
+
+1. Fork the repository
+2. Create a clear and focused branch
+3. Make atomic commits
+4. Open a Pull Request with:
+   - Clear description
+   - Scope and motivation
+   - Risks (if any)
+
+Pull Requests may be reviewed slowly by design.
+
+---
+
+## ⚠️ Disclaimer
+
+- Contributions do not imply endorsement or acceptance
+- All accepted contributions become part of the public record
+- Nothing in this repository is financial advice
+
+---
+
+*MIMHO — The Memecoin of the Future*  
+*Contributions are welcome. Standards are mandatory.*
