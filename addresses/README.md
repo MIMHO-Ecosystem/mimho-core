@@ -133,6 +133,7 @@ These wallets are managed via secure operational procedures and, where applicabl
 - Deprecated addresses must be marked explicitly
 - Historical records are preserved
 - This file is human-readable; JSON files may be added later for integrations
+- Any change to this directory must be publicly committed and traceable on GitHub
 
 ---
 
