@@ -2,229 +2,175 @@
 
 # 🧠 MIMHO Registry — Ecosystem Source of Truth
 
-## 📘 For Non-Technical Readers (Plain Explanation)
-
-The **MIMHO Registry** is the central map of the entire MIMHO ecosystem.
-
-Instead of contracts hardcoding addresses (which is risky and confusing),
-every important module asks the Registry a simple question:
-
-> “What is the official address of this contract right now?”
-
-This guarantees:
-- No fake contracts
-- No outdated addresses
-- No frontend confusion
-- One single source of truth on-chain
-
-The Registry **does not move funds**, **does not execute business logic** and **does not make decisions**.
-
-Its only job is to **say who is who** in the ecosystem.
+> **MIMHO – the Meme Coin of the Future**  
+> This document describes technical and operational behavior — not financial promises.  
+> Este documento descreve comportamento técnico e operacional — não promessas financeiras.
 
 ---
 
-## 🔁 How It Works (High-Level Flow)
+## 👥 For Non-Technical Readers (Plain Explanation)
 
-1. Each core contract is registered under an official key
-2. Other contracts resolve addresses dynamically via the Registry
-3. Frontends also read from the Registry
-4. If a module is upgraded, only the Registry changes — nothing breaks
+The MIMHO Registry is the **single on-chain source of truth** for the entire MIMHO ecosystem.
+
+Instead of contracts, frontends, or users guessing which address is correct,  
+**every official contract address is registered and resolved through the Registry**.
+
+If a contract is not registered here, **it is not official**.
+
+The Registry exists to eliminate:
+- Address confusion
+- Fake contracts
+- Hardcoded dependencies
+- Off-chain trust
+
+The Registry:
+- Does **not** hold funds
+- Does **not** execute business logic
+- Does **not** move tokens
+
+Its only responsibility is to **map official module identifiers to official contract addresses**.
+
+---
+
+## 🔑 What the Registry Stores
+
+The Registry stores mappings between:
+- Module identifiers (`bytes32 keys`)
+- Official contract addresses
+
+Examples of registered modules:
+- Token
+- DAO
+- Vesting
+- Staking
+- Presale
+- Liquidity Bootstrapper
+- Inject Liquidity
+- Events Hub
+- Marketplace
+- Mart
+- Burn
+- Airdrop
+- Locker
+- Strategy Hub
+
+Every critical dependency in the ecosystem is resolved through this contract.
+
+---
+
+## 🤔 Why This Matters
+
+In many crypto projects:
+- Contracts hardcode addresses
+- Updates break integrations
+- Frontend points to outdated contracts
+- Users must trust announcements
+
+In MIMHO:
+- There is **one official registry**
+- All modules ask the Registry who is official
+- Updates are explicit and observable
+- No silent changes are possible
+
+If an address changes, the change is:
+- On-chain
+- Governed
+- Auditable
+- Transparent
 
 ---
 
 ## 👨‍💻 For Developers (Technical Summary)
 
-- Single on-chain address registry
-- Registry-first architecture (no hardcoded dependencies)
-- Keys resolved via `IMIMHORegistry.getContract(KEY)`
-- Governance-controlled updates (Founder → DAO)
-- No fund custody
+The Registry follows a **registry-first architecture pattern**.
+
+No ecosystem contract is allowed to:
+- Hardcode addresses of other modules
+- Assume external contract locations
+
+Instead, contracts must:
+- Resolve dependencies dynamically via the Registry
+- Use canonical registry keys
+
+---
+
+## 🧭 Dependency Resolution Model
+
+All modules must resolve dependencies using this flow:
+
+- Query the Registry using a predefined key
+- Retrieve the official contract address
+- Interact only with that resolved address
+
+This guarantees:
+- Safe upgrades
+- Modular architecture
+- Reduced integration risk
+- Clean audit surface
+
+---
+
+## 🔐 Governance Model
+
+The Registry follows the MIMHO governance transition standard:
+
+- Before DAO activation:
+  - Controlled by the Founder
+- After DAO activation:
+  - Controlled exclusively by the DAO
+
+There is **no permanent centralized control**.
+
+All updates:
+- Are explicit
+- Are on-chain
+- Are traceable
+
+---
+
+## 🔒 Security Guarantees
+
+The Registry enforces:
+- Explicit address setting
+- Zero silent overrides
 - No delegatecall
-- No upgrade proxy
+- No proxy logic
+- No fund custody
 
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+If the Registry is paused or locked:
+- No funds are at risk
+- No state is corrupted
 
+---
 
-📘 DOCUMENTAÇÃO TÉCNICA — MIMHO REGISTRY
+## 🧩 Role in the Ecosystem
 
-🧭 1. VISÃO GERAL
+The Registry acts as:
+- The **map** of the ecosystem
+- The **anchor** for integrations
+- The **coordination layer** between contracts
+- The foundation for Events Hub observability
 
-O MIMHO Registry é o contrato base do ecossistema MIMHO, responsável por manter o registro oficial, on-chain e auditável de todos os contratos do projeto e dos serviços oferecidos pela MIMHO Labs.
-Ele funciona como um cartório descentralizado do ecossistema, garantindo que qualquer contrato, auditor ou usuário consiga identificar com clareza quais endereços fazem parte da infraestrutura oficial.
+Without the Registry:
+- The ecosystem cannot safely evolve
 
-🎯 2. OBJETIVOS DO CONTRATO
+---
 
-Centralizar os endereços oficiais do ecossistema
-Eliminar dependência de endereços hardcoded
-Facilitar auditorias e inspeções on-chain
-Permitir crescimento modular e seguro
-Servir como base de integração para contratos internos e parceiros externos
+## 🔗 Official Links
 
-🧱 3. PAPEL NO ECOSSISTEMA
+- Website: https://mimho.io  
+- Whitepaper (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+- Roadmap (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+- Manifesto (PDF / IPFS):  
+  https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
 
-O MIMHO Registry:
-Não movimenta tokens
-Não executa lógica financeira
-Não interfere na lógica interna de outros contratos
-Não depende de nenhum outro contrato
-Ele existe exclusivamente para registro, consulta e transparência.
+---
 
-🔐 4. AUTORIDADES RECONHECIDAS
+## ⚠️ Disclaimer
 
-O contrato reconhece duas entidades institucionais:
-🧑‍🚀 Founder Safe
-🏛️ DAO Safe
-Ambos os endereços são definidos no deploy inicial.
+MIMHO documentation describes technical intentions and on-chain behavior.
 
-🧩 5. MODELO DE GOVERNANÇA
-
-🕐 Antes da DAO estar ativa
-O Founder Safe pode:
-Registrar novos contratos
-Atualizar endereços de contratos existentes
-A DAO ainda não exerce controle administrativo
-
-🗳️ Após a DAO estar ativa
-
-Somente a DAO Safe pode:
-Registrar novos contratos
-Atualizar contratos existentes
-O Founder perde todas as permissões administrativas
-Essa transição é irreversível e totalmente on-chain.
-
-🚫 6. AÇÕES PROIBIDAS (EM QUALQUER FASE)
-
-Remover contratos do registry
-Apagar ou sobrescrever histórico
-Renunciar o controle do contrato
-Alterar registros sem emissão de eventos
-O Registry é projetado para não permitir ocultação de rastros.
-
-🧠 7. FILOSOFIA DE DESIGN
-
-O MIMHO Registry segue princípios rígidos de engenharia:
-❌ Sem auto-discovery
-❌ Sem loops
-❌ Sem arrays dinâmicos
-❌ Sem lógica condicional complexa
-❌ Sem risco de esgotamento de gás
-Todos os contratos são registrados por SET DIRETO, garantindo previsibilidade e evitando falhas observadas em cadastros genéricos.
-
-🗂️ 8. MODELO DE REGISTRO
-
-Cada contrato é registrado por meio de:
-Uma chave fixa (string curta e padronizada)
-Um endereço único
-Um evento público emitido no momento do registro ou atualização
-Exemplos de chaves utilizadas:
-TOKEN
-DAO
-REGISTRY
-EVENTS_HUB
-VERITAS
-STAKING
-As consultas são feitas em tempo constante (O(1)).
-
-🧬 9. CONTRATOS DO ECOSSISTEMA SUPORTADOS
-
-O Registry foi projetado para suportar todos os contratos planejados do ecossistema MIMHO, incluindo:
-
-⚙️ Núcleo
-
-MIMHO Token
-MIMHO DAO
-MIMHO Registry
-MIMHO Events Hub
-MIMHO Veritas
-
-💰 Financeiro e Utilitário
-
-MIMHO Staking
-MIMHO Vault
-MIMHO Locker
-MIMHO Inject Liquidity
-MIMHO Trading Activity
-MIMHO Loans
-MIMHO Bet
-
-🎮 Gamificação
-
-MIMHO Quiz
-MIMHO Raffle
-MIMHO Auctioner
-MIMHO GaSaver
-
-🖼️ NFTs e Marketplace
-
-MIMHO MART (montador oficial de NFTs do ecossistema)
-
-🧾 Identidade, Auditoria e Monitoramento
-
-MIMHO Score
-MIMHO Persona
-MIMHO Certify
-MIMHO Observer
-
-O sistema é extensível e preparado para novos módulos futuros.
-
-⏳ 10. REGISTRO COM PRAZO (SERVIÇOS E PARCEIROS)
-
-O Registry suporta contratos com prazo de validade definido no momento do cadastro.
-Funcionamento:
-O contrato é registrado com:
-Endereço
-Timestamp de expiração
-O próprio Registry valida se o acesso está ativo
-Após o vencimento, o contrato é automaticamente considerado inativo
-Nenhum registro é apagado
-Esse modelo permite:
-Planos mensais
-Contratos de 30, 60, 90 dias
-Renovação transparente e auditável
-
-👁️ 11. FUNÇÕES DE VISUALIZAÇÃO
-
-O contrato expõe funções públicas para consulta de:
-Endereços registrados
-Status de contratos
-Datas de expiração
-Autoridade que realizou a última alteração
-Essas funções são pensadas para dashboards, bots e auditorias públicas.
-
-📢 12. EVENTOS E TRANSPARÊNCIA
-
-Toda ação relevante emite eventos públicos, incluindo:
-Registro de contrato
-Atualização de endereço
-Ativação da DAO
-Renovação de acesso
-Esses eventos permitem:
-Auditoria social
-Indexação por explorers
-Monitoramento em tempo real
-
-🛡️ 13. SEGURANÇA
-
-O MIMHO Registry foi projetado para:
-Minimizar superfície de ataque
-Evitar dependências externas
-Impedir ações administrativas silenciosas
-Garantir rastreabilidade total
-Nenhuma função crítica é executada sem registro público.
-
-🧾 14. POSICIONAMENTO INSTITUCIONAL
-
-O MIMHO Registry estabelece um novo padrão de organização on-chain:
-Facilita auditorias
-Aumenta confiança de parceiros
-Simplifica integração entre contratos
-Reforça a visão modular do ecossistema
-
-✅ CONCLUSÃO
-
-O MIMHO Registry é:
-O cartório oficial do ecossistema MIMHO
-A base da modularidade e transparência
-Um contrato simples, sólido e duradouro
-Preparado para crescimento, parcerias e auditorias
-Ele garante que o ecossistema MIMHO seja compreensível, verificável e confiável, tanto hoje quanto no futuro.
+Nothing in this document constitutes financial advice.  
+Module behavior may evolve through governance and security reviews.
