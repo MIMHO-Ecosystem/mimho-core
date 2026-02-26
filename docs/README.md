@@ -1,33 +1,44 @@
-# MIMHO Documentation Index
+# 📚 MIMHO Documentation Hub
 
-This folder contains the official public documentation for the MIMHO Ecosystem.
+This directory contains the **official non-code documentation** of the MIMHO Ecosystem.
 
----
-
-## Source of Truth
-
-- Official wallets & deployed contract addresses: `/addresses`
-- Canonical machine-readable registry: `addresses/bsc/mainnet.json`
-- Technical specifications: `/contracts/specs`
-- Solidity placeholders / verified sources: `/contracts/solidity`
+All documents here are **institutional, technical, and governance-oriented**.
+No marketing promises. No financial advice.
 
 ---
 
-## Documentation Sections
+## 🧭 Reading Guide (Recommended Order)
 
-- `governance/` — DAO, elections, voting rules, governance policies
-- `security/` — security posture, operational safety, best practices
-- `marketing/` — public messaging, branding direction, campaigns
-- `website/` — front-end structure and pages registry (if applicable)
+1. **Manifesto** — Vision and principles  
+   → `MANIFESTO.md`
+
+2. **Tokenomics & Distribution**  
+   → `TOKENOMICS.md`  
+   → `DISTRIBUTION_AND_FLOW.md`
+
+3. **Core Architecture**  
+   → `REGISTRY_MAP.md`  
+   → `TECHNICAL_ECOSYSTEM.md`  
+   → `DESIGN_RATIONALE.md`  
+   → `DEPENDENCY_GRAPH.md`
+
+4. **Governance & DAO**  
+   → `governanca/`
+
+5. **Security Model**  
+   → `seguranca/`
+
+6. **Marketing & Communication (non-promissory)**  
+   → `marketing/`
 
 ---
 
-## How to Verify Authenticity
+## 📁 Subdirectories
 
-1. Check `OFFICIAL.md`
-2. Confirm wallets and contract addresses in `/addresses`
-3. Treat anything outside this repository as unofficial unless explicitly linked here
+- `governanca/` — DAO rules, constitution, community summaries  
+- `seguranca/` — Security model, audits, internal reviews  
+- `marketing/` — Communication assets and historical posts  
 
 ---
 
-**MIMHO – a Meme Coin do Futuro**
+*MIMHO — The Meme Coin of the Future*
