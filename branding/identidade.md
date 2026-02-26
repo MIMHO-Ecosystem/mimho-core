@@ -41,4 +41,4 @@ This document defines **what MIMHO is** and **what MIMHO is not**, from an insti
 
 ---
 
-*MIMHO — the Meme Coin of the Future*
+*MIMHO — The Meme Coin of the Future*
