@@ -176,6 +176,13 @@ Especificações legíveis por humanos para todos os contratos oficiais do ecoss
 
 ---
 
+## 🧪 Testing & Tooling
+
+- **MIMHO Labs (Foundry Tests & Audits):**  
+  https://github.com/MIMHO-Ecosystem/mimho-labs
+
+---
+
 ## 🧾 Governance & Transparency Standard
 
 ### Registry-First
