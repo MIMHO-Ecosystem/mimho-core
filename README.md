@@ -47,7 +47,8 @@
 - **Manifesto (PDF / IPFS):**  
   https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi
 
-- **Trust & Token Rules:** `docs/MIMHO_TRUST_AND_TOKEN_RULES.md`
+- **Trust & Token Rules:**  
+  [docs/MIMHO_TRUST_AND_TOKEN_RULES.md](docs/MIMHO_TRUST_AND_TOKEN_RULES.md)
 
 ---
 
