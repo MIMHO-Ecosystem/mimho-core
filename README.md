@@ -40,8 +40,10 @@
 
 - **Whitepaper (PDF / IPFS):**  
   https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreie2kmjlu755hfwbiwlif53e4bybput3mlh47wgijznhuydcn3uqza  
+
 - **Roadmap (PDF / IPFS):**  
   https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreic64nzssnz3lefygdiq7ss6uiossgvtwkbke4y7jd3nymajfjjil4  
+
 - **Manifesto (PDF / IPFS):**  
   https://emerald-high-grasshopper-50.mypinata.cloud/ipfs/bafkreibxorcfdjntylynzfd62yj7vj5dbyvjpytr6suishxncoo3rrsibi  
 
@@ -50,17 +52,21 @@
 ## 🚀 Start Here (Recommended Reading Order)
 
 ### 👤 For Everyone (EN/PT)
-1. **Manifesto:** `docs/MANIFESTO.md`  
-2. **Distribution & Flow:** `docs/DISTRIBUTION_AND_FLOW.md`  
-3. **Registry Map:** `docs/REGISTRY_MAP.md`  
-4. **Technical Ecosystem:** `docs/TECHNICAL_ECOSYSTEM.md`  
-5. **Security Model:** `docs/seguranca/SECURITY_MODEL.md`
+
+1. **Manifesto:** [docs/MANIFESTO.md](docs/MANIFESTO.md)  
+2. **Distribution & Flow:** [docs/DISTRIBUTION_AND_FLOW.md](docs/DISTRIBUTION_AND_FLOW.md)  
+3. **Registry Map:** [docs/REGISTRY_MAP.md](docs/REGISTRY_MAP.md)  
+4. **Technical Ecosystem:** [docs/TECHNICAL_ECOSYSTEM.md](docs/TECHNICAL_ECOSYSTEM.md)  
+5. **Security Model:** [docs/seguranca/SECURITY_MODEL.md](docs/seguranca/SECURITY_MODEL.md)
+
+---
 
 ### 👨‍💻 For Developers
-1. **Specs:** `contracts/specs/`  
-2. **Solidity Source:** `contracts/solidity/`  
-3. **Registry Keys & Addressing Rules:** `docs/REGISTRY_MAP.md`  
-4. **Event Standard (Events Hub):** `contracts/specs/MIMHOEventsHub.md`
+
+1. **Specs:** [contracts/specs/](contracts/specs/)  
+2. **Solidity Source:** [contracts/solidity/](contracts/solidity/)  
+3. **Registry Keys & Addressing Rules:** [docs/REGISTRY_MAP.md](docs/REGISTRY_MAP.md)  
+4. **Event Standard (Events Hub):** [contracts/specs/02_EventsHub.md](contracts/specs/02_EventsHub.md)
 
 ---
 
@@ -141,7 +147,7 @@ Especificações legíveis por humanos para todos os contratos oficiais do ecoss
   [16_Marketplace.md](contracts/specs/16_Marketplace.md)
 
 - **MIMHO Mart**  
-  [17_Mart.md](contracts/specs/17_Mart.md)
+  [17_MIMHOMart.md](contracts/specs/17_MIMHOMart.md)
 
 - **Strategy Hub**  
   [19_StrategyHub.md](contracts/specs/19_StrategyHub.md)
@@ -150,27 +156,31 @@ Especificações legíveis por humanos para todos os contratos oficiais do ecoss
 
 ## 🧩 Repository Structure
 
-- `contracts/solidity/` — Smart contracts (`.sol`)  
-- `contracts/specs/` — Human-readable specs (`.md`)  
-- `docs/` — Architecture, governance, security, and ecosystem docs  
-- `addresses/` — Chain addresses and official mappings  
+- [contracts/solidity/](contracts/solidity/) — Smart contracts (`.sol`)  
+- [contracts/specs/](contracts/specs/) — Human-readable specs (`.md`)  
+- [docs/](docs/) — Architecture, governance, security, and ecosystem docs  
+- [addresses/](addresses/) — Chain addresses and official mappings  
 
 ---
 
 ## 🧾 Governance & Transparency Standard
 
 ### Registry-First
+
 - All modules resolve dependencies via the Registry  
 - No module should hardcode critical addresses
 
 ### Events Hub (HUD-Ready)
+
 - All modules emit standardized events to the Events Hub  
 - Event emission is **best-effort** (must not revert core logic)
 
 ### DAO Transition Model
+
 - Founder controls before DAO activation  
 - DAO controls after activation  
-- No silent changes, no hidden authority
+- No silent changes  
+- No hidden authority
 
 ---
 
@@ -184,4 +194,4 @@ Especificações legíveis por humanos para todos os contratos oficiais do ecoss
 
 ## 🧾 License
 
-- **MIT License** (see `LICENSE`)
+- **MIT License** (see [LICENSE](LICENSE))
