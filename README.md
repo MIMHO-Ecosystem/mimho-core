@@ -156,7 +156,8 @@ Especificações legíveis por humanos para todos os contratos oficiais do ecoss
 
 ## 🧩 Repository Structure
 
-- [contracts/solidity/](contracts/solidity/) — Smart contracts (`.sol`)  
+- [contracts/solidity/](contracts/solidity/) — Smart contracts (`.sol`)
+- [`contracts/solidity/README.md`](contracts/solidity/README.md)
 - [contracts/specs/](contracts/specs/) — Human-readable specs (`.md`)  
 - [docs/](docs/) — Architecture, governance, security, and ecosystem docs  
 - [addresses/](addresses/) — Chain addresses and official mappings  
