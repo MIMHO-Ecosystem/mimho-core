@@ -156,11 +156,23 @@ Especificações legíveis por humanos para todos os contratos oficiais do ecoss
 
 ## 🧩 Repository Structure
 
-- [contracts/solidity/](contracts/solidity/) — Smart contracts (`.sol`)
-- [`contracts/solidity/README.md`](contracts/solidity/README.md)
-- [contracts/specs/](contracts/specs/) — Human-readable specs (`.md`)  
-- [docs/](docs/) — Architecture, governance, security, and ecosystem docs  
-- [addresses/](addresses/) — Chain addresses and official mappings  
+- `contracts/solidity/` — Solidity smart contracts  
+  - Source code published after official deployment and on-chain verification  
+  - This folder reflects the *final, immutable execution layer*  
+
+- `contracts/solidity/README.md` — Solidity publication policy  
+  - Explains why contracts are published only after deployment  
+  - Prevents pre-deploy address spoofing and fake clones  
+
+- `contracts/specs/` — Human-readable contract specifications  
+  - Technical and institutional behavior of each MIMHO module  
+  - Canonical reference for audits, governance, and community review  
+
+- `docs/` — Ecosystem documentation  
+  - Architecture, governance model, security assumptions, and design rationale  
+
+- `addresses/` — Official on-chain addresses  
+  - Chain mappings, registry references, and verified deployments 
 
 ---
 
