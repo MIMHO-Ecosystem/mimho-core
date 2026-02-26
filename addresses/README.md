@@ -1,4 +1,4 @@
-# MIMHO Addresses — Source of Truth (Mainnet)
+# 🧾 MIMHO Addresses — Canonical On-Chain Source (Mainnet)
 
 This directory is the **official and canonical registry** of all public addresses used by the MIMHO Ecosystem.
 
