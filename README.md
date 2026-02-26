@@ -64,8 +64,6 @@
 
 ---
 
----
-
 ## 🧩 Core Modules — Technical Specifications
 
 Human-readable specifications for every official MIMHO smart contract.  
@@ -76,77 +74,77 @@ Especificações legíveis por humanos para todos os contratos oficiais do ecoss
 ## 🧠 Core Infrastructure
 
 - **Registry**  
-  `contracts/specs/01_Registry.md`
+  [01_Registry.md](contracts/specs/01_Registry.md)
 
 - **Events Hub**  
-  `contracts/specs/02_EventsHub.md`
+  [02_EventsHub.md](contracts/specs/02_EventsHub.md)
 
 ---
 
 ## 💸 Token & Economics
 
 - **MIMHO Token (BEP-20)**  
-  `contracts/specs/03_Token.md`
+  [03_Token.md](contracts/specs/03_Token.md)
 
 - **Pre-Sale Contract**  
-  `contracts/specs/04_Presale.md`
+  [04_Presale.md](contracts/specs/04_Presale.md)
 
 - **Vesting Contract**  
-  `contracts/specs/05_Vesting.md`
+  [05_Vesting.md](contracts/specs/05_Vesting.md)
 
 - **Liquidity Bootstrapper**  
-  `contracts/specs/06_LiquidityBootstrapper.md`
+  [06_LiquidityBootstrapper.md](contracts/specs/06_LiquidityBootstrapper.md)
 
 - **Inject Liquidity**  
-  `contracts/specs/07_InjectLiquidity.md`
+  [07_InjectLiquidity.md](contracts/specs/07_InjectLiquidity.md)
 
 - **Staking**  
-  `contracts/specs/08_Staking.md`
+  [08_Staking.md](contracts/specs/08_Staking.md)
 
 - **Holder Distribution**  
-  `contracts/specs/09_HolderDistribution.md`
+  [09_HolderDistribution.md](contracts/specs/09_HolderDistribution.md)
 
 - **Burn Module**  
-  `contracts/specs/10_Burn.md`
+  [10_Burn.md](contracts/specs/10_Burn.md)
 
 ---
 
 ## 🏛️ Governance & Control
 
 - **DAO Core**  
-  `contracts/specs/11_DAO.md`
+  [11_DAO.md](contracts/specs/11_DAO.md)
 
 - **Voting Controller**  
-  `contracts/specs/12_VotingController.md`
+  [12_VotingController.md](contracts/specs/12_VotingController.md)
 
 - **Trading Activity Tracker**  
-  `contracts/specs/13_TradingActivity.md`
+  [13_TradingActivity.md](contracts/specs/13_TradingActivity.md)
 
 ---
 
 ## 🎮 Utility & Engagement
 
 - **Airdrop**  
-  `contracts/specs/14_Airdrop.md`
+  [14_Airdrop.md](contracts/specs/14_Airdrop.md)
 
 - **Quiz Academy**  
-  `contracts/specs/18_QuizAcademy.md`
+  [18_QuizAcademy.md](contracts/specs/18_QuizAcademy.md)
 
 ---
 
 ## 🛒 Ecosystem Services
 
 - **Locker**  
-  `contracts/specs/15_Locker.md`
+  [15_Locker.md](contracts/specs/15_Locker.md)
 
 - **Marketplace**  
-  `contracts/specs/16_Marketplace.md`
+  [16_Marketplace.md](contracts/specs/16_Marketplace.md)
 
 - **MIMHO Mart**  
-  `contracts/specs/17_MIMHOMart.md`
+  [17_Mart.md](contracts/specs/17_Mart.md)
 
 - **Strategy Hub**  
-  `contracts/specs/19_StrategyHub.md`
+  [19_StrategyHub.md](contracts/specs/19_StrategyHub.md)
 
 ---
 
