@@ -64,6 +64,92 @@
 
 ---
 
+---
+
+## 🧩 Core Modules — Technical Specifications
+
+Human-readable specifications for every official MIMHO smart contract.  
+Especificações legíveis por humanos para todos os contratos oficiais do ecossistema MIMHO.
+
+---
+
+## 🧠 Core Infrastructure
+
+- **Registry**  
+  `contracts/specs/01_Registry.md`
+
+- **Events Hub**  
+  `contracts/specs/02_EventsHub.md`
+
+---
+
+## 💸 Token & Economics
+
+- **MIMHO Token (BEP-20)**  
+  `contracts/specs/03_Token.md`
+
+- **Pre-Sale Contract**  
+  `contracts/specs/04_Presale.md`
+
+- **Vesting Contract**  
+  `contracts/specs/05_Vesting.md`
+
+- **Liquidity Bootstrapper**  
+  `contracts/specs/06_LiquidityBootstrapper.md`
+
+- **Inject Liquidity**  
+  `contracts/specs/07_InjectLiquidity.md`
+
+- **Staking**  
+  `contracts/specs/08_Staking.md`
+
+- **Holder Distribution**  
+  `contracts/specs/09_HolderDistribution.md`
+
+- **Burn Module**  
+  `contracts/specs/10_Burn.md`
+
+---
+
+## 🏛️ Governance & Control
+
+- **DAO Core**  
+  `contracts/specs/11_DAO.md`
+
+- **Voting Controller**  
+  `contracts/specs/12_VotingController.md`
+
+- **Trading Activity Tracker**  
+  `contracts/specs/13_TradingActivity.md`
+
+---
+
+## 🎮 Utility & Engagement
+
+- **Airdrop**  
+  `contracts/specs/14_Airdrop.md`
+
+- **Quiz Academy**  
+  `contracts/specs/18_QuizAcademy.md`
+
+---
+
+## 🛒 Ecosystem Services
+
+- **Locker**  
+  `contracts/specs/15_Locker.md`
+
+- **Marketplace**  
+  `contracts/specs/16_Marketplace.md`
+
+- **MIMHO Mart**  
+  `contracts/specs/17_MIMHOMart.md`
+
+- **Strategy Hub**  
+  `contracts/specs/19_StrategyHub.md`
+
+---
+
 ## 🧩 Repository Structure
 
 - `contracts/solidity/` — Smart contracts (`.sol`)  
