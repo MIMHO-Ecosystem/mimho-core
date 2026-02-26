@@ -32,4 +32,4 @@ This directory contains the **official Solidity source code** for the MIMHO Core
 
 ---
 
-*MIMHO — the Meme Coin of the Future*
+*MIMHO — The Meme Coin of the Future*
