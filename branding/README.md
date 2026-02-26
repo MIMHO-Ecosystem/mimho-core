@@ -1,59 +1,49 @@
-# Branding — MIMHO Official Assets
+# 🎨 MIMHO Branding — Official Visual Identity
 
-This directory defines the **official visual identity** of the MIMHO Ecosystem.
+This directory contains the **official visual and institutional identity** of the MIMHO Ecosystem.
 
-Only assets listed and described here are considered official.  
-Any logo, image, or visual material not referenced in this folder must be considered **unofficial**.
-
----
-
-## Official Logo
-
-### Primary Logo
-- Usage: main branding, website header, listings
-- Background: transparent
-- Format: PNG / SVG
-- Minimum size: 256×256
-
-### Secondary / Inverted Logo
-- Usage: dark backgrounds
-- Background: transparent
-- Format: PNG / SVG
+All assets and rules defined here are considered **canonical**.
 
 ---
 
-## Icon Usage
+## ✅ Purpose
 
-- Wallets, explorers, and listings must use the **256×256 PNG**
-- Icons must not be altered, recolored, stretched, or animated
-- Aspect ratio must always be preserved
-
----
-
-## Naming Rules
-
-- Project name: **MIMHO**
-- Slogan: **“MIMHO – a Meme Coin do Futuro”**
-- Do not use variations, abbreviations, or translations in logos
+- Provide a single source of truth for MIMHO branding
+- Avoid fake logos, name misuse, or visual inconsistencies
+- Support developers, partners, auditors, and exchanges
 
 ---
 
-## Prohibited Usage
+## 🧠 Brand Principles
 
-The following are not allowed:
-- Modified logos
-- Third-party redesigns
-- Logos with added text, borders, effects, or watermarks
-- Use of the logo to represent unofficial contracts or wallets
-
----
-
-## Source of Truth
-
-All official wallets and contracts referenced by branding materials must be verified through:
-- `/addresses`
-- `OFFICIAL.md`
+- **Name:** MIMHO (always uppercase)
+- **Slogan:** MIMHO – the Meme Coin of the Future
+- **Tone:** Transparent, technical, institutional
+- **No hype. No price talk. No promises.**
 
 ---
 
-**MIMHO – a Meme Coin do Futuro**
+## 🖼️ Official Assets
+
+| Asset | Description |
+|-----|------------|
+| `logo-primary.png` | Primary official MIMHO logo |
+
+Only assets present in this folder are considered official.
+
+---
+
+## 📜 Usage Rules
+
+- Do NOT modify colors, proportions, or typography
+- Do NOT create alternative logos
+- Do NOT use branding to imply financial guarantees
+- Always reference this repository when using MIMHO branding
+
+---
+
+## ⚠️ Disclaimer
+
+Branding assets are provided for identification and informational purposes only.
+
+*MIMHO — The Meme Coin of the Future*
