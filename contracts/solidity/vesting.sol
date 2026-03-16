@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-abstract contract MIMHO Vesting {
-    string public constant version = "0.0.0-placeholder";
-    function contractType() public pure virtual returns (bytes32) { return keccak256("MIMHO_VESTING"); }
-}
- *
- * @dev STATUS: AWAITING DEPLOY
- * ------------------------------------------------------------
- * This file exists to:
- * - reserve the canonical contract name and path in the public repo
- * - provide an auditable, timestamped trail of the ecosystem structure
- * - link to the finalized technical specification before deployment
- *
- * Source of Truth (spec):
- * - contracts/specs/SPEC_FILE
- *
- * DESIGN PHILOSOPHY (MIMHO)
- * ------------------------------------------------------------
- * MIMHO contracts are designed to be:
- * - modular and Registry-driven (single source of truth)
- * - transparent and HUD-ready (standardized events)
- * - secure by default (no privileged hidden paths)
- * - upgrade-proof by architecture (clear separation of concerns)
- *
- * IMPORTANT
- * ------------------------------------------------------------
- * This is NOT the final deployed code.
- * The real implementation will be added only after:
- * - internal review
- * - dependency locking
- * - security checklist
- * - audit readiness
- */
-abstract contract MIMHO Vesting {
-    /// @notice Human readable version for repository tracking (not on-chain guarantee).
-    string public constant version = "0.0.0-placeholder";
-
-    /// @notice Contract module type identifier (used by HUD/Events Hub in final builds).
-    function contractType() public pure virtual returns (bytes32) {
-        return CONTRACT_TYPE;
-    }
-}
-=======
 /// -----------------------------------------------------------------------
 /// MIMHO VESTING
 /// Official MIMHO Ecosystem Contract
@@ -639,7 +593,7 @@ contract MIMHOVesting is Ownable2StepLite, ReentrancyGuardLite {
 
         // --- CORREÇÃO SLITHER: Multiplicar antes de dividir ---
         // Adicionamos o TGE BPS e somamos a parte linear (Weekly BPS calculada por segundo)
-        uint256 vestedBps = uint256(MARKETING_TGE_BPS) + 
+        uint256 vestedBps = uint256(MARKETING_TGE_BPS) +
             (elapsed * uint256(MARKETING_WEEKLY_BPS)) / WEEK;
 
         // Trava em 100% (10.000 BPS)
@@ -647,7 +601,7 @@ contract MIMHOVesting is Ownable2StepLite, ReentrancyGuardLite {
 
         // Calcula o montante total liberado até o momento
         uint256 vestedAmount = (m.totalAllocated * vestedBps) / 10_000;
-        
+
         if (m.totalClaimed >= vestedAmount) return 0;
         return vestedAmount - m.totalClaimed;
     }
@@ -808,4 +762,3 @@ contract MIMHOVesting is Ownable2StepLite, ReentrancyGuardLite {
         _emitHubEvent(bytes32("RECOVER"), msg.sender, amount, abi.encode(token, to));
     }
 }
->>>>>>> fe7ced1 (Add official deployed MIMHO contracts with BscScan headers)
