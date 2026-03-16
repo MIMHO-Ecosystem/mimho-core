@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-abstract contract MIMHO Staking {
-    string public constant version = "0.0.0-placeholder";
-    function contractType() public pure virtual returns (bytes32) { return keccak256("MIMHO_STAKING"); }
-}
- *
- * @dev STATUS: AWAITING DEPLOY
- * ------------------------------------------------------------
- * This file exists to:
- * - reserve the canonical contract name and path in the public repo
- * - provide an auditable, timestamped trail of the ecosystem structure
- * - link to the finalized technical specification before deployment
- *
- * Source of Truth (spec):
- * - contracts/specs/SPEC_FILE
- *
- * DESIGN PHILOSOPHY (MIMHO)
- * ------------------------------------------------------------
- * MIMHO contracts are designed to be:
- * - modular and Registry-driven (single source of truth)
- * - transparent and HUD-ready (standardized events)
- * - secure by default (no privileged hidden paths)
- * - upgrade-proof by architecture (clear separation of concerns)
- *
- * IMPORTANT
- * ------------------------------------------------------------
- * This is NOT the final deployed code.
- * The real implementation will be added only after:
- * - internal review
- * - dependency locking
- * - security checklist
- * - audit readiness
- */
-abstract contract MIMHO Staking {
-    /// @notice Human readable version for repository tracking (not on-chain guarantee).
-    string public constant version = "0.0.0-placeholder";
-
-    /// @notice Contract module type identifier (used by HUD/Events Hub in final builds).
-    function contractType() public pure virtual returns (bytes32) {
-        return CONTRACT_TYPE;
-    }
-}
-=======
 /// -----------------------------------------------------------------------
 /// MIMHO STAKING
 /// Official MIMHO Ecosystem Contract
@@ -567,7 +521,7 @@ contract MIMHOStaking is Ownable2Step, ReentrancyGuard, Pausable, IContratoMIMHO
     function setBlacklist(address user, bool status) external onlyDAOorOwner {
         // ✅ CORREÇÃO ITEM 7: Zero address check
         require(user != address(0), "MIMHO: user=0");
-        
+
         // Proteção extra: não deixar o dono/dao se auto-bloquear
         require(user != msg.sender, "MIMHO: cannot blacklist self");
 
@@ -856,4 +810,3 @@ contract MIMHOStaking is Ownable2Step, ReentrancyGuard, Pausable, IContratoMIMHO
         require(success, "MIMHO: rescue failed");
     }
 }
->>>>>>> fe7ced1 (Add official deployed MIMHO contracts with BscScan headers)
