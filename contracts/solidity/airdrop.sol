@@ -641,4 +641,3 @@ contract MIMHOAirdrop is IMIMHOAirdrop, Ownable2Step, Pausable, ReentrancyGuard 
     }
 
     receive() external payable {}
-}
