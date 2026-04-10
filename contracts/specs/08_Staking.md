@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x33Ad1c1D29F10fee5aC9D3E45067d821F52B097f
 
 # 🪙 MIMHO Staking — Long-Term Alignment Module
 
