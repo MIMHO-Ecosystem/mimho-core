@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x46da5bdc8d69e64D7167C0AD10209ddb202E9458
 
 # 🛒 MIMHO Marketplace — On-Chain Asset Exchange Module
 
