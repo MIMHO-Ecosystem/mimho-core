@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x0f9D839E9564bc02a79297f24e6792fb8FEeAc6F
 
 # 🧾 MIMHO Vesting — Controlled Token Release Engine
 
