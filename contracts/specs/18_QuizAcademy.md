@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x0Aa3ea599427Db9c1154911001d459B6712d1BBD
 
 # 🎓 MIMHO Quiz Academy — On-Chain Education & Engagement Module
 
