@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x21443d8b779Db38A2b6E9209DdAf0C683b3B96E0
 
 # 🌊 MIMHO Liquidity Bootstrapper — One-Shot Liquidity Engine
 
