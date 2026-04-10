@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xFb75bC0A920635b810eD3842a1164Ca10CA6E7eD
 
 > # 🔥 MIMHO Burn Module — Deflation & Supply Control
 
