@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x32158B17E3C0D2Acd8Ef5B74fa95578b933e4322
 
 # 🏛️ MIMHO DAO — On-Chain Governance & Community Control
 
