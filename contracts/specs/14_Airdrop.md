@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xe7cf8372F1b433Fe6A7c116fc1653276dF9caCE3
 
 # 🎁 MIMHO Airdrop — Controlled Distribution Module
 
