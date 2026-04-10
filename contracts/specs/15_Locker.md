@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xCF1F253D0EFAc28Cf0C96896846A8C70887f9957
 
 # 🔒 MIMHO Locker — Trustless Token & LP Locking Module
 
