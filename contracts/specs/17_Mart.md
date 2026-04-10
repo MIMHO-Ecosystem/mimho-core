@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xDF5aDe7E2018Fc103DCfe75Ca5d185F400C79ccb
 
 # 🛍️ MIMHO Mart — NFT & Asset Minting Module
 
