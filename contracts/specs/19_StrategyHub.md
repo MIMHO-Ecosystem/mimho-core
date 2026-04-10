@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x3E259b7d637f8C0C420c68a31f1Af4bf860b3cF4
 
 # 🧠 MIMHO Strategy Hub — Governance-Driven Action Controller
 
