@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0x92Da083378C9cE5373ba081444A46f4808437259
 
 # 📊 MIMHO Trading Activity — Volume, Participation & Transparency
 
