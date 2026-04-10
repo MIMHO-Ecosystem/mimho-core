@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xED068a9fD46A0099375318bb6923B5E72EeE924a
 
 # 💰 MIMHO Presale — Controlled Token Distribution Module
 
