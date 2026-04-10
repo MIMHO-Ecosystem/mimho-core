@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xc707A83FD152f772cd91A9A6b50FEDaa13454046
 
 # 🧠 MIMHO Registry — Ecosystem Source of Truth
 
