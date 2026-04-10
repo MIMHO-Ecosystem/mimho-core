@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xC4A934CBb3A507e295d2D84C25A6Ed7437C36E42
 
 # 📣 MIMHO Events Hub — Ecosystem Event Backbone
 
