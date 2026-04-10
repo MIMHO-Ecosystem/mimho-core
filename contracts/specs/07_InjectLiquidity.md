@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xa993637732A47fb2AEDfF26bC0909494eCed395e
 
 # 🎁 MIMHO Holder Distribution — On-Chain Reward Engine
 
