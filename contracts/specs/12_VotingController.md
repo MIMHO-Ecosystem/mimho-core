@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xFB7fDaac116a7766Ea6B4B6F470d48a50001aa68
 
 # 🗳️ MIMHO Voting Controller — Governance Execution Engine
 
