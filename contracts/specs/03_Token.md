@@ -1,4 +1,4 @@
-> ⚠️ Contract addresses will be published only after official deployment and verification on BNB Chain.
+> 0xe6FF9A0Dcf6593f48732C79e53457e367232fD48
 
 # 🪙 MIMHO Token — Core Asset & Immutable Rules
 
