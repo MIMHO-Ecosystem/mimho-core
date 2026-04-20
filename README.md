@@ -6,6 +6,24 @@
 
 ---
 
+## 🚀 Genesis Phase Completed
+
+The MIMHO Genesis Phase has been successfully completed.
+
+- Total Raised: 0.4434 BNB  
+- Supply Distributed: 0.30%  
+- Tokens: 295,600,000 MIMHO  
+
+The low distribution was intentional to ensure:
+
+- Organic market growth  
+- Minimal early sell pressure  
+- Fair launch conditions  
+
+📄 Full details: `/docs/genesis-phase.md`
+
+---
+
 ## ✅ What This Repo Is (EN)
 
 - **Official reference** for MIMHO on-chain architecture and module behavior  
