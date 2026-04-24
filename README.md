@@ -1,6 +1,6 @@
 # 🧠 MIMHO — Official Core Repository
 
-> **MIMHO – the Meme Coin of the Future**  
+> **MIMHO – The Meme Coin of the Future**  
 > *This repository is the official technical + institutional reference for the MIMHO Ecosystem.*  
 > *Este repositório é a referência técnica + institucional oficial do Ecossistema MIMHO.*
 
